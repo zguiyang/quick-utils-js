@@ -1,0 +1,27 @@
+{
+  "name": "yang-util",
+  "version": "1.0.0",
+  "description": "javascript常用工具函数",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "test",
+    "start": "parcel src/index.js",
+    "dev": "parcel index.html",
+    "build": "parcel index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@gitee.com:zhaoguiyang/yang-util-js.git"
+  },
+  "keywords": [
+    "yang-util-js"
+  ],
+  "author": "yang",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel-bundler": "^1.12.4",
+    "typescript": "^3.9.5"
+  }
+}
