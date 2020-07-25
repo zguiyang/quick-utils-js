@@ -1,24 +1,27 @@
 {
-  "name": "yang-util",
-  "version": "1.0.0",
+  "name": "yang-lazy-util",
+  "version": "0.1.0",
   "description": "javascript常用工具函数",
+  "main": "build/index.js",
+  "keywords": ["util", "JavaScript"],
   "directories": {
     "test": "test"
   },
   "scripts": {
     "test": "test",
-    "start": "parcel src/index.js",
+    "start": "parcel src/index.ts",
     "dev": "parcel index.html",
-    "build": "parcel index.html"
+    "build": "parcel src/index.ts -d build --no-cache --no-source-maps"
   },
   "repository": {
     "type": "git",
     "url": "git@gitee.com:zhaoguiyang/yang-util-js.git"
   },
-  "keywords": [
-    "yang-util-js"
-  ],
-  "author": "yang",
+  "author": {
+    "name": "zhaoguiyang",
+    "email": "",
+    "url": "https://blog.gyang.live/"
+  },
   "license": "ISC",
   "devDependencies": {
     "parcel-bundler": "^1.12.4",

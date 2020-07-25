@@ -117,52 +117,366 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"src/lib/lib.js":[function(require,module,exports) {
+})({"src/helper/util.ts":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.deepMapKeys = void 0;
+exports.isEmptyObject = exports.isObject = exports.isArray = exports.isBoolean = exports.isString = exports.isNumber = void 0;
 
-function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+function isNumber(key) {
+  return typeof key === 'number';
+}
 
-/*
-* Deep maps an object's keys
-* @param { Object } obj  target
-*/
-var deepMapKeys = function deepMapKeys(obj, fn) {
-  return Array.isArray(obj) ? obj.map(function (val) {
-    return deepMapKeys(val, fn);
-  }) : _typeof(obj) === 'object' ? Object.keys(obj).reduce(function (acc, current) {
-    var key = fn(current);
-    var val = obj[current];
-    acc[key] = val !== null && _typeof(val) === 'object' ? deepMapKeys(val, fn) : val;
-    return acc;
-  }, {}) : obj;
-};
+exports.isNumber = isNumber;
 
-exports.deepMapKeys = deepMapKeys;
-},{}],"src/index.js":[function(require,module,exports) {
+function isString(key) {
+  return typeof key === 'string';
+}
+
+exports.isString = isString;
+
+function isBoolean(key) {
+  return typeof key === 'boolean';
+}
+
+exports.isBoolean = isBoolean;
+
+function isArray(key) {
+  return Object.prototype.toString.call(key) === '[object Array]';
+}
+
+exports.isArray = isArray;
+
+function isObject(key) {
+  return Object.prototype.toString.call(key) === '[object Object]';
+}
+
+exports.isObject = isObject;
+
+function isEmptyObject(obj) {
+  return Object.keys(obj).length !== 0;
+}
+
+exports.isEmptyObject = isEmptyObject;
+},{}],"src/lib/object.ts":[function(require,module,exports) {
 "use strict";
 
-var _lib = require("./lib/lib");
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.objectToString = exports.objectToQueryString = exports.objectDiff = exports.objectClone = exports.objectEach = void 0;
 
-var obj = {
-  foo: '1',
-  nested: {
-    child: {
-      withArray: [{
-        grandChild: ['hello']
-      }]
+var util_1 = require("../helper/util");
+/**
+ * 深度遍历对象, 将多层对象扁平化
+ * @param { object } obj 遍历对象
+ * @param { function } fn 每一个key执行的方法
+ * **/
+
+
+function objectEach(obj, fn) {
+  // 如果不是对象直接返回
+  if (!util_1.isObject(obj)) {
+    throw Error('Parameter must be object');
+  }
+
+  var keys = Object.keys(obj);
+  keys.forEach(function (key) {
+    var value = obj[key];
+
+    if (util_1.isObject(value) && value) {
+      objectEach(value, fn);
+    } else {
+      fn(value, key);
+    }
+  });
+}
+
+exports.objectEach = objectEach;
+;
+/**
+ * 对象深拷贝
+ * @param { object } target 需要拷贝的对象
+ * */
+
+function objectClone(target) {
+  var result = target.constructor === Array ? [] : {};
+
+  for (var key in target) {
+    if (target.hasOwnProperty(key)) {
+      if (target[key] && util_1.isObject(target[key])) {
+        result[key] = target[key].constructor === Array ? [] : {};
+        result[key] = objectClone(target[key]);
+      } else {
+        result[key] = target[key];
+      }
     }
   }
-};
-var upperKeysObj = (0, _lib.deepMapKeys)(obj, function (key) {
-  return key.toUpperCase();
+
+  return result;
+}
+
+exports.objectClone = objectClone;
+/**
+* 对象比较(不比较原型链的属性)
+* @param original 原始对象
+* @param target 目标对象
+ *
+ * **/
+
+function objectDiff(original, target) {
+  var result = {};
+  var targetKeys = Object.keys(target);
+  targetKeys.forEach(function (key) {
+    // 新增的属性
+    if (!original[key]) {
+      result[key] = target[key];
+      return;
+    } // 属性是个对象
+
+
+    if (util_1.isObject(target[key])) {
+      var values = objectDiff(original[key] || {}, target[key]);
+
+      if (util_1.isEmptyObject(values)) {
+        result[key] = values;
+      }
+
+      return;
+    } // 属性是个数组
+
+
+    if (util_1.isArray(target[key])) {
+      result[key] = target[key];
+      return;
+    } // 属性值更新了
+
+
+    if (original[key] !== target[key]) {
+      result[key] = target[key];
+    }
+  });
+  return result;
+}
+
+exports.objectDiff = objectDiff;
+/**
+ * 将对象转为字符串
+ * @param { object } obj 需要转化的对象
+*/
+
+function objectToQueryString(obj) {
+  return obj ? Object.entries(obj).reduce(function (queryString, _a) {
+    var key = _a[0],
+        val = _a[1];
+    var symbol = queryString.length === 0 ? '' : '&';
+
+    if (util_1.isObject(val) || util_1.isArray(val)) {
+      queryString += val ? "" + symbol + key + "=" + JSON.stringify(val) : '';
+    } else {
+      queryString += val ? "" + symbol + key + "=" + val : '';
+    }
+
+    return queryString;
+  }, '') : '';
+}
+
+exports.objectToQueryString = objectToQueryString;
+/**
+ *  将对象转化为key+value 字符串
+ * @param { object } obj 需要转化的object
+ * @param { string } separator 分隔符号
+ * @param { Function } callback 自定义处理回调函数
+ */
+
+function objectToString(obj, separator, callback) {
+  var queryStr = '';
+
+  for (var _i = 0, _a = Object.entries(obj); _i < _a.length; _i++) {
+    var _b = _a[_i],
+        key = _b[0],
+        value = _b[1];
+
+    if (callback) {
+      callback(key, value);
+    } else {
+      queryStr += key + ": " + value + (separator || ';');
+    }
+  }
+
+  return queryStr;
+}
+
+exports.objectToString = objectToString;
+},{"../helper/util":"src/helper/util.ts"}],"src/lib/function.ts":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
 });
-console.log(upperKeysObj);
-},{"./lib/lib":"src/lib/lib.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+exports.throttle = exports.debounce = void 0; // 函数执行相关
+
+/**
+ * 函数防抖 (只执行最后一次点击)
+ * @param { function } fn  执行的函数
+ * @param { number } time 延迟执行时间
+ */
+
+function debounce(fn, time) {
+  var delay = time || 500;
+  var timer = null;
+  return function () {
+    var that = this;
+    var args = arguments;
+
+    if (timer) {
+      clearTimeout(timer);
+    }
+
+    timer = setTimeout(function () {
+      timer = null;
+      fn.apply(that, args);
+    }, delay);
+  };
+}
+
+exports.debounce = debounce;
+/**
+ *  函数节流
+ * @param { function } fn  执行的函数
+ * @param { number } time 延迟执行时间
+ *
+ */
+
+function throttle(fn, time) {
+  var last = 0;
+  var timer = null;
+  var interval = time || 500;
+  return function () {
+    var that = this;
+    var args = arguments;
+    var now = +new Date();
+
+    if (last && now - last < interval) {
+      clearTimeout(timer);
+      timer = setTimeout(function () {
+        last = now;
+        fn.apply(that, args);
+      }, interval);
+    } else {
+      last = now;
+      fn.apply(that, args);
+    }
+  };
+}
+
+exports.throttle = throttle;
+},{}],"src/lib/string.ts":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.getURLParameters = void 0;
+/**
+ * 获取url参数
+ *
+ */
+
+function getURLParameters(url) {
+  var result = {};
+  var urlArr = url.match(/([^?=&]+)(=([^&]*))/g) || [];
+  console.log(urlArr);
+  result = urlArr.reduce(function (a, v) {
+    return a[v.slice(0, v.indexOf('='))] = v.slice(v.indexOf('=') + 1), a;
+  }, {});
+  return result;
+}
+
+exports.getURLParameters = getURLParameters;
+},{}],"src/index.ts":[function(require,module,exports) {
+"use strict";
+
+var __assign = this && this.__assign || function () {
+  __assign = Object.assign || function (t) {
+    for (var s, i = 1, n = arguments.length; i < n; i++) {
+      s = arguments[i];
+
+      for (var p in s) {
+        if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
+      }
+    }
+
+    return t;
+  };
+
+  return __assign.apply(this, arguments);
+};
+
+var __createBinding = this && this.__createBinding || (Object.create ? function (o, m, k, k2) {
+  if (k2 === undefined) k2 = k;
+  Object.defineProperty(o, k2, {
+    enumerable: true,
+    get: function get() {
+      return m[k];
+    }
+  });
+} : function (o, m, k, k2) {
+  if (k2 === undefined) k2 = k;
+  o[k2] = m[k];
+});
+
+var __setModuleDefault = this && this.__setModuleDefault || (Object.create ? function (o, v) {
+  Object.defineProperty(o, "default", {
+    enumerable: true,
+    value: v
+  });
+} : function (o, v) {
+  o["default"] = v;
+});
+
+var __importStar = this && this.__importStar || function (mod) {
+  if (mod && mod.__esModule) return mod;
+  var result = {};
+  if (mod != null) for (var k in mod) {
+    if (k !== "default" && Object.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+  }
+
+  __setModuleDefault(result, mod);
+
+  return result;
+};
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var objectUtil = __importStar(require("./lib/object"));
+
+var functionUtil = __importStar(require("./lib/function"));
+
+var stringUtil = __importStar(require("./lib/string"));
+
+exports.default = __assign(__assign(__assign({}, objectUtil), functionUtil), stringUtil);
+},{"./lib/object":"src/lib/object.ts","./lib/function":"src/lib/function.ts","./lib/string":"src/lib/string.ts"}],"index.ts":[function(require,module,exports) {
+"use strict";
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var index_1 = __importDefault(require("./src/index"));
+
+exports.default = index_1.default;
+},{"./src/index":"src/index.ts"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -190,7 +504,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56659" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49657" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -366,5 +680,4 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js","src/index.js"], null)
-//# sourceMappingURL=/src.a2b27638.js.map
+},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js","index.ts"], null)
