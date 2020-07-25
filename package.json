@@ -3,6 +3,7 @@
   "version": "0.1.2",
   "description": "javascript常用工具函数",
   "main": "build/index.js",
+  "types": "src/types/index.ts",
   "keywords": [
     "util",
     "JavaScript"
