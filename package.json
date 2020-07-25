@@ -1,9 +1,12 @@
 {
   "name": "yang-lazy-util",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "javascript常用工具函数",
   "main": "build/index.js",
-  "keywords": ["util", "JavaScript"],
+  "keywords": [
+    "util",
+    "JavaScript"
+  ],
   "directories": {
     "test": "test"
   },
