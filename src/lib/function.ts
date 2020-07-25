@@ -6,7 +6,7 @@ import { FunctionInterface, ObjectInterface } from './../types/index';
  * @param { function } fn  执行的函数
  * @param { number } time 延迟执行时间
  */
-export function debounce(fn: FunctionInterface, time?: number) {
+function debounce(fn: FunctionInterface, time?: number) {
   let delay: number = time || 500;
   let timer:any  = null;
   return function() {
@@ -29,7 +29,7 @@ export function debounce(fn: FunctionInterface, time?: number) {
  * 
  */
 
- export function throttle(fn: ObjectInterface, time?: number) {
+function throttle(fn: ObjectInterface, time?: number) {
   let last: number = 0;
   let timer: any = null;
   let interval = time || 500;
@@ -50,3 +50,5 @@ export function debounce(fn: FunctionInterface, time?: number) {
   }
 
 }
+
+export { debounce, throttle }

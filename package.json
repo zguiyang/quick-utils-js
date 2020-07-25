@@ -12,8 +12,7 @@
   },
   "scripts": {
     "test": "test",
-    "start": "parcel src/index.ts",
-    "dev": "parcel index.html",
+    "dev": "parcel -d example index.html",
     "build": "parcel src/index.ts -d build --no-cache --no-source-maps"
   },
   "repository": {

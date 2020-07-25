@@ -5,7 +5,7 @@ import { ObjectInterface, FunctionInterface, CallbackInterface } from '../types'
  * @param { object } obj 遍历对象
  * @param { function } fn 每一个key执行的方法
  * **/ 
-export function objectEach(obj: ObjectInterface, fn: FunctionInterface) {
+function objectEach(obj: ObjectInterface, fn: FunctionInterface) {
   // 如果不是对象直接返回
     if (!isObject(obj)) {
       throw Error('Parameter must be object');
@@ -26,7 +26,7 @@ export function objectEach(obj: ObjectInterface, fn: FunctionInterface) {
  * @param { object } target 需要拷贝的对象
  * */
 
-export function objectClone(target: ObjectInterface): ObjectInterface {
+function objectClone(target: ObjectInterface): ObjectInterface {
   const result: ObjectInterface = target.constructor === Array ? [] : {};
   for (let key in target) {
     if (target.hasOwnProperty(key)) {
@@ -46,7 +46,7 @@ export function objectClone(target: ObjectInterface): ObjectInterface {
 * @param target 目标对象
  * 
  * **/
-export function objectDiff(original: ObjectInterface, target: ObjectInterface): ObjectInterface { 
+function objectDiff(original: ObjectInterface, target: ObjectInterface): ObjectInterface { 
 
   const result: ObjectInterface = {};
 
@@ -89,7 +89,7 @@ return result;
  * 将对象转为字符串
  * @param { object } obj 需要转化的对象
 */
-export function objectToQueryString(obj: ObjectInterface): string {
+function objectToQueryString(obj: ObjectInterface): string {
   return obj
     ? Object.entries(obj).reduce((queryString, [key, val]) => {
       const symbol = queryString.length === 0 ? '' : '&';
@@ -110,7 +110,7 @@ export function objectToQueryString(obj: ObjectInterface): string {
   * @param { Function } callback 自定义处理回调函数
   */
 
-  export function objectToString(obj: ObjectInterface, separator?: string, callback?:CallbackInterface<[ string, any], void>) {
+function objectToString(obj: ObjectInterface, separator?: string, callback?:CallbackInterface<[ string, any], void>) {
     let queryStr = '';
     for (const [key, value] of Object.entries(obj)) {
       if (callback) {
@@ -121,3 +121,5 @@ export function objectToQueryString(obj: ObjectInterface): string {
     }
      return queryStr;
   }
+
+  export { objectDiff, objectClone, objectToString, objectEach }
