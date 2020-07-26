@@ -2,9 +2,9 @@
   "name": "yang-lazy-util",
   "version": "0.1.4",
   "description": "javascript常用工具函数",
-  "main": "build/index.js",
-  "module": "build/index.esm.js",
-  "types": "types/index.d.ts",
+  "main": "./build/index.js",
+  "module": "./build/index.esm.js",
+  "types": "./build/index.d.ts",
   "keywords": [
     "util",
     "typeScript",
@@ -14,14 +14,13 @@
     "test": "test"
   },
   "files": [
-    "build",
-    "types"
+    "./build/**/*"
   ],
   "scripts": {
     "test": "jest --no-cache",
     "coverage": "jest --coverage",
     "dev": "cross-env NODE_ENV=development rollup -cw",
-    "build": "cross-env NODE_ENV=production tsc && rollup -c"
+    "build": "cross-env NODE_ENV=production rollup -c"
   },
   "repository": {
     "type": "git",
@@ -45,7 +44,7 @@
     "rollup-plugin-progress": "^1.1.2",
     "rollup-plugin-sourcemaps": "^0.6.2",
     "rollup-plugin-terser": "^6.1.0",
-    "rollup-plugin-typescript": "^1.0.1",
+    "rollup-plugin-typescript2": "^0.27.1",
     "ts-jest": "^26.1.3",
     "tslib": "^2.0.0",
     "typescript": "^3.9.7"

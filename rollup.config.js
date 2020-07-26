@@ -1,5 +1,5 @@
 // typescript支持
-import typescript from "rollup-plugin-typescript";
+import typescript from "rollup-plugin-typescript2";
 import sourceMaps from "rollup-plugin-sourcemaps";
 
 // 清理文件
@@ -27,7 +27,7 @@ export default {
       typescript: require("typescript")
     }),
     sourceMaps(),
-    clear({
+    isProd && clear({
       targets: ["build"],
       watch: true,
     }),

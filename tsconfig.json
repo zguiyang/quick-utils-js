@@ -19,14 +19,11 @@
       // 生成sourceMap    
       "sourceMap": false,
       // 目标文件所在路径
-      // "outDir": "build",
+      "outDir": "./build",
       // 编译过程中需要引入的库文件的列表
       "lib": ["es6"],
       // 额外支持解构/forof等功能
       "downlevelIteration": true,
-        // 不生成输出文件
-        // "noEmit": true,
-        // 输出文件合并成一个
       // 是否生成声明文件
       "declaration": true,
       // 声明文件路径
