@@ -1,31 +1,4 @@
-/*! *****************************************************************************
-Copyright (c) Microsoft Corporation.
-
-Permission to use, copy, modify, and/or distribute this software for any
-purpose with or without fee is hereby granted.
-
-THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
-REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
-AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
-INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
-LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
-OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
-PERFORMANCE OF THIS SOFTWARE.
-***************************************************************************** */
-
-function __values(o) {
-    var s = typeof Symbol === "function" && Symbol.iterator, m = s && o[s], i = 0;
-    if (m) return m.call(o);
-    if (o && typeof o.length === "number") return {
-        next: function () {
-            if (o && i >= o.length) o = void 0;
-            return { value: o && o[i++], done: !o };
-        }
-    };
-    throw new TypeError(s ? "Object is not iterable." : "Symbol.iterator is not defined.");
-}
-
-function __read(o, n) {
+var __read = (this && this.__read) || function (o, n) {
     var m = typeof Symbol === "function" && o[Symbol.iterator];
     if (!m) return o;
     var i = m.call(o), r, ar = [], e;
@@ -40,18 +13,19 @@ function __read(o, n) {
         finally { if (e) throw e.error; }
     }
     return ar;
-}
-
-function isArray(key) {
-    return Object.prototype.toString.call(key) === '[object Array]';
-}
-function isObject(key) {
-    return Object.prototype.toString.call(key) === '[object Object]';
-}
-function isEmptyObject(obj) {
-    return Object.keys(obj).length === 0;
-}
-
+};
+var __values = (this && this.__values) || function(o) {
+    var s = typeof Symbol === "function" && Symbol.iterator, m = s && o[s], i = 0;
+    if (m) return m.call(o);
+    if (o && typeof o.length === "number") return {
+        next: function () {
+            if (o && i >= o.length) o = void 0;
+            return { value: o && o[i++], done: !o };
+        }
+    };
+    throw new TypeError(s ? "Object is not iterable." : "Symbol.iterator is not defined.");
+};
+import { isObject, isArray, isEmptyObject } from '../helper/util';
 function objectEach(obj, fn) {
     if (!isObject(obj)) {
         throw Error('Parameter must be object');
@@ -67,6 +41,7 @@ function objectEach(obj, fn) {
         }
     });
 }
+;
 function objectClone(target) {
     var result = target.constructor === Array ? [] : {};
     for (var key in target) {
@@ -145,12 +120,4 @@ function objectToString(obj, separator, callback) {
     }
     return queryStr;
 }
-
-function getURLParameters(url) {
-    var result = {};
-    var urlArr = url.match(/([^?=&]+)(=([^&]*))/g) || [];
-    result = urlArr.reduce(function (a, v) { return ((a[v.slice(0, v.indexOf('='))] = v.slice(v.indexOf('=') + 1)), a); }, {});
-    return result;
-}
-
-export { getURLParameters, objectClone, objectDiff, objectEach, objectToQueryString, objectToString };
+export { objectDiff, objectClone, objectToString, objectToQueryString, objectEach };

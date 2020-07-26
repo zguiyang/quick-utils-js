@@ -4,7 +4,7 @@
   "description": "javascript常用工具函数",
   "main": "build/index.js",
   "module": "build/index.esm.js",
-  "types": "src/types/index.d.ts",
+  "types": "types/index.d.ts",
   "keywords": [
     "util",
     "typeScript",
@@ -13,11 +13,15 @@
   "directories": {
     "test": "test"
   },
+  "files": [
+    "build",
+    "types"
+	],
   "scripts": {
     "test": "jest --no-cache",
+    "coverage": "jest --coverage",
     "dev": "cross-env NODE_ENV=development rollup -cw",
-    "build": "cross-env NODE_ENV=production rollup -c",
-    "coverage": "jest --coverage"
+    "build": "cross-env NODE_ENV=production tsc && rollup -c"
   },
   "repository": {
     "type": "git",

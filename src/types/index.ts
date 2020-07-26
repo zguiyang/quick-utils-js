@@ -4,9 +4,9 @@ export interface ObjectInterface {
 }
 
 export interface FunctionInterface {
-  (...args): any;
+  (...args: any[]): any;
 }
 
 export interface CallbackInterface<T = string[],R = void> {
-  (...arg: string[]): R
+  (...arg: any[]): R
 }
