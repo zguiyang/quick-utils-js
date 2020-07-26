@@ -1,37 +1,149 @@
 # yang-util-js
+[Chinese](./README.en.md) | [English](./README.md)
 
 #### 介绍
 JavaScript常用的工具函数
 
 #### 软件架构
-软件架构说明
+es6 + typescript
 
 
 #### 安装教程
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+`npm i yang-lazy-util --save ` or `yarn add yang-lazy-util`
 
 #### 使用说明
+```
+1. import { objectDiff } from 'yang-lazy-util'
+2. import * as utils from 'yang-lazy-util'
+3.  const utils = require('yang-lazy-util')
+```
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+### 提供方法
 
-#### 参与贡献
+#### 1. 对象遍历（支持多层嵌套的对象）
+```
+import { objectEach } from 'yang-lazy-util';
 
-1.  Fork 本仓库
-2.  新建 Feat_xxx 分支
-3.  提交代码
-4.  新建 Pull Request
+const result = {
+  name: 'yang',
+  age: 18,
+  info: {
+    money: '123',
+  },
+}
+utils.objectEach(result, (key, value) => {
+  console.log(key, value);
+});
+```
+
+#### 2. 对象深拷贝
+```
+import { objectClone } from 'yang-lazy-util';
+
+const result = {
+  name: 'yang',
+  age: 18,
+  info: {
+    money: '123',
+    wallet: {
+      "money": 222,
+    },
+  },
+}
+
+const clone = objectClone(result);
+
+clone.name = '123';
+
+console.log(result.name, clone.name);
+// yang 123
+```
+
+#### 3. 将对象转为 queryString
+```
+import { objectToQueryString } from 'yang-lazy-util';
+
+const result = {
+  name: 'yang',
+  age: 18,
+ }
+
+const queryString = objectToQueryString(result);
+
+console.log(queryString);
+// name=yang&age=18
+```
+
+#### 4. 将对象转为 key + value形式的字符串
+```
+import { objectToString } from 'yang-lazy-util';
 
 
-#### 码云特技
+let result = {
+  name: 'yang',
+  age: 18,
+}
 
-1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2.  码云官方博客 [blog.gitee.com](https://blog.gitee.com)
-3.  你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解码云上的优秀开源项目
-4.  [GVP](https://gitee.com/gvp) 全称是码云最有价值开源项目，是码云综合评定出的优秀开源项目
-5.  码云官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6.  码云封面人物是一档用来展示码云会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+let str =  objectToString(result);
+
+console.log(str);
+//  name:yang;age:18;
+
+// 可以自定义连接的符号
+let str =  objectToString(result, '**');
+name:yang**age:18**
+
+// 通过回调函数进行自定义
+ objectToString(result, '', (key, value) => {
+ console.log(key, value);
+ // name yang  age 18
+});
+```
+
+####  5. 比较两个对象值的差异,将不同的key抽出来生成一个新的对象
+```
+// 注：如果有相同的key，已后一个参数为准
+import { objectDiff } from 'yang-lazy-util';
+
+let result1 = {
+  name: 'yang',
+  age: 18,
+}
+
+let result2 = {
+  name: 'yang2',
+  age: 18,
+}
+
+const result = objectDiff(result1, result2);
+
+console.log(result); // {name: "yang2"}
+
+let result1 = {
+  name: 'yang',
+}
+
+let result2 = {
+  name: 'yang2',
+  age: 18
+}
+
+const result = objectDiff(result1, result2);
+
+console.log(result); // {name: "yang2", age: 18}
+```
+
+####  6. 获取url参数
+```
+import { getURLParameters } from 'yang-lazy-util';
+
+let url = 'http://www.baidu.com?name=yang&test=123';
+
+let query = getURLParameters(url);
+
+console.log(query);
+// {name: "yang", test: "123"}
+```
+
+目前工具库中的方法还不多，后续会持续添加
