@@ -1,6 +1,6 @@
 # yang-util-js
 
-[Chinese](./README.en.md) | [English](./README.md)
+[English](./README.en.md) | [Chinese](./README.md)
 
 #### Introduction
 JavaScript commonly used tool functions

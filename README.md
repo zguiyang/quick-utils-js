@@ -1,5 +1,5 @@
 # yang-util-js
-[Chinese](./README.en.md) | [English](./README.md)
+[English](./README.en.md) | [Chinese](./README.md)
 
 #### 介绍
 JavaScript常用的工具函数
