@@ -1,7 +1,7 @@
 import { ObjectInterface } from '../interface';
 /**
  * 获取url参数
- * 
+ * @param { string } url 目标url
  */
 function getURLParameters(url: string): ObjectInterface {
   let result: ObjectInterface = {};

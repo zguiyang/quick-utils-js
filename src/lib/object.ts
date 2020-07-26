@@ -16,7 +16,7 @@ function objectEach(obj: ObjectInterface, fn: FunctionInterface) {
      if (isObject(value) && value) {
       objectEach(value, fn);
      } else {
-      fn(value, key);
+      fn(key, value);
      }
     });
 };
