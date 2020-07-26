@@ -1,4 +1,4 @@
-import { ObjectInterface } from './../types/index';
+import { ObjectInterface } from '../interface/index';
 
 export function isNumber(key: any): boolean {
   return typeof key === 'number';

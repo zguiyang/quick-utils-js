@@ -1,4 +1,4 @@
-import { ObjectInterface } from './../types/index';
+import { ObjectInterface } from '../interface/index';
 export declare function isNumber(key: any): boolean;
 export declare function isString(key: any): boolean;
 export declare function isBoolean(key: any): boolean;

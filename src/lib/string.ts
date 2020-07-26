@@ -1,4 +1,4 @@
-import { ObjectInterface } from '../types';
+import { ObjectInterface } from '../interface';
 /**
  * 获取url参数
  * 

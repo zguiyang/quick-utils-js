@@ -1,4 +1,4 @@
-import { ObjectInterface, FunctionInterface, CallbackInterface } from '../types';
+import { ObjectInterface, FunctionInterface, CallbackInterface } from '../interface';
 declare function objectEach(obj: ObjectInterface, fn: FunctionInterface): void;
 declare function objectClone(target: ObjectInterface): ObjectInterface;
 declare function objectDiff(original: ObjectInterface, target: ObjectInterface): ObjectInterface;
