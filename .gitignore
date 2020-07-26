@@ -19,6 +19,6 @@ bin-release/
 node_modules/
 .vscode/
 .idea/
-.cache/
 dist/
 example/
+test

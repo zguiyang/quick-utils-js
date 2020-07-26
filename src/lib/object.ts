@@ -116,10 +116,11 @@ function objectToString(obj: ObjectInterface, separator?: string, callback?:Call
       if (callback) {
         callback(key, value);
       } else {
-        queryStr +=`${key}: ${value}${separator || ';'}`;
+        queryStr +=`${key}:${value}${separator || ';'}`;
       }
     }
      return queryStr;
   }
 
-  export { objectDiff, objectClone, objectToString, objectEach }
+  export { objectDiff, objectClone, objectToString,
+    objectToQueryString, objectEach }

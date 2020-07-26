@@ -1,10 +1,8 @@
-import { objectDiff, objectClone, objectToString, objectEach } from './lib/object';
-import { debounce, throttle  } from './lib/function';
+import { objectDiff, objectClone, objectToString, objectToQueryString, objectEach } from './lib/object';
 import { getURLParameters } from './lib/string';
 
 export {
   objectDiff, objectClone, objectToString, objectEach,
-  debounce, throttle,
+  objectToQueryString,
   getURLParameters,
 }
-console.log(getURLParameters('http://www.baidu.com?id=123'));
