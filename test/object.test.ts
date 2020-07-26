@@ -1,4 +1,4 @@
-import { objectClone, objectDiff, objectToQueryString, objectToString, objectEach } from '../src/index';
+import { objectClone, objectDiff, objectToQueryString, objectToString, objectEach } from '../src/lib/object';
 
 //对象克隆测试(深拷贝)
 test('object depth clone', () => {

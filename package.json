@@ -16,7 +16,8 @@
   "scripts": {
     "test": "jest --no-cache",
     "dev": "cross-env NODE_ENV=development rollup -cw",
-    "build": "cross-env NODE_ENV=production rollup -c"
+    "build": "cross-env NODE_ENV=production rollup -c",
+    "coverage": "jest --coverage"
   },
   "repository": {
     "type": "git",

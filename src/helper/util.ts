@@ -21,5 +21,5 @@ export function isObject(key: any): boolean {
 }
 
 export function isEmptyObject(obj: ObjectInterface): boolean {
-  return Object.keys(obj).length !== 0;
+  return Object.keys(obj).length === 0;
 }
