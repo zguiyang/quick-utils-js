@@ -63,7 +63,7 @@ targetKeys.forEach(key => {
   // 属性是个对象
   if (isObject(target[key])) {
     let values = objectDiff(original[key] || {}, target[key]);
-    if (isEmptyObject(values)) {
+    if (!isEmptyObject(values)) {
       result[key] = values;
     }
     return;

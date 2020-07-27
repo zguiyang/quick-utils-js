@@ -24,6 +24,20 @@ test('object diff update key', () => {
   expect(diff).toEqual({ age: 18, name: "yang2" });
 })
 
+test('object diff update object key', () => {
+  const diff1 = { name: 'yang', age: 20, user: {
+    money: '25',
+  } };
+  const diff2 = {  age: 18, name: 'yang2', user: {
+    money: '25',
+    total: 20,
+  } };
+  const diff = objectDiff(diff1, diff2);
+  expect(diff).toEqual({ age: 18, name: "yang2", user: {
+    total: 20,
+  } });
+})
+
 test('object diff delete key', () => {
   const diff1 = { name: 'yang', age: 20 };
   const diff2 = {  age: 18, };
@@ -76,7 +90,7 @@ test('object to key + value to string callback', () => {
 test('object foreach', () => {
   const obj = { a: 1, b: 2, c: 3 };
   let result = {};
-  objectEach(obj, (val, key) => {
+  objectEach(obj, (key, val) => {
       result[key] = val;
   });
   expect(result).toEqual({ a: 1, b:2, c: 3 });
@@ -85,7 +99,7 @@ test('object foreach', () => {
 test('depth object foreach', () => {
   const obj = { a: 1, b: 2, c: { d: 3, e: 4, g: { h: 6 } } };
   let result = {};
-  objectEach(obj, (val, key) => {
+  objectEach(obj, (key, val) => {
       result[key] = val;
   });
   expect(result).toEqual({ a: 1, b:2, d: 3, e: 4, h: 6 });
