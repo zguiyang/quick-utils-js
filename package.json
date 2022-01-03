@@ -1,11 +1,13 @@
 {
-  "name": "yang-lazy-util",
-  "version": "0.1.10",
+  "name": "quick-utils-js",
+  "version": "1.0.0-beta",
   "description": "javascript常用工具函数",
   "main": "./build/index.js",
   "module": "./build/index.esm.js",
   "types": "./build/index.d.ts",
   "keywords": [
+    "common",
+    "quick",
     "util",
     "typeScript",
     "javaScript"
