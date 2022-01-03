@@ -2,10 +2,11 @@ import { isObject, isArray, isEmptyObject } from '../helper/util';
 import { ObjectInterface, FunctionInterface, CallbackInterface } from '../interface';
 /**
  * 深度遍历对象, 将多层对象扁平化
- * @param { object } obj 遍历对象
- * @param { function } fn 每一个key执行的方法
+ * @param obj 遍历对象
+ * @param fn 每一个key执行的方法
+ * @returns void
  * **/ 
-function objectEach(obj: ObjectInterface, fn: FunctionInterface) {
+function objectEach(obj: ObjectInterface, fn: FunctionInterface): void {
   // 如果不是对象直接返回
     if (!isObject(obj)) {
       throw Error('Parameter must be object');
@@ -23,7 +24,8 @@ function objectEach(obj: ObjectInterface, fn: FunctionInterface) {
 
 /**
  * 对象深拷贝
- * @param { object } target 需要拷贝的对象
+ * @param target 需要拷贝的对象
+ * @returns newTarget object
  * */
 
 function objectClone(target: ObjectInterface): ObjectInterface {
@@ -44,7 +46,7 @@ function objectClone(target: ObjectInterface): ObjectInterface {
 * 对象比较(不比较原型链的属性)
 * @param original 原始对象
 * @param target 目标对象
- * 
+* @returns new diff object
  * **/
 function objectDiff(original: ObjectInterface, target: ObjectInterface): ObjectInterface { 
 
@@ -87,7 +89,8 @@ return result;
 
 /**
  * 将对象转为字符串
- * @param { object } obj 需要转化的对象
+ * @param obj 需要转化的对象
+ * @returns query string
 */
 function objectToQueryString(obj: ObjectInterface): string {
   return obj
@@ -105,12 +108,13 @@ function objectToQueryString(obj: ObjectInterface): string {
 
  /**
   *  将对象转化为key+value 字符串
-  * @param { object } obj 需要转化的object
-  * @param { string } separator 分隔符号
-  * @param { Function } callback 自定义处理回调函数
+  * @param obj 需要转化的object
+  * @param separator 分隔符号
+  * @param callback 自定义处理回调函数
+  * @returns key + value string
   */
 
-function objectToString(obj: ObjectInterface, separator?: string, callback?:CallbackInterface<[ string, any], void>) {
+function objectToString(obj: ObjectInterface, separator?: string, callback?:CallbackInterface<[ string, any], void>): string {
     let queryStr = '';
     for (const [key, value] of Object.entries(obj)) {
       if (callback) {
