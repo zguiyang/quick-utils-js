@@ -1,4 +1,4 @@
-import { ObjectInterface } from '../interface';
+import { ObjectInterface } from '../types';
 /**
  * 获取url参数
  * @param { string } url 目标url

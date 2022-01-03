@@ -20,7 +20,7 @@ import filesize from 'rollup-plugin-filesize';
 const isProd = process.env.NODE_ENV === 'production';
 
 export default {
-  input: "./src/index.ts",
+  input: "./src/main.ts",
   plugins: [
     typescript({
       exclude: "node_modules/**",

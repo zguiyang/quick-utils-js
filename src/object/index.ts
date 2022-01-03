@@ -1,5 +1,5 @@
-import { isObject, isArray, isEmptyObject } from '../helper/util';
-import { ObjectInterface, FunctionInterface, CallbackInterface } from '../interface';
+import { isObject, isArray, isEmptyObject } from '../helper';
+import { ObjectInterface, FunctionInterface, CallbackInterface } from '../types';
 /**
  * 深度遍历对象, 将多层对象扁平化
  * @param obj 遍历对象

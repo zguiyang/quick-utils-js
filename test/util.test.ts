@@ -1,4 +1,4 @@
-import { isNumber, isArray, isBoolean, isEmptyObject, isObject, isString } from '../src/helper/util';
+import { isNumber, isArray, isBoolean, isEmptyObject, isObject, isString } from '../src/helper';
 
 // 数字校验
 test('isNumber false', () => {
