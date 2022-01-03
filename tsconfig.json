@@ -19,7 +19,7 @@
       // 生成sourceMap    
       "sourceMap": false,
       // 目标文件所在路径
-      "outDir": "./build",
+      "outDir": "./dist",
       // 编译过程中需要引入的库文件的列表
       "lib": ["es6"],
       // 额外支持解构/forof等功能
@@ -28,6 +28,7 @@
       "declaration": true,
       // 声明文件路径
       "declarationDir": "./types",
+      "isolatedModules": true,
       // 此处设置为node,才能解析import xx from 'xx'
       "moduleResolution": "node"
   },
