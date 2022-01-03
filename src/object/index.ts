@@ -1,12 +1,14 @@
 import { isObject, isArray, isEmptyObject } from '../helper';
-import { ObjectInterface, FunctionInterface, CallbackInterface } from '../types';
+
+import { FunctionInterface, CallbackInterface, RecordObj } from '../types';
+
 /**
  * 深度遍历对象, 将多层对象扁平化
  * @param obj 遍历对象
  * @param fn 每一个key执行的方法
  * @returns void
  * **/ 
-function objectEach(obj: ObjectInterface, fn: FunctionInterface): void {
+export function objectEach(obj: RecordObj, fn: FunctionInterface): void {
   // 如果不是对象直接返回
     if (!isObject(obj)) {
       throw Error('Parameter must be object');
@@ -28,8 +30,8 @@ function objectEach(obj: ObjectInterface, fn: FunctionInterface): void {
  * @returns newTarget object
  * */
 
-function objectClone(target: ObjectInterface): ObjectInterface {
-  const result: ObjectInterface = target.constructor === Array ? [] : {};
+export function objectClone(target:RecordObj ): RecordObj {
+  const result: Record<any, any> = target.constructor === Array ? [] : {};
   for (let key in target) {
     if (target.hasOwnProperty(key)) {
       if (target[key] && isObject(target[key])) {
@@ -48,9 +50,9 @@ function objectClone(target: ObjectInterface): ObjectInterface {
 * @param target 目标对象
 * @returns new diff object
  * **/
-function objectDiff(original: ObjectInterface, target: ObjectInterface): ObjectInterface { 
+export function objectDiff(original: Record<string, any>, target: RecordObj ): RecordObj {
 
-  const result: ObjectInterface = {};
+  const result: RecordObj = {};
 
   const targetKeys: string[] = Object.keys(target);
 
@@ -92,7 +94,7 @@ return result;
  * @param obj 需要转化的对象
  * @returns query string
 */
-function objectToQueryString(obj: ObjectInterface): string {
+export function objectToQueryString(obj: RecordObj): string {
   return obj
     ? Object.entries(obj).reduce((queryString, [key, val]) => {
       const symbol = queryString.length === 0 ? '' : '&';
@@ -114,7 +116,7 @@ function objectToQueryString(obj: ObjectInterface): string {
   * @returns key + value string
   */
 
-function objectToString(obj: ObjectInterface, separator?: string, callback?:CallbackInterface<[ string, any], void>): string {
+export function objectToString(obj: RecordObj, separator?: string, callback?:CallbackInterface<[ string, any], void>): string {
     let queryStr = '';
     for (const [key, value] of Object.entries(obj)) {
       if (callback) {
@@ -125,6 +127,3 @@ function objectToString(obj: ObjectInterface, separator?: string, callback?:Call
     }
      return queryStr;
   }
-
-  export { objectDiff, objectClone, objectToString,
-    objectToQueryString, objectEach }

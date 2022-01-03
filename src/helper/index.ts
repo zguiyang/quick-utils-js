@@ -1,25 +1,11 @@
-import { ObjectInterface } from '../types';
+export const isNumber = ( data:any ):boolean => typeof data === 'number';
 
-export function isNumber(key: any): boolean {
-  return typeof key === 'number';
-}
+export const isString = ( data:any ):boolean =>  typeof data === 'string'
 
-export function isString(key: any): boolean {
-  return typeof key === 'string';
-}
+export const isBoolean = ( data:any ):boolean => typeof data === 'boolean';
 
-export function isBoolean(key: any): boolean {
-  return typeof key === 'boolean';
-}
+export const isArray = ( data:any ):boolean =>  Object.prototype.toString.call ( data ) === '[object Array]';
 
-export function isArray(key: any): boolean {
-  return Object.prototype.toString.call(key) === '[object Array]';
-}
+export const isObject = ( data:any ):boolean => Object.prototype.toString.call ( data ) === '[object Object]';
 
-export function isObject(key: any): boolean {
-  return Object.prototype.toString.call(key) === '[object Object]';
-}
-
-export function isEmptyObject(obj: ObjectInterface): boolean {
-  return Object.keys(obj).length === 0;
-}
+export const isEmptyObject = ( data:any ):boolean => typeof data !== 'object' ? false : Object.keys ( data ).length === 0;
