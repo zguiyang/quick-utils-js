@@ -10,20 +10,20 @@ es6 + typescript
 
 #### 安装教程
 
-`npm i yang-lazy-util --save ` or `yarn add yang-lazy-util`
+`npm i quick-utils-js --save ` or `yarn add quick-utils-js`
 
 #### 使用说明
 ```
-1. import { objectDiff } from 'yang-lazy-util'
-2. import * as utils from 'yang-lazy-util'
-3.  const utils = require('yang-lazy-util')
+1. import { objectDiff } from 'quick-utils-js'
+2. import * as utils from 'quick-utils-js'
+3.  const utils = require('quick-utils-js')
 ```
 
 ### 提供方法
 
 #### 1. 对象遍历（支持多层嵌套的对象）
 ```
-import { objectEach } from 'yang-lazy-util';
+import { objectEach } from 'quick-utils-js';
 
 const result = {
   name: 'yang',
@@ -39,7 +39,7 @@ utils.objectEach(result, (key, value) => {
 
 #### 2. 对象深拷贝
 ```
-import { objectClone } from 'yang-lazy-util';
+import { objectClone } from 'quick-utils-js';
 
 const result = {
   name: 'yang',
@@ -62,7 +62,7 @@ console.log(result.name, clone.name);
 
 #### 3. 将对象转为 queryString
 ```
-import { objectToQueryString } from 'yang-lazy-util';
+import { objectToQueryString } from 'quick-utils-js';
 
 const result = {
   name: 'yang',
@@ -77,7 +77,7 @@ console.log(queryString);
 
 #### 4. 将对象转为 key + value形式的字符串
 ```
-import { objectToString } from 'yang-lazy-util';
+import { objectToString } from 'quick-utils-js';
 
 
 let result = {
@@ -104,7 +104,7 @@ name:yang**age:18**
 ####  5. 比较两个对象值的差异,将不同的key抽出来生成一个新的对象
 ```
 // 注：如果有相同的key，已后一个参数为准
-import { objectDiff } from 'yang-lazy-util';
+import { objectDiff } from 'quick-utils-js';
 
 let result1 = {
   name: 'yang',
@@ -136,7 +136,7 @@ console.log(result); // {name: "yang2", age: 18}
 
 ####  6. 获取url参数
 ```
-import { getURLParameters } from 'yang-lazy-util';
+import { getURLParameters } from 'quick-utils-js';
 
 let url = 'http://www.baidu.com?name=yang&test=123';
 
