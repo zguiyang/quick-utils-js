@@ -17,6 +17,14 @@ import { terser } from 'rollup-plugin-terser';
 // 查看构建后的文件大小
 import filesize from 'rollup-plugin-filesize';
 
+// 处理项目中引入第三方资源包
+
+import resolve from 'rollup-plugin-node-resolve';
+
+// 开发服务
+
+import serve from 'rollup-plugin-serve'
+
 const isProd = process.env.NODE_ENV === 'production';
 
 export default {
@@ -26,30 +34,37 @@ export default {
       exclude: "node_modules/**",
       typescript: require("typescript")
     }),
-    sourceMaps(),
+    resolve(),
+    !isProd && sourceMaps(),
     isProd && clear({
-      targets: ["build"],
+      targets: ["dist"],
       watch: true,
     }),
     progress(),
     externals(),
     isProd && terser(),
     filesize(),
+    serve({
+      port: 3000,
+      contentBase:'', // 表示起的服务是在根目录下
+      openPage: './public/index.html' , // 打开的是哪个文件
+      open: false // 默认打开浏览器
+    })
   ],
   output: [
-    // commonjs
-    {
-      format: "cjs",
-      file: "build/index.cjs.js"
-    },
-    //  es module
+    // // commonjs
+    // {
+    //   format: "cjs",
+    //   file: "build/index.cjs.js"
+    // },
+    // //  es module
     {
       format: "es",
-      file: "build/index.esm.js"
+      file: "dist/index.esm.js"
     },
     // umd
     {
-      file: `./build/index.js`,
+      file: `./dist/index.js`,
       format: 'umd',
       name: 'index'
     }
