@@ -1,6 +1,14 @@
 import { isObject, isArray, isEmptyObject } from '../helper';
 
-import { FunctionInterface, CallbackInterface, RecordObj } from '../types';
+import { RecordObj } from '../types';
+
+export interface FunctionInterface {
+    (...args: any[]): any;
+}
+
+export interface CallbackInterface<T = string[],R = void> {
+    (...arg: any[]): R
+}
 
 /**
  * 深度遍历对象, 将多层对象扁平化

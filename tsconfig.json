@@ -18,6 +18,7 @@
     "preserveConstEnums": false,
     // 生成sourceMap
     "sourceMap": false,
+    "baseUrl": "./",
     // 目标文件所在路径
     "outDir": "./dist",
     // 编译过程中需要引入的库文件的列表
@@ -29,10 +30,10 @@
     // 是否生成声明文件
     "declaration": true,
     // 声明文件路径
-    "declarationDir": "./dist/types",
+    "declarationDir": "./types",
     "isolatedModules": true,
     // 此处设置为node,才能解析import xx from 'xx'
-    "moduleResolution": "node"
+    "moduleResolution": "node",
   },
   // 入口文件
   "include": [

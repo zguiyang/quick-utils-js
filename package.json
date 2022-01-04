@@ -1,10 +1,10 @@
 {
   "name": "quick-utils-js",
-  "version": "1.0.1-beta",
+  "version": "1.0.5-beta",
   "description": "javascript常用工具函数",
   "main": "./dist/index.js",
   "module": "./dist/index.esm.js",
-  "types": "./build/index.d.ts",
+  "types": "./dist/main.d.ts",
   "keywords": [
     "common",
     "quick",
@@ -16,7 +16,7 @@
     "test": "test"
   },
   "files": [
-    "build"
+    "dist"
   ],
   "scripts": {
     "test": "jest --no-cache",
