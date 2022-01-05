@@ -13,7 +13,14 @@ function getURLParameters ( url: string ): RecordObj {
   const urlArr = url.match ( /([^?=&]+)(=([^&]*))/g ) || [];
 
   // eslint-disable-next-line no-return-assign,no-sequences
-  result = urlArr.reduce ( ( a, v ) => ( ( a[ v.slice ( 0, v.indexOf ( '=' ) ) ] = v.slice ( v.indexOf ( '=' ) + 1 ) ), a ), {} );
+
+  result = urlArr.reduce ( ( a, v ) => {
+
+    a[ v.slice ( 0, v.indexOf ( '=' ) ) ] = v.slice ( v.indexOf ( '=' ) + 1 );
+
+    return a;
+
+  }, {} );
 
   return result;
 
