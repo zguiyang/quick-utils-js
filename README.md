@@ -1,4 +1,4 @@
-# yang-util-js
+# quick-utils-js
 [English](./README.en.md) | [Chinese](./README.md)
 
 #### 介绍

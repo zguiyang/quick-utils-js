@@ -1,4 +1,4 @@
-# yang-util-js
+# quick-utils-js
 
 [English](./README.en.md) | [Chinese](./README.md)
 
@@ -11,20 +11,20 @@ es6 + typescript
 
 #### installation
 
-`npm i yang-lazy-util --save ` or `yarn add yang-lazy-util`
+`npm i quick-utils-js --save ` or `yarn add quick-utils-js`
 
 #### Use
 ```
-1. import { objectDiff } from 'yang-lazy-util'
-2. import * as utils from 'yang-lazy-util'
-3.  const utils = require('yang-lazy-util')
+1. import { objectDiff } from 'quick-utils-js'
+2. import * as utils from 'quick-utils-js'
+3.  const utils = require('quick-utils-js')
 ```
 
 ###  basic function
 
 #### 1. Object traversal (supports multiple levels of nested objects)
 ```
-import { objectEach } from 'yang-lazy-util';
+import { objectEach } from 'quick-utils-js';
 
 const result = {
   name: 'yang',
@@ -40,7 +40,7 @@ utils.objectEach(result, (key, value) => {
 
 #### 2. Object deep copy
 ```
-import { objectClone } from 'yang-lazy-util';
+import { objectClone } from 'quick-utils-js';
 
 const result = {
   name: 'yang',
@@ -63,7 +63,7 @@ console.log(result.name, clone.name);
 
 #### 3. object to queryString
 ```
-import { objectToQueryString } from 'yang-lazy-util';
+import { objectToQueryString } from 'quick-utils-js';
 
 const result = {
   name: 'yang',
@@ -78,7 +78,7 @@ console.log(queryString);
 
 #### 4. object to key + value string
 ```
-import { objectToString } from 'yang-lazy-util';
+import { objectToString } from 'quick-utils-js';
 
 
 let result = {
@@ -105,7 +105,7 @@ name:yang**age:18**
 ####  5. object diff
 ```
 // 注：如果有相同的key，已后一个参数为准
-import { objectDiff } from 'yang-lazy-util';
+import { objectDiff } from 'quick-utils-js';
 
 let result1 = {
   name: 'yang',
@@ -137,7 +137,7 @@ console.log(result); // {name: "yang2", age: 18}
 
 ####  6. get url params
 ```
-import { getURLParameters } from 'yang-lazy-util';
+import { getURLParameters } from 'quick-utils-js';
 
 let url = 'http://www.baidu.com?name=yang&test=123';
 
