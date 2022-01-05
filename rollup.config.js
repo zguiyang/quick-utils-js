@@ -27,6 +27,30 @@ import serve from 'rollup-plugin-serve'
 
 const isProd = process.env.NODE_ENV === 'production';
 
+//  打包设置
+
+const devOutput = [
+  {
+    format: "umd",
+    name: 'bundle',
+    file: "dist/index.js",
+  }
+];
+
+const prodOutput = [
+  {
+    format: "es",
+    file: "dist/index.esm.js"
+  },
+  {
+    file: `./dist/index.js`,
+    format: 'umd',
+    name: 'index'
+  }
+];
+
+let outputConf = isProd ? prodOutput : devOutput;
+
 export default {
   input: "./src/main.ts",
   plugins: [
@@ -36,7 +60,7 @@ export default {
     }),
     resolve(),
     !isProd && sourceMaps(),
-    isProd && clear({
+     clear({
       targets: ["dist"],
       watch: true,
     }),
@@ -51,22 +75,5 @@ export default {
       open: false // 默认打开浏览器
     })
   ],
-  output: [
-    // // commonjs
-    // {
-    //   format: "cjs",
-    //   file: "build/index.cjs.js"
-    // },
-    // //  es module
-    {
-      format: "es",
-      file: "dist/index.esm.js"
-    },
-    // umd
-    {
-      file: `./dist/index.js`,
-      format: 'umd',
-      name: 'index'
-    }
-  ]
+  output: outputConf,
 }
