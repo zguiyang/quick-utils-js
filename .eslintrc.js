@@ -6,6 +6,8 @@ module.exports = {
   parser: '@typescript-eslint/parser',
   plugins: [ '@typescript-eslint' ],
   rules: {
+    'no-cond-assign': 'off',
+    '@typescript-eslint/no-unused-expressions': 'off',
     'object-curly-spacing': [ 'error', 'always' ],
     'no-unused-vars': [ 'error', { 'args': 'none' } ],
     'vue/max-attributes-per-line': 'off',
