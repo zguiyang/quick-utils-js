@@ -1,3 +1,7 @@
+export * from './cookie';
+
+export * from './device';
+
 export * from './object';
 
 export * from './string';
