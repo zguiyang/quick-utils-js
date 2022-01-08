@@ -8,9 +8,10 @@ export * from './string';
 
 export * from './helper';
 
-export * from './types';
+export * from './random';
 
+export * from './utils';
 
 // add types
 
-export type { FunctionInterface, CallbackInterface } from './object';
+export * from './types';
