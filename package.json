@@ -28,11 +28,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@gitee.com:zhaoguiyang/yang-util-js.git"
+    "url": "git@github.com:zguiyang/quick-utils-js.git"
   },
   "author": {
     "name": "zhaoguiyang",
-    "email": "",
+    "email": "2770723534@qq.com",
     "url": "https://blog.gyang.live/"
   },
   "license": "ISC",
