@@ -207,3 +207,35 @@ export function objectToString ( obj: RecordObj, separator?: string, callback?:C
   return queryStr;
 
 }
+
+
+/**
+ * @desc 初始化对象属性值
+ * @param { Object } obj 需要初始化对象的值
+ * */
+
+export function resetObjectValue<T=any> ( obj ): T {
+
+  for ( const key in obj ) {
+
+    const currentVal = obj[ key ];
+
+    if ( isObject ( currentVal ) ) {
+
+      obj[ key ] = resetObjectValue ( currentVal );
+
+    }
+
+    if ( isArray ( currentVal ) ) {
+
+      obj[ key ] = [];
+
+    }
+
+    obj[ key ] = null;
+
+  }
+
+  return obj;
+
+}
