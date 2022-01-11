@@ -6,6 +6,9 @@ module.exports = {
   parser: '@typescript-eslint/parser',
   plugins: [ '@typescript-eslint' ],
   rules: {
+    '@typescript-eslint/prefer-optional-chain': 'off',
+    'guard-for-in': 'off',
+    'no-return-assign': 'off',
     'no-cond-assign': 'off',
     '@typescript-eslint/no-unused-expressions': 'off',
     'object-curly-spacing': [ 'error', 'always' ],
