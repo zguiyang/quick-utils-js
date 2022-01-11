@@ -8,7 +8,7 @@ import { isArray } from '../helper';
  * @return {  Array<any>> }
  * **/
 
-export function dedupObj<T=RecordObj> ( arr:T[] ): T[] {
+export function uniqueArrayObj<T=RecordObj> ( arr:T[] ): T[] {
 
   let hashTable = {};
 
@@ -121,3 +121,27 @@ export function flatArrayData<T = any> ( data: T[], childKey = 'children' ): T[]
 
 }
 
+/**
+ *@desc 数组切割, [ 1, 2, 3, 4, 5, 6 ]  => [ [ 1, 2, 3 ], [ 4, 5, 6 ] ]
+ * @param { Array } arr 进行切割的数组
+ * @param { number } step 切割的步长
+ * @return { Array<Array> }
+ */
+
+export function sliceArray<T=any> ( arr: T[], step: number ): Array<T[]> {
+
+  let result: Array<T[]> = [];
+
+  let len = arr.length;
+
+  for ( let i = 0; i < len; i += step ) {
+
+    result.push ( arr.slice ( i, i + step ) );
+
+  }
+
+  return result;
+
+}
+
+console.log ( sliceArray ( [ 1, 2, 3, 4, 5, 6 ], 3 ) );
