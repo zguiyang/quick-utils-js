@@ -1,3 +1,5 @@
+import { isArray, isObject } from '../helper';
+
 export interface FormatTimeValue {
   d: number,
   h: number,
@@ -183,5 +185,82 @@ export function digitUppercase ( n: number ): string {
   return head + s.replace ( /(零.)*零元/, '元' ).
     replace ( /(零.)+/g, '零' ).
     replace ( /^整$/, '零元整' );
+
+}
+
+
+/**
+ * @desc 获取文件扩展名 xxx.txt => txt
+ * @param { string } filename 文件名称
+ * @return { string | undefined }
+ * **/
+
+export function getFileExtension ( filename:string ): string | undefined {
+
+  const reg1 = /[.]/.exec ( filename );
+
+  const reg2 = /[^.]+$/.exec ( filename );
+
+  if ( reg1 && reg2 && reg2.length ) {
+
+    return reg2[ 0 ];
+
+  }
+
+  return undefined;
+
+}
+
+/**
+ * @desc generateUUID 生成UUID
+ * @returns { string } 返回字符串
+ */
+
+export function generateUUID ():string {
+
+  let d = new Date ().getTime ();
+
+  let uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace ( /[xy]/g, ( c ) => {
+
+    let r = ( d + Math.random () * 16 ) % 16 | 0;
+
+    d = Math.floor ( d / 16 );
+
+    return ( c === 'x' ? r : ( r & 0x7 | 0x8 ) ).toString ( 16 );
+
+  } );
+
+  return uuid;
+
+}
+
+/**
+* @desc 初始化对象属性值
+ * @param { Object } obj 需要初始化对象的值
+* */
+
+export function resetObjectValue<T=any> ( obj ): T {
+
+  for ( const key in obj ) {
+
+    const currentVal = obj[ key ];
+
+    if ( isObject ( currentVal ) ) {
+
+      obj[ key ] = resetObjectValue ( currentVal );
+
+    }
+
+    if ( isArray ( currentVal ) ) {
+
+      obj[ key ] = [];
+
+    }
+
+    obj[ key ] = null;
+
+  }
+
+  return obj;
 
 }
