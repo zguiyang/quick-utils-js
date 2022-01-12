@@ -60,6 +60,7 @@
     "typescript": "^3.9.10"
   },
   "dependencies": {
-    "bignumber.js": "^9.0.2"
+    "bignumber.js": "^9.0.2",
+    "dayjs": "^1.10.7"
   }
 }

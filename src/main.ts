@@ -22,6 +22,8 @@ export * from './utils';
 
 export * from './number';
 
+export * from './date';
+
 // add types
 
 export * from './types';
