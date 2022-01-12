@@ -1,5 +1,3 @@
-import { isArray, isObject } from '../helper';
-
 export interface FormatTimeValue {
   d: number,
   h: number,
