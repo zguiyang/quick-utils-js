@@ -20,6 +20,8 @@ export * from './blob';
 
 export * from './utils';
 
+export * from './number';
+
 // add types
 
 export * from './types';
