@@ -1,7 +1,7 @@
 
 /**
  *
- * @desc   现金额转大写 bug
+ * @desc 现金额转大写 bug
  * @param  {Number} n
  * @return {String}
  */

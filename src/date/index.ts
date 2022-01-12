@@ -131,7 +131,6 @@ export function dateFormat ( unix?: string | number, formatStr?: string ): null 
 
   const dateUnix = typeof unix === 'string' ? Number ( unix ) : unix;
 
-
   return formatStr ? dayjs ( dateUnix ).format ( formatStr ) :
     dayjs ( dateUnix ).format ( 'YYYY-MM-DD HH:mm:ss' );
 
