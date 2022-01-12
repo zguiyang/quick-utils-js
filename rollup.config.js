@@ -2,6 +2,9 @@
 import typescript from "rollup-plugin-typescript2";
 import sourceMaps from "rollup-plugin-sourcemaps";
 
+// 处理 commonjs 依赖包
+import commonjs from 'rollup-plugin-commonjs';
+
 // 清理文件
 import clear from "rollup-plugin-clear";
 
@@ -58,7 +61,13 @@ export default {
       exclude: "node_modules/**",
       typescript: require("typescript")
     }),
-    resolve(),
+    commonjs(),
+    resolve({
+      // 将自定义选项传递给解析插件
+      customResolveOptions: {
+        moduleDirectory: 'node_modules'
+      }
+    }),
     !isProd && sourceMaps(),
      clear({
       targets: ["dist"],
@@ -75,5 +84,6 @@ export default {
       open: false // 默认打开浏览器
     })
   ],
+  external: isProd ?  ['dayjs', 'BigNumber'] : [],
   output: outputConf,
 }
