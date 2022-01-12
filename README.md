@@ -144,6 +144,8 @@ let query = getURLParameters(url);
 
 console.log(query);
 // {name: "yang", test: "123"}
+
 ```
+
 
 目前工具库中的方法还不多，后续会持续添加
