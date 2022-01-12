@@ -3,7 +3,7 @@ import BigNumber from 'bignumber.js';
 type BigNumberCalcType = 'plus' | 'minus' | 'times' | 'div' | 'idev' | 'mod' | 'pow';
 
 /**
- * 数字千分位格式化, 小数超过八位自动截断
+ * @desc 数字千分位格式化, 小数超过八位自动截断
  * @param { number | string } num 需要格式化的数字
  * @param { string } unit 单位， 如 xus usd 等
  * @param { Object } options 其他配置项，精度配置
@@ -86,7 +86,7 @@ export function numberToThousands ( num: number | string, unit?: string,
 }
 
 /**
- * 数字千分位转为字符串
+ * @desc 数字千分位还原为字符串 999,999,999 => 999999999
  * @param { string } str 千分位数字
  * @param { string } groupSeparator 分隔符
  * **/
@@ -98,7 +98,7 @@ export function thousandsToString ( str: string, groupSeparator?: string ):strin
 }
 
 /**
- * 大数计算
+ * @desc 大数计算: 加、减、乘、除
  * @param { string | number } a 需要操作的值
  * @param { string | number } b 需要操作的值
  * @param { BigNumberCalcType }  calcType 计算类型
