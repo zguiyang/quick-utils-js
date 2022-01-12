@@ -13,3 +13,16 @@ export const isObject = ( data:any ):boolean => Object.prototype.toString.call (
 export const isEmptyArray = ( data: any[] ):boolean => !data.length;
 
 export const isEmptyObject = ( data:RecordObj ):boolean => isObject ( data ) ? !Object.keys ( data ).length : false;
+
+/**
+ *
+ * @desc 判断浏览器是否支持webP格式图片
+ * @return {Boolean}
+ */
+
+export function isSupportWebP (): boolean {
+
+  return !![].map && document.createElement ( 'canvas' ).toDataURL ( 'image/webp' ).
+    indexOf ( 'data:image/webp' ) === 0;
+
+}
