@@ -2,51 +2,74 @@
 /**
  *
  * @desc 现金额转大写 bug
- * @param  {Number} n
+ * @param  {Number} money
  * @return {String}
  */
 
-export function digitUppercase ( n: number ): string {
+export function digitUppercase ( money: number ): string {
 
-  let money = n || 0;
+  let num = money;
+
+  // 向右移位
+
+  const shiftRight = ( number, digit ) => {
+
+    const digitNum = parseInt ( digit, 10 );
+
+    let value = number.toString ().split ( 'e' );
+
+    return Number ( `${value[ 0 ] }e${ value[ 1 ] ? Number ( value[ 1 ] ) + digitNum : digitNum}` );
+
+  };
+
+
+  // 向左移位
+
+  const shiftLeft = ( number, digit ) => {
+
+    const digitNum = parseInt ( digit, 10 );
+
+    let value = number.toString ().split ( 'e' );
+
+    return Number ( `${value[ 0 ] }e${ value[ 1 ] ? Number ( value[ 1 ] ) - digitNum : -digitNum}` );
+
+  };
 
   let fraction = [ '角', '分' ];
 
-  let digit = [
-    '零', '壹', '贰', '叁', '肆',
-    '伍', '陆', '柒', '捌', '玖',
-  ];
+  let digit = [ '零', '壹', '贰', '叁', '肆', '伍', '陆', '柒', '捌', '玖' ];
 
   let unit = [
     [ '元', '万', '亿' ],
     [ '', '拾', '佰', '仟' ],
   ];
 
-  let head = n < 0 ? '欠' : '';
+  let head = num < 0 ? '欠' : '';
 
-  money = Math.abs ( n );
+  num = Math.abs ( num );
 
   let s = '';
 
   for ( let i = 0; i < fraction.length; i ++ ) {
 
-    s += ( digit[ Math.floor ( money * 10 * Math.pow ( 10, i ) ) % 10 ] + fraction[ i ] ).replace ( /零./, '' );
+    s += ( digit[ Math.floor ( shiftRight ( num, 1 + i ) ) % 10 ] + fraction[ i ] ).replace ( /零./,
+      '' );
 
   }
 
   s = s || '整';
 
-  money = Math.floor ( n );
+  num = Math.floor ( num );
 
-  for ( let i = 0; i < unit[ 0 ].length && money > 0; i ++ ) {
+  for ( let i = 0; i < unit[ 0 ].length && num > 0; i ++ ) {
 
     let p = '';
 
-    for ( let j = 0; j < unit[ 1 ].length && money > 0; j ++ ) {
+    for ( let j = 0; j < unit[ 1 ].length && num > 0; j ++ ) {
 
-      p = digit[ n % 10 ] + unit[ 1 ][ j ] + p;
+      p = digit[ num % 10 ] + unit[ 1 ][ j ] + p;
 
-      money = Math.floor ( n / 10 );
+      num = Math.floor ( shiftLeft ( num, 1 ) );
 
     }
 
@@ -54,11 +77,16 @@ export function digitUppercase ( n: number ): string {
 
   }
 
-  return head + s.replace ( /(零.)*零元/, '元' ).
-    replace ( /(零.)+/g, '零' ).
-    replace ( /^整$/, '零元整' );
+  return (
+    head +
+      s.
+        replace ( /(零.)*零元/, '元' ).
+        replace ( /(零.)+/g, '零' ).
+        replace ( /^整$/, '零元整' )
+  );
 
 }
+
 
 
 /**
@@ -105,4 +133,3 @@ export function generateUUID ():string {
   return uuid;
 
 }
-
