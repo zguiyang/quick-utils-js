@@ -20,7 +20,7 @@ export function objectEach ( obj: RecordObj, fn: FunctionInterface ): void {
 
   if ( !isObject ( obj ) ) {
 
-    throw Error ( 'Parameter must be object' );
+    throw Error ( `obj is ${ typeof obj}` );
 
   }
 
@@ -43,43 +43,6 @@ export function objectEach ( obj: RecordObj, fn: FunctionInterface ): void {
   } );
 
 }
-
-
-
-/**
- * 对象深拷贝
- * @param target 需要拷贝的对象
- * @returns newTarget object
- * */
-
-export function objectClone ( target:RecordObj ): RecordObj {
-
-  const result: Record<any, any> = target.constructor === Array ? [] : {};
-
-  for ( let key in target ) {
-
-    if ( target.hasOwnProperty ( key ) ) {
-
-      if ( target[ key ] && isObject ( target[ key ] ) ) {
-
-        result[ key ] = target[ key ].constructor === Array ? [] : {};
-
-        result[ key ] = objectClone ( target[ key ] );
-
-      } else {
-
-        result[ key ] = target[ key ];
-
-      }
-
-    }
-
-  }
-
-  return result;
-
-}
-
 
 /**
 * 对象比较(不比较原型链的属性)

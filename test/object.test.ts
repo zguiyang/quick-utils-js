@@ -1,12 +1,5 @@
-import { objectClone, objectDiff, objectToQueryString, objectToString, objectEach } from '../src/object';
+import { objectDiff, objectToQueryString, objectToString, objectEach } from '../src/object';
 
-//对象克隆测试(深拷贝)
-test('object depth clone', () => {
-  const data = { a: 1 };
-  const data2 = objectClone(data);
-  data2.a = 3;
-  expect(data).toEqual({ a: 1 });
-});
 
 // 对象比较
 
