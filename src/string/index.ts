@@ -32,7 +32,7 @@ export function getURLParameters ( url: string ): RecordObj {
  * @param { string } separator 分隔符,默认"-"
  * **/
 
-export function getKebabCase ( str: string, separator?:string ): string {
+export function getCustomKebabCase ( str: string, separator?:string ): string {
 
   const separatorStr = separator || '-';
 
@@ -44,7 +44,7 @@ export function getKebabCase ( str: string, separator?:string ): string {
 
   if ( temp.slice ( 0, 1 ) === separatorStr ) {
 
-    temp = temp.slice ( 1 ); // 如果首字母是大写，执行replace时会多一个_，需要去掉
+    temp = temp.slice ( 1 ); // 如果首字母是大写，执行replace时会多一个-，需要去掉
 
   }
 
@@ -58,7 +58,7 @@ export function getKebabCase ( str: string, separator?:string ): string {
  * @param { string } separator 分隔符,默认"-"
  * **/
 
-export function getCamelCase ( str: string, separator?:string ):string {
+export function getCustomCamelCase ( str: string, separator?:string ):string {
 
   let arr = str.split ( separator || '-' );
 
