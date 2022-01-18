@@ -51,7 +51,7 @@ export function objectEach ( obj: RecordObj, fn: ObjectEachCallback ): void {
 * @returns new diff object
  * **/
 
-export function objectDiff ( original: Record<string, any>, target: RecordObj ): RecordObj {
+export function objectDiff<T=any> ( original: RecordObj, target: RecordObj ): T {
 
   const result: RecordObj = {};
 
