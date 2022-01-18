@@ -26,45 +26,6 @@ export function getURLParameters ( url: string ): RecordObj {
 
 }
 
-
-/**
- *
- * @desc 对象序列化
- * @param {RecordObj} obj
- * @return {String}
- */
-
-export function objQueryString ( obj: RecordObj ):string {
-
-  if ( !obj ) return '';
-
-  let pairs:string[] = [];
-
-  for ( let key in obj ) {
-
-    let value = obj[ key ];
-
-    if ( value instanceof Array ) {
-
-      for ( let i = 0; i < value.length; ++ i ) {
-
-        pairs.push ( `${encodeURIComponent ( `${key }[${ i }]` ) }=${ encodeURIComponent ( value[ i ] )}` );
-
-      }
-
-      continue;
-
-    }
-
-    pairs.push ( `${encodeURIComponent ( key ) }=${ encodeURIComponent ( obj[ key ] )}` );
-
-  }
-
-  return pairs.join ( '&' );
-
-}
-
-
 /**
  * @desc 驼峰命名转换为横杆/下划线命名 getElementById => get-element-by-id/get_element_by_id
  * @param { string } str 需要转换的字符串
