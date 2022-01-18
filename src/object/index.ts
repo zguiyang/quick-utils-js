@@ -2,9 +2,9 @@ import { isObject, isArray, isEmptyObject } from '../helper';
 
 import { RecordObj } from '../types';
 
-export type FunctionInterface = ( ...args: any[] ) => any;
+export type CommonCallback = ( key: string, val: any ) => any;
 
-export type CallbackInterface<R = any> = ( ...arg: any[] ) => R
+export type ObjectEachCallback = ( key: string, val: any ) => any;
 
 /**
  * 深度遍历对象, 将多层对象扁平化
@@ -13,7 +13,7 @@ export type CallbackInterface<R = any> = ( ...arg: any[] ) => R
  * @returns void
  * **/
 
-export function objectEach ( obj: RecordObj, fn: FunctionInterface ): void {
+export function objectEach ( obj: RecordObj, fn: ObjectEachCallback ): void {
 
 
   // 如果不是对象直接返回
@@ -149,7 +149,7 @@ export function objectToQueryString ( obj: RecordObj ): string {
   * @returns key + value string
   */
 
-export function objectToString ( obj: RecordObj, separator?: string, callback?:CallbackInterface ): string {
+export function objectToString ( obj: RecordObj, separator?: string, callback?:CommonCallback ): string {
 
   let queryStr = '';
 
