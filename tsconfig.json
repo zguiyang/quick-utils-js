@@ -17,7 +17,7 @@
     // 保留 const和 enum声明
     "preserveConstEnums": false,
     // 生成sourceMap
-    "sourceMap": false,
+    "sourceMap": true,
     "baseUrl": "./",
     // 目标文件所在路径
     "outDir": "./dist",
