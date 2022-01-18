@@ -2,7 +2,7 @@ import { RecordObj } from '../types';
 
 
 /**
- * 获取url参数
+ * @desc 获取url参数
  * @param { string } url 目标url
  */
 
@@ -29,8 +29,8 @@ export function getURLParameters ( url: string ): RecordObj {
 
 /**
  *
- * @desc   对象序列化
- * @param  {RecordObj} obj
+ * @desc 对象序列化
+ * @param {RecordObj} obj
  * @return {String}
  */
 
