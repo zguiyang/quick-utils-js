@@ -110,38 +110,6 @@ export function objectDiff<T=any> ( original: RecordObj, target: RecordObj ): T 
 }
 
 /**
- * 将对象转为字符串
- * @param obj 需要转化的对象
- * @returns query string
-*/
-
-export function objectToQueryString ( obj: RecordObj ): string {
-
-  return obj
-    ? Object.entries ( obj ).reduce ( ( queryString, [ key, val ] ) => {
-
-      let resultStr = queryString || '';
-
-      const symbol = resultStr.length === 0 ? '' : '&';
-
-      if ( isObject ( val ) || isArray ( val ) ) {
-
-        resultStr += val ? `${symbol}${key}=${JSON.stringify ( val )}` : '';
-
-      } else {
-
-        resultStr += val ? `${symbol}${key}=${val}` : '';
-
-      }
-
-      return resultStr;
-
-    }, '' )
-    : '';
-
-}
-
-/**
   *  将对象转化为key+value 字符串
   * @param obj 需要转化的object
   * @param separator 分隔符号
