@@ -32,7 +32,7 @@ export function uniqueArrayObj<T=RecordObj> ( arr:T[] ): T[] {
  * @return { array }
 * */
 
-export function arrayRecursionUtil<T = any, R = any> ( data: T[], callback: ( item: T ) => R, childKey = 'children' ): R[] {
+export function arrayRecursionMap<T = any, R = any> ( data: T[], callback: ( item: T ) => R, childKey = 'children' ): R[] {
 
   let result: R[] = [];
 
@@ -42,9 +42,9 @@ export function arrayRecursionUtil<T = any, R = any> ( data: T[], callback: ( it
 
     list.forEach ( item => {
 
-      const current = item[ childKey ] || [];
+      const current = item[ childKey ];
 
-      if ( current.length ) {
+      if ( current && current.length ) {
 
         item[ childKey ] = eachItemFn ( current );
 
@@ -66,13 +66,13 @@ export function arrayRecursionUtil<T = any, R = any> ( data: T[], callback: ( it
 
 /**
  *
- * @desc 扁平化数组：就是将一个多级数组拍平成一个一级数组
+ * @desc 扁平化数组：就是将一个多级tree结构的数组拍平成一个一级数组
  * @param { any[] } data 需要扁平化的数组
  * @param { string } childKey 递归子级key
  * @return { array }
  * **/
 
-export function flatArrayData<T = any> ( data: T[], childKey = 'children' ): T[] {
+export function flatTreeArray<T = any> ( data: T[], childKey = 'children' ): T[] {
 
   const result: T[] = [];
 
@@ -80,7 +80,13 @@ export function flatArrayData<T = any> ( data: T[], childKey = 'children' ): T[]
 
     list.forEach ( item => {
 
-      if ( item && isArray ( item[ childKey ] ) ) {
+      const temp = { ...item };
+
+      if ( isArray ( item[ childKey ] ) ) {
+
+        delete temp[ childKey ];
+
+        result.push ( temp );
 
         return flatMap ( item[ childKey ] );
 
