@@ -1,4 +1,4 @@
-import { isNumber, isArray, isBoolean, isEmptyObject, isObject, isString } from '../src/helper';
+import { isNumber, isArray, isEmptyArray, isBoolean, isEmptyObject, isObject, isString } from '../src/helper';
 
 // 数字校验
 test('isNumber false', () => {
@@ -20,7 +20,18 @@ test('isArray false', () => {
 test('isArray true', () => {
   const result = isArray([]);
   expect(result).toBe(true);
-}) 
+})
+
+test('isEmptyArray false', () => {
+  const result = isEmptyArray([ 1 , 2 ] );
+  expect(result).toBe(false);
+})
+
+
+test('isEmptyArray true', () => {
+  const result = isEmptyArray([] );
+  expect(result).toBe(true);
+})
 
 // 布尔值校验
 test('isBoolean false', () => {
@@ -71,4 +82,4 @@ test('isString true', () => {
 test('isString true', () => {
   const result = isString('21');
   expect(result).toBe(true);
-}) 
+})
