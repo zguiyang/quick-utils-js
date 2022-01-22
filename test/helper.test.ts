@@ -1,4 +1,4 @@
-import { isNumber, isArray, isEmptyArray, isBoolean, isEmptyObject, isObject, isString } from '../src/helper';
+import { isNumber, isArray, isEmptyArray, isBoolean, isEmptyObject, isObject, isString, arrayEqual } from '../src/helper';
 
 // 数字校验
 test('isNumber false', () => {
@@ -30,6 +30,16 @@ test('isEmptyArray false', () => {
 
 test('isEmptyArray true', () => {
   const result = isEmptyArray([] );
+  expect(result).toBe(true);
+})
+
+test('arrayEqual false', () => {
+  const result = arrayEqual([], [ 1 ] );
+  expect(result).toBe(false);
+})
+
+test('arrayEqual true', () => {
+  const result = arrayEqual([ 1 ], [ 1 ] );
   expect(result).toBe(true);
 })
 
