@@ -143,6 +143,7 @@ export function objectToString ( obj: RecordObj, separator?: string, callback?:C
 /**
  * @desc 初始化对象属性值
  * @param { Object } obj 需要初始化对象的值
+ * @return { Object } 返回数据清空的对象
  * */
 
 export function resetObjectValue<T=any> ( obj ): T {
@@ -151,19 +152,22 @@ export function resetObjectValue<T=any> ( obj ): T {
 
     const currentVal = obj[ key ];
 
+
     if ( isObject ( currentVal ) ) {
 
       obj[ key ] = resetObjectValue ( currentVal );
 
-    }
-
-    if ( isArray ( currentVal ) ) {
+    } else if ( isArray ( currentVal ) ) {
 
       obj[ key ] = [];
 
+    } else {
+
+      obj[ key ] = null;
+
     }
 
-    obj[ key ] = null;
+
 
   }
 
