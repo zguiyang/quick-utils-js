@@ -25,29 +25,6 @@ export function uniqueArrayObj<T=RecordObj> ( arr:T[] ): T[] {
 }
 
 /**
- * @desc JS判断两个数组是否相等
- * @param { array } arr1
- * @param { array } arr2
- * @returns { boolean } 返回true 或 false
- */
-
-export function arrayEqual ( arr1:any[], arr2:any[] ): boolean {
-
-  if ( arr1 === arr2 ) return true;
-
-  if ( arr1.length !== arr2.length ) return false;
-
-  for ( let i = 0; i < arr1.length; ++ i ) {
-
-    if ( arr1[ i ] !== arr2[ i ] ) return false;
-
-  }
-
-  return true;
-
-}
-
-/**
 * @desc 数组递归遍历通用方法, 生成新的数组并返回
  * @param { array } data 遍历的数组
  * @param { function } callback 每次遍历的回调函数

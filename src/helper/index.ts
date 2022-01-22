@@ -24,3 +24,26 @@ export function isSupportWebP (): boolean {
     indexOf ( 'data:image/webp' ) === 0;
 
 }
+
+/**
+ * @desc JS判断两个数组是否相等
+ * @param { array } arr1
+ * @param { array } arr2
+ * @returns { boolean } 返回true 或 false
+ */
+
+export function arrayEqual ( arr1:any[], arr2:any[] ): boolean {
+
+  if ( arr1 === arr2 ) return true;
+
+  if ( arr1.length !== arr2.length ) return false;
+
+  for ( let i = 0; i < arr1.length; ++ i ) {
+
+    if ( arr1[ i ] !== arr2[ i ] ) return false;
+
+  }
+
+  return true;
+
+}
