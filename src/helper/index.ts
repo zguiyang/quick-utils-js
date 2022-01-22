@@ -1,5 +1,3 @@
-import { RecordObj } from '../types';
-
 export const isNumber = ( data:any ):boolean => typeof data === 'number';
 
 export const isString = ( data:any ):boolean => typeof data === 'string';
@@ -10,9 +8,9 @@ export const isArray = ( data:any ):boolean => Object.prototype.toString.call ( 
 
 export const isObject = ( data:any ):boolean => Object.prototype.toString.call ( data ) === '[object Object]';
 
-export const isEmptyArray = ( data: any[] ):boolean => !data.length;
+export const isEmptyArray = ( data: any ):boolean => isArray ( data ) && !data.length;
 
-export const isEmptyObject = ( data:RecordObj ):boolean => isObject ( data ) ? !Object.keys ( data ).length : false;
+export const isEmptyObject = ( data:any ):boolean => isObject ( data ) ? !Object.keys ( data ).length : false;
 
 /**
  *
