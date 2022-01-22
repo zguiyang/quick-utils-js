@@ -1,9 +1,9 @@
-import { objectDiff, objectToQueryString, objectToString, objectEach } from '../src/object';
+import { objectDiff, objectToString, objectEach, resetObjectValue } from '../src/object';
 
 
 // 对象比较
 
-test('object diff add key', () => {
+test('object diff - add key', () => {
   const diff1 = { name: 'yang' };
   const diff2 = {  age: 18 };
   const diff = objectDiff(diff1, diff2);
@@ -38,25 +38,6 @@ test('object diff delete key', () => {
   expect(diff).toEqual({ age: 18 });
 })
 
-// 对象转字符串
-
-test('object to query string', () => {
-  const data = { a: 1, b: 2, c: 3};
-  const queryString =  objectToQueryString(data);
-  expect(queryString).toBe('a=1&b=2&c=3');
-})
-
-test('depth object to query string', () => {
-  const data = { a: 1, b: 2, c: { h: 2, g: 3 }};
-  const queryString = objectToQueryString(data);
-  expect(queryString).toBe('a=1&b=2&c={"h":2,"g":3}');
-})
-
-test('object array to query string', () => {
-  const data = { a: 1, b: 2, c: [1, 2]};
-  const queryString = objectToQueryString(data);
-  expect(queryString).toBe('a=1&b=2&c=[1,2]');
-})
 
 test('object to key + value string', () => {
   const data = {name: 'yang', age: '18'};
@@ -96,4 +77,10 @@ test('depth object foreach', () => {
       result[key] = val;
   });
   expect(result).toEqual({ a: 1, b:2, d: 3, e: 4, h: 6 });
+});
+
+test('reset object value to null', () => {
+  const obj = { a: 1, b: 2, c: { c1: 2, c2: [], c3: [ 1, 2 ] }, d: '8898' };
+  let result = resetObjectValue( obj );
+  expect(result).toEqual({ a: null, b: null, c: { c1: null, c2: [], c3: [] }, d: null } );
 });
