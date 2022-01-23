@@ -109,6 +109,6 @@ export function numberCalculate ( a: string | number, b: string | number, calcTy
 
   const bigNum = new BigNumber ( `${ a }` );
 
-  return bigNum[ calcType ] ? bigNum[ calcType ] ( b ).toFormat () : '--';
+  return bigNum[ calcType ] ? bigNum[ calcType ] ( b ).toString () : '--';
 
 }
