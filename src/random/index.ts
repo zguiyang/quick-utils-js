@@ -24,7 +24,7 @@ export function randomNum ( min: number, max: number ): number {
 
 export function randomColor (): string {
 
-  return `#${ ( `00000${ ( Math.random () * 0x1000000 << 0 ).toString ( 16 )}` ).slice ( -6 )}`;
+  return `#${Math.floor ( Math.random () * 0xffffff ).toString ( 16 )}`;
 
 }
 
