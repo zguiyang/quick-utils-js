@@ -32,7 +32,6 @@
     "declaration": true,
     // 声明文件路径
 //    "declarationDir": "./types",
-    "isolatedModules": true,
     // 此处设置为node,才能解析import xx from 'xx'
     "moduleResolution": "node",
   },
