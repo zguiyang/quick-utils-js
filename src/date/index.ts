@@ -71,7 +71,7 @@ export function getRemainTime ( endTime ): FormatRemainTimeResult {
 
 /**
  * @desc ${ startTime - endTime }的剩余时间,startTime大于endTime时，均返回0
- * @param { Date | String } startTime
+ * @param { Date | String | unix } startTime
  * @param { Date | String } endTime
  * @returns { FormatTimeValue | null } { d, h, m, s } 天 时 分 秒
  */
@@ -84,31 +84,7 @@ export function getTimeLeft ( startTime, endTime ): FormatTimeValue | null {
 
   }
 
-  let startDate;
-
-  let endDate;
-
-  if ( startTime instanceof Date ) {
-
-    startDate = startTime;
-
-  } else {
-
-    startDate = new Date ( startTime.replace ( /-/g, '/' ) ); // 开始时间
-
-  }
-
-  if ( endTime instanceof Date ) {
-
-    endDate = endTime;
-
-  } else {
-
-    endDate = new Date ( endTime.replace ( /-/g, '/' ) ); // 结束时间
-
-  }
-
-  let t = endDate.getTime () - startDate.getTime ();
+  let t = dayjs ( endTime ).valueOf () - dayjs ( startTime ).valueOf ();
 
   return getTimeValue ( t );
 
