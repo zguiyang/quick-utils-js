@@ -133,3 +133,20 @@ export function generateUUID ():string {
   return uuid;
 
 }
+
+/**
+ * Copy to Clipboard
+ * @param { string } text  need copy text
+ * */
+
+export function copyToClipboard ( text: string ) {
+
+  if ( !navigator ) {
+
+    throw new Error ( `navigator is ${ typeof navigator }` );
+
+  }
+
+  navigator.clipboard?.writeText && navigator.clipboard.writeText ( text );
+
+}
