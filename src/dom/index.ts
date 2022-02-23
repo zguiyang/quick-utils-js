@@ -18,6 +18,26 @@ export function getScrollTop (): number {
 }
 
 /**
+ * Scroll To Top
+ * **/
+
+export function scrollToTop ( element: Element ) {
+
+  element.scrollIntoView ( { behavior: 'smooth', block: 'start' } );
+
+}
+
+/**
+ * Scroll To Bottom
+ * **/
+
+export function scrollToBottom ( element: Element ) {
+
+  element.scrollIntoView ( { behavior: 'smooth', block: 'end' } );
+
+}
+
+/**
  *
  * @desc 设置滚动条距顶部的距离
  * @param { number } value
