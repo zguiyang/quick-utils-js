@@ -103,7 +103,7 @@ export function getFileExtension ( filename:string ): string | undefined {
 
   if ( reg1 && reg2 && reg2.length ) {
 
-    return reg2[ 0 ];
+    return reg2[ 0 ].toLocaleLowerCase ();
 
   }
 
