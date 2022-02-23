@@ -12,11 +12,11 @@ export interface FormatRemainTimeResult extends FormatTimeValue {
 }
 
 /**
- * @desc 根据时间差值获取出具体的天、时、分、秒等
+ * @desc 根据时间戳获取出具体的天、时、分、秒等
  * @param { number } timeValue
  * **/
 
-export function getDiffTimeValue ( timeValue: number ): FormatTimeValue {
+export function getTimeValue ( timeValue: number ): FormatTimeValue {
 
   const t = timeValue;
 
@@ -60,7 +60,7 @@ export function formatRemainTime ( endTime ): FormatRemainTimeResult {
 
   let t = endDate.getTime () - startDate.getTime ();
 
-  const timeValue = getDiffTimeValue ( t );
+  const timeValue = getTimeValue ( t );
 
   return {
     ...timeValue,
@@ -110,7 +110,7 @@ export function getTimeLeft ( startTime, endTime ): FormatTimeValue | null {
 
   let t = endDate.getTime () - startDate.getTime ();
 
-  return getDiffTimeValue ( t );
+  return getTimeValue ( t );
 
 }
 
