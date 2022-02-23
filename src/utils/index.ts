@@ -1,7 +1,7 @@
 
 /**
  *
- * @desc 现金额转大写 bug
+ * @desc 现金额转大写
  * @param  {Number} money
  * @return {String}
  */
@@ -87,8 +87,6 @@ export function digitUppercase ( money: number ): string {
 
 }
 
-
-
 /**
  * @desc 获取文件扩展名 xxx.txt => txt
  * @param { string } filename 文件名称
@@ -150,3 +148,9 @@ export function copyToClipboard ( text: string ) {
   navigator.clipboard?.writeText && navigator.clipboard.writeText ( text );
 
 }
+
+window.onload = () => {
+
+  copyToClipboard ( 'test....' );
+
+};
