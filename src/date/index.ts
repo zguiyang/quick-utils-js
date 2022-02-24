@@ -92,22 +92,16 @@ export function getTimeLeft ( startTime, endTime ): FormatTimeValue | null {
 
 /**
  * @desc 日期时间格式化
- * @param { string } unix 需要格式化的时间戳
+ * @param { string|number } timestamp 需要格式化的时间戳
  * @param { string } formatStr 格式化时间的展示格式
  * @returns { null | string } 返回日期转换结果
  * **/
 
-export function dateFormat ( unix?: string | number, formatStr?: string ): null | string {
+export function dateFormat ( timestamp:string|number, formatStr?: string ): null | string {
 
-  if ( !unix ) {
+  const timestampStr = typeof timestamp === 'string' ? Number ( timestamp ) : timestamp;
 
-    return '--';
-
-  }
-
-  const dateUnix = typeof unix === 'string' ? Number ( unix ) : unix;
-
-  return formatStr ? dayjs ( dateUnix ).format ( formatStr ) :
-    dayjs ( dateUnix ).format ( 'YYYY-MM-DD HH:mm:ss' );
+  return formatStr ? dayjs ( timestampStr ).format ( formatStr ) :
+    dayjs ( timestampStr ).format ( 'YYYY-MM-DD HH:mm:ss' );
 
 }
