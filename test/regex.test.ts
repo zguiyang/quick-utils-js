@@ -147,9 +147,9 @@ test('number or letter test ', () => {
 
     expect( isNumberOrLetter('sfsfs') ).toBeTruthy();
 
-    expect( isNumberOrLetter('sfsfs345ß') ).toBeTruthy();
+    expect( isNumberOrLetter('sfsfs345ß') ).toBeFalsy();
 
-    expect( isNumberOrLetter('sfsfs345ßAAD') ).toBeTruthy();
+    expect( isNumberOrLetter('sfsfs345ßAAD') ).toBeFalsy();
 
 })
 
