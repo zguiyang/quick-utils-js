@@ -1,18 +1,12 @@
 # quick-utils-js
-[English](./README.en.md) | [Chinese](./README.md)
 
-#### 介绍
-JavaScript常用的工具函数
+#### Introduction
+JavaScript commonly used tool functions
 
-#### 软件架构
+#### Software Architecture
 es6 + typescript
 
 
-#### 安装教程
+#### installation
 
 `npm i quick-utils-js --save ` or `yarn add quick-utils-js`
-
-#### 使用说明
-```
-1. import { objectDiff } from 'quick-utils-js'
-```
