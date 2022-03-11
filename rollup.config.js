@@ -42,8 +42,9 @@ const devOutput = [
 
 const prodOutput = [
   {
+    file: "./dist/index.esm.js",
     format: "es",
-    file: "dist/index.esm.js"
+    name: 'index',
   },
   {
     file: `./dist/index.js`,

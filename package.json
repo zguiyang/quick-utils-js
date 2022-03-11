@@ -1,6 +1,6 @@
 {
   "name": "quick-utils-js",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "javascript常用工具函数",
   "main": "./dist/index.js",
   "module": "./dist/index.esm.js",
@@ -33,7 +33,7 @@
   "author": {
     "name": "zhaoguiyang",
     "email": "2770723534@qq.com",
-    "url": "https://blog.gyang.live/"
+    "url": "https://github.com/zguiyang"
   },
   "license": "ISC",
   "devDependencies": {
