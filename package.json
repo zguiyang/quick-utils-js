@@ -1,7 +1,7 @@
 {
   "name": "quick-utils-js",
-  "version": "1.0.1",
-  "description": "javascript常用工具函数",
+  "version": "1.0.2",
+  "description": "Tool functions commonly used in front-end services",
   "main": "./dist/index.js",
   "module": "./dist/index.esm.js",
   "types": "./dist/main.d.ts",
@@ -10,7 +10,8 @@
     "quick",
     "util",
     "typeScript",
-    "javaScript"
+    "javaScript",
+    "web"
   ],
   "directories": {
     "test": "test"
