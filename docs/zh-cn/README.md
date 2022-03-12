@@ -33,3 +33,215 @@ import { generateUUID } from "quick-utils-js";
 console.log ( generateUUID () );
 
 ```
+# API
+
+## Array
+
+### 数组去重
+
+针对数组中的重复对象元素去重，并返回新数组
+
+```ts
+/**
+ * @param { Array<T> } arr  需要去重的数组
+ * @return {  Array<T> }
+ * **/
+
+import { uniqueArrayObj } from "quick-utils-js";
+
+const arr = [ { name: 'yang', id: '1222333' }, { name: 'yang2', id: '1222333' }, { name: 'yang', id: '1222333' }, { name: 'yang', id: '1234567' } ];
+
+const result = uniqueArrayObj<{ name: string, id: string }> ( arr );
+
+console.log( JSON.stringify ( result ) ); // [{"name":"yang","id":"1222333"},{"name":"yang2","id":"1222333"},{"name":"yang","id":"1234567"}]
+```
+
+### 数组递归遍历
+
+对于tree结构的数组进行遍历，并根据你的需要生成新的tree数组返回
+
+```ts
+/**
+ * @param { array<T> } data 遍历的数组
+ * @param { ( item:T ) => R } callback 每次遍历的回调函数
+ * @param { string } childKey 递归的数组key名
+ * @return { array } R[]
+ * */
+
+import { arrayRecursionMap } from "quick-utils-js";
+
+const arr = [
+    {
+        id: '1',
+        name: '顶级节点一',
+        parentId: null,
+        children: [
+            {
+                id: '1-1',
+                name: '顶级节点1-1',
+                parentId: '1',
+            },
+            {
+                id: '1-2',
+                name: '顶级节点1-2',
+                parentId: '1',
+            },
+            {
+                id: '1-3',
+                name: '顶级节点1-3',
+                parentId: '1',
+            }
+        ]
+    },
+    {
+        id: '2',
+        name: '顶级节点二',
+        parentId: null,
+        children: [
+            {
+                id: '2-1',
+                name: '顶级节点2-1',
+                parentId: '2',
+            },
+            {
+                id: '2-2',
+                name: '顶级节点2-2',
+                parentId: '2',
+            },
+        ]
+    },
+    {
+        id: '3',
+        name: '顶级节点三',
+        parentId: null,
+        children: [
+            {
+                id: '3-1',
+                name: '顶级节点3-1',
+                parentId: '3',
+            },
+        ]
+    },
+    {
+        id: '4',
+        name: '顶级节点四',
+        parentId: null,
+        children: []
+    }
+];
+
+const result = arrayRecursionMap<{ id: string, name: string, parentId: string | null, children: any[] }, { label: string, children: any[], value: string, pid: string | null }>
+( arr, ( item ) => {
+
+    return {
+        label: item.name,
+        value: item.id,
+        pid: item.parentId,
+        children: item.children || [],
+    }
+
+});
+
+
+console.log( JSON.stringify ( result ) ); // [{"label":"顶级节点一","value":"1","pid":null,"children":[{"label":"顶级节点1-1","value":"1-1","pid":"1","children":[]},{"label":"顶级节点1-2","value":"1-2","pid":"1","children":[]},{"label":"顶级节点1-3","value":"1-3","pid":"1","children":[]}]},{"label":"顶级节点二","value":"2","pid":null,"children":[{"label":"顶级节点2-1","value":"2-1","pid":"2","children":[]},{"label":"顶级节点2-2","value":"2-2","pid":"2","children":[]}]},{"label":"顶级节点三","value":"3","pid":null,"children":[{"label":"顶级节点3-1","value":"3-1","pid":"3","children":[]}]},{"label":"顶级节点四","value":"4","pid":null,"children":[]}]
+
+```
+
+### 扁平化数组
+
+扁平化数组：就是将一个多级tree结构的数组拍平成一个一级数组, 此方法会返回一个新数组
+```ts
+/**
+ *
+ * @param { any<T> } data 需要扁平化的数组
+ * @param { string } childKey 递归子级key
+ * @return { array }
+ * **/
+import { arrayRecursionMap } from "quick-utils-js";
+const arr = [
+    {
+        id: '1',
+        name: '顶级节点一',
+        parentId: null,
+        children: [
+            {
+                id: '1-1',
+                name: '顶级节点1-1',
+                parentId: '1',
+            },
+            {
+                id: '1-2',
+                name: '顶级节点1-2',
+                parentId: '1',
+            },
+            {
+                id: '1-3',
+                name: '顶级节点1-3',
+                parentId: '1',
+            }
+        ]
+    },
+    {
+        id: '2',
+        name: '顶级节点二',
+        parentId: null,
+        children: [
+            {
+                id: '2-1',
+                name: '顶级节点2-1',
+                parentId: '2',
+            },
+            {
+                id: '2-2',
+                name: '顶级节点2-2',
+                parentId: '2',
+            },
+        ]
+    },
+    {
+        id: '3',
+        name: '顶级节点三',
+        parentId: null,
+        children: [
+            {
+                id: '3-1',
+                name: '顶级节点3-1',
+                parentId: '3',
+            },
+        ]
+    },
+    {
+        id: '4',
+        name: '顶级节点四',
+        parentId: null,
+        children: []
+    }
+];
+
+const result = flatTreeArray<{ id: string, name: string, parentId: string | null, children: any[] }> ( arr );
+
+console.log(JSON.stringify ( result ) );
+
+// [{"id":"1","name":"顶级节点一","parentId":null},{"id":"1-1","name":"顶级节点1-1","parentId":"1"},{"id":"1-2","name":"顶级节点1-2","parentId":"1"},{"id":"1-3","name":"顶级节点1-3","parentId":"1"},{"id":"2","name":"顶级节点二","parentId":null},{"id":"2-1","name":"顶级节点2-1","parentId":"2"},{"id":"2-2","name":"顶级节点2-2","parentId":"2"},{"id":"3","name":"顶级节点三","parentId":null},{"id":"3-1","name":"顶级节点3-1","parentId":"3"},{"id":"4","name":"顶级节点四","parentId":null}]
+
+```
+
+### 数组切割
+
+数组元素切割, `[ 1, 2, 3, 4, 5, 6 ]  => [ [ 1, 2, 3 ], [ 4, 5, 6 ] ]`
+```ts
+/**
+ * @param { Array<T> } arr 进行切割的数组
+ * @param { number } step 切割的步长
+ * @return { Array<T> }
+ */
+
+import { sliceArray } from "quick-utils-js";
+
+const arr = [1,2,3,4,5,6,7 ];
+
+const result = sliceArray<number> ( arr, 3 );
+
+console.log ( result ); // [ [1, 2, 3], [ 4, 5, 6 ], [ 7 ] ]
+
+```
