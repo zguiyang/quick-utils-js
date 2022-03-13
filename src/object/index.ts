@@ -8,8 +8,8 @@ export type ObjectEachCallback = ( key: string, val: any ) => any;
 
 /**
  * 深度遍历对象, 将多层对象扁平化
- * @param obj 遍历对象
- * @param fn 每一个key执行的方法
+ * @param { RecordObj }  obj 遍历对象
+ * @param { ObjectEachCallback } fn 每一个key执行的方法
  * @returns void
  * **/
 
@@ -46,8 +46,8 @@ export function objectEach ( obj: RecordObj, fn: ObjectEachCallback ): void {
 
 /**
 * 对象比较(不比较原型链的属性)
-* @param original 原始对象
-* @param target 目标对象
+* @param { RecordObj } original 原始对象
+* @param { RecordObj } target 目标对象
 * @returns new diff object
  * **/
 
