@@ -245,3 +245,77 @@ const result = sliceArray<number> ( arr, 3 );
 console.log ( result ); // [ [1, 2, 3], [ 4, 5, 6 ], [ 7 ] ]
 
 ```
+## Object
+
+### 遍历对象
+
+深度遍历对象, 可以获取到每一个key和value
+```ts
+/**
+ * 深度遍历对象, 获取对象中的每一个key和value
+ * @param { RecordObj }  obj 遍历的对象
+ * @param { ObjectEachCallback } fn 每一次遍历的回调
+ * @returns void
+ * **/
+
+ import { objectEach } from "quick-utils-js";
+
+const obj = { parent: { name: "yang", phone: '18190678380', address: 'xxxxx', intro: { y: '9', log: 'kk', target: { usr: 'kkkk' } } }, child: { test: '00' }, id: 'vh' };
+
+const result:RecordObj = {};
+
+objectEach ( obj, ( key, value ) => {
+
+    result[ key ] = value;
+    
+} );
+
+console.log( JSON.stringify( result ) ); // {"name":"yang","phone":"18190678380","address":"xxxxx","y":"9","log":"kk","usr":"kkkk","test":"00","id":"vh"}
+
+
+```
+### 对象比较
+
+对象比较(不比较原型链的属性), 返回差异部分的属性，支持多级
+
+**注：如果属性值是数组，目前暂未处理**
+
+```ts
+
+/**
+* 对象比较(不比较原型链的属性)
+* @param original 原始对象
+* @param target 目标对象
+* @returns new diff object
+ * **/
+import { objectDiff } from "quick-utils-js";
+
+const original = { user: { name: 'yang', 'phone': '18190678380', 'intro': { a: 'intro1', b: 'intro2' } }, address: '7878' };
+
+const target = { user: { name: 'yang', 'phone': '18190678381', 'intro': { a: 'intro10', b: 'intro2' } }, address: '7878', test: 'test1' };
+
+const diffObj = objectDiff ( original, target );
+
+console.log ( JSON.stringify ( diffObj ) ); // {"user":{"phone":"18190678381","intro":{"a":"intro10"}},"test":"test1"}
+
+```
+### 初始化对象
+
+将一个对象中的所有属性值置空, 此方法会影响原对象
+
+```ts
+/**
+ * @desc 初始化对象属性值
+ * @param { Object } obj 需要初始化对象的值
+ * @return { Object } 返回数据清空的对象
+ * */
+
+import { resetObjectValue } from "quick-utils-js";
+
+const obj =  { name: 'yang', phone: '18190678381', address: 'lll', id: 123, list: [ 1, 2 , 3 ] };
+
+resetObjectValue ( obj );
+
+console.log ( JSON.stringify ( obj ) ); // {"name":null,"phone":null,"address":null,"id":null,"list":[]}
+
+```

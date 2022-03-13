@@ -247,3 +247,74 @@ const result = sliceArray<number> ( arr, 3 );
 console.log ( result ); // [ [1, 2, 3], [ 4, 5, 6 ], [ 7 ] ]
 
 ```
+## Object
+
+### Object Each
+
+The object is deeply traversed to obtain each key and value
+```ts
+/**
+ * @param { RecordObj }  obj each obj
+ * @param { ObjectEachCallback } fn each callback
+ * @returns void
+ * **/
+
+ import { objectEach } from "quick-utils-js";
+
+const obj = { parent: { name: "yang", phone: '18190678380', address: 'xxxxx', intro: { y: '9', log: 'kk', target: { usr: 'kkkk' } } }, child: { test: '00' }, id: 'vh' };
+
+const result:RecordObj = {};
+
+objectEach ( obj, ( key, value ) => {
+
+    result[ key ] = value;
+    
+} );
+
+console.log( JSON.stringify( result ) ); // {"name":"yang","phone":"18190678380","address":"xxxxx","y":"9","log":"kk","usr":"kkkk","test":"00","id":"vh"}
+
+
+```
+### Object Diff
+
+Object comparison (does not compare the attributes of the prototype chain), returns the attributes of the difference part, supports multiple levels
+
+**Note: If the property value is an array, it is not processed yet**
+
+```ts
+
+/**
+* @param { Object } original object data
+* @param { Object } target target object data
+* @returns new diff object
+ * **/
+import { objectDiff } from "quick-utils-js";
+
+const original = { user: { name: 'yang', 'phone': '18190678380', 'intro': { a: 'intro1', b: 'intro2' } }, address: '7878' };
+
+const target = { user: { name: 'yang', 'phone': '18190678381', 'intro': { a: 'intro10', b: 'intro2' } }, address: '7878', test: 'test1' };
+
+const diffObj = objectDiff ( original, target );
+
+console.log ( JSON.stringify ( diffObj ) ); // {"user":{"phone":"18190678381","intro":{"a":"intro10"}},"test":"test1"}
+
+```
+### Init Object
+
+reset object key value
+
+```ts
+/**
+ * @param { Object } obj
+ * @return { Object }
+ * */
+
+import { resetObjectValue } from "quick-utils-js";
+
+const obj =  { name: 'yang', phone: '18190678381', address: 'lll', id: 123, list: [ 1, 2 , 3 ] };
+
+resetObjectValue ( obj );
+
+console.log ( JSON.stringify ( obj ) ); // {"name":null,"phone":null,"address":null,"id":null,"list":[]}
+
+```
