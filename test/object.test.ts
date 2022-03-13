@@ -1,4 +1,4 @@
-import { objectDiff, objectToString, objectEach, resetObjectValue } from '../src/object';
+import { objectDiff, objectEach, resetObjectValue } from '../src/object';
 
 
 // 对象比较
@@ -36,28 +36,6 @@ test('object diff delete key', () => {
   const diff2 = {  age: 18, };
   const diff = objectDiff(diff1, diff2);
   expect(diff).toEqual({ age: 18 });
-})
-
-
-test('object to key + value string', () => {
-  const data = {name: 'yang', age: '18'};
-  const result = objectToString(data);
-  expect(result).toBe('name:yang;age:18;');
-})
-
-test('object to key + value + separator string', () => {
-  const data = {name: 'yang', age: '18'};
-  const result = objectToString(data, '--');
-  expect(result).toBe('name:yang--age:18--');
-})
-
-test('object to key + value to string callback', () => {
-  const data = {name: 'yang', age: '18'};
-  let result = '';
-  objectToString(data, '--', (key, value) => {
-   result += `${key}=${value}**`;
-  });
-  expect(result).toBe('name=yang**age=18**');
 })
 
 // 对象遍历扁平化

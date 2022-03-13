@@ -110,37 +110,6 @@ export function objectDiff<T=any> ( original: RecordObj, target: RecordObj ): T 
 }
 
 /**
-  *  将对象转化为key+value 字符串
-  * @param obj 需要转化的object
-  * @param separator 分隔符号
-  * @param callback 自定义处理回调函数
-  * @returns key + value string
-  */
-
-export function objectToString ( obj: RecordObj, separator?: string, callback?:CommonCallback ): string {
-
-  let queryStr = '';
-
-  for ( const [ key, value ] of Object.entries ( obj ) ) {
-
-    if ( callback ) {
-
-      callback ( key, value );
-
-    } else {
-
-      queryStr += `${key}:${value}${separator || ';'}`;
-
-    }
-
-  }
-
-  return queryStr;
-
-}
-
-
-/**
  * @desc 初始化对象属性值
  * @param { Object } obj 需要初始化对象的值
  * @return { Object } 返回数据清空的对象
