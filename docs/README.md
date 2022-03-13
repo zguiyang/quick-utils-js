@@ -279,8 +279,6 @@ console.log( JSON.stringify( result ) ); // {"name":"yang","phone":"18190678380"
 
 Object comparison (does not compare the attributes of the prototype chain), returns the attributes of the difference part, supports multiple levels
 
-**Note: If the property value is an array, it is not processed yet**
-
 ```ts
 
 /**
