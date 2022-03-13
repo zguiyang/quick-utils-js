@@ -89,7 +89,39 @@ export function objectDiff<T=any> ( original: RecordObj, target: RecordObj ): T 
 
     if ( isArray ( target[ key ] ) ) {
 
-      result[ key ] = target[ key ];
+      if ( isArray ( original[ key ] ) ) {
+
+        result[ key ] = [];
+
+        target[ key ].forEach ( ( item, index ) => {
+
+          const temp = original[ key ][ index ];
+
+          if ( isObject ( item ) && isObject ( temp ) ) {
+
+            result[ key ][ index ] = objectDiff ( temp, item );
+
+          } else {
+
+            if ( item !== temp ) {
+
+              result[ key ][ index ] = item;
+
+            }
+
+          }
+
+        } );
+
+      } else {
+
+        if ( target[ key ] !== original[ key ] ) {
+
+          result[ key ] = target[ key ];
+
+        }
+
+      }
 
       return;
 

@@ -31,6 +31,14 @@ test('object diff update object key', () => {
   } });
 })
 
+test('object diff array element', () => {
+  const diff1 = { name: 'yang', phone: '18190678380', list: [ { a: '1 ', b: '2' } ], list2: [ [ 1 ] ] };
+  const diff2 = { name: 'yang2', phone: '18190678380', list: [ { a: '1 ', b: '5', c: '3' } ], list2: [ [ 1, 2, 3 ] ] };
+  const diff = objectDiff(diff1, diff2);
+  expect(diff).toEqual({ name: 'yang2', list:[ { b: '5', c: '3'} ], list2: [ [ 1, 2, 3 ] ] });
+})
+
+
 test('object diff delete key', () => {
   const diff1 = { name: 'yang', age: 20 };
   const diff2 = {  age: 18, };
