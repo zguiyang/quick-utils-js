@@ -326,7 +326,7 @@ Hump naming is converted to bar/underline naming, ``getElementById => get-elemen
 ```ts
 /**
  * @param { string } str key 
- * @param { string } separator 分隔符,默认"-"
+ * @param { string } separator
  * **/
 import { getCustomKebabCase } from "quick-utils-js";
 
@@ -347,7 +347,7 @@ Bar/underline naming is converted to camel naming, ``get-element-by-id/get_eleme
 ```ts
 /**
  * @param { string } str key 
- * @param { string } separator 分隔符,默认"-"
+ * @param { string } separator
  * **/
 import { getCustomCamelCase } from "quick-utils-js";
 
@@ -362,4 +362,86 @@ const result2 = getCustomCamelCase ( str2, '_' );
 console.log ( result1 ); // getElementById
 
 console.log ( result2 ); // getElementById
+```
+
+## Number
+
+### Thousands
+Number to thousands, The decimal is automatically truncated when it exceeds eight places.
+
+```ts
+/**
+ @param { number | string } num
+ @param { string } unit
+ @param { Object } options othrer config
+ @param { number } options.integerLength integer max length
+ @param { number } options.decimalsLength decimal max length
+ @return { string | null }
+ * */
+
+ import { numberToThousands } from "quick-utils-js";
+
+const num = 123456789;
+
+const num2 = 123456789.1234;
+
+const result = numberToThousands ( num );
+
+const result2 = numberToThousands ( num2 );
+
+console.log ( result ); // 123,456,789
+
+console.log ( result2 ); // 123,456,789.1234
+ 
+```
+### Thousands to normal number
+
+``999,999,999 => 999999999``
+
+```ts
+/**
+ * @param { string } str format number
+ * @param { string } groupSeparator separator
+ * @return { string }
+ * **/
+import { thousandsToString } from "quick-utils-js";
+
+const num = '123,456,789';
+
+const num2 = '123,456,789.1234';
+
+const result = thousandsToString ( num );
+
+const result2 = thousandsToString ( num2 );
+
+console.log ( result ); // '123456789'
+
+console.log ( result2 ); // '123456789.1234'
+
+```
+### Numerical calculation
+Large number calculation: addition, subtraction, multiplication, division, support large numbers
+
+```ts
+/**
+ * @param { string | number } a number 1
+ * @param { string | number } b number 2
+ * @param { BigNumberCalcType }  Calculate the type
+ * reference https://mikemcl.github.io/bignumber.js/#config
+ * **/
+import { numberCalculate } from "quick-utils-js";
+
+const a = numberCalculate ( 0.1, 0.2, 'plus');
+
+const b = numberCalculate ( 100000000, 19999999999, 'plus' );
+
+const c = numberCalculate ( 100000000, 19999999999, 'minus' );
+
+const d = numberCalculate ( 100000000, 19999999999, 'times' );
+
+console.log ( a ); // 0.3
+console.log ( b ); // 20099999999
+console.log ( c ); // -19899999999
+console.log ( d ); // 1999999999900000000
+
 ```
