@@ -316,3 +316,50 @@ resetObjectValue ( obj );
 console.log ( JSON.stringify ( obj ) ); // {"name":null,"phone":null,"address":null,"id":null,"list":[]}
 
 ```
+
+## String
+
+### KebabCase
+
+Hump naming is converted to bar/underline naming, ``getElementById => get-element-by-id/get_element_by_id``
+
+```ts
+/**
+ * @param { string } str key 
+ * @param { string } separator 分隔符,默认"-"
+ * **/
+import { getCustomKebabCase } from "quick-utils-js";
+
+const str = 'getElementById';
+
+const result1 = getCustomKebabCase ( str );
+
+const result2 = getCustomKebabCase ( str, '_' );
+
+console.log ( result1 ); // get-element-by-id
+
+console.log ( result2 ); // get_element_by_id
+```
+### CamelCase
+
+Bar/underline naming is converted to camel naming, ``get-element-by-id/get_element_by_id => getElementById``
+
+```ts
+/**
+ * @param { string } str key 
+ * @param { string } separator 分隔符,默认"-"
+ * **/
+import { getCustomCamelCase } from "quick-utils-js";
+
+const str = 'get-element-by-id';
+
+const str2 = 'get_element_by_id';
+
+const result1 = getCustomCamelCase ( str );
+
+const result2 = getCustomCamelCase ( str2, '_' );
+
+console.log ( result1 ); // getElementById
+
+console.log ( result2 ); // getElementById
+```

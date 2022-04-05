@@ -317,3 +317,50 @@ resetObjectValue ( obj );
 console.log ( JSON.stringify ( obj ) ); // {"name":null,"phone":null,"address":null,"id":null,"list":[]}
 
 ```
+
+## String
+
+### 驼峰命名转换
+
+驼峰命名转换为横杆/下划线命名， ``getElementById => get-element-by-id/get_element_by_id``
+
+```ts
+/**
+ * @param { string } str 需要转换的字符串 
+ * @param { string } separator connector
+ * **/
+import { getCustomKebabCase } from "quick-utils-js";
+
+const str = 'getElementById';
+
+const result1 = getCustomKebabCase ( str );
+
+const result2 = getCustomKebabCase ( str, '_' );
+
+console.log ( result1 ); // get-element-by-id
+
+console.log ( result2 ); // get_element_by_id
+```
+### 横杆/下划线命名转换
+
+横杆/下划线命名转换为驼峰命名， ``get-element-by-id/get_element_by_id => getElementById``
+
+```ts
+/**
+ * @param { string } str 需要转换的字符串 
+ * @param { string } separator connector
+ * **/
+import { getCustomCamelCase } from "quick-utils-js";
+
+const str = 'get-element-by-id';
+
+const str2 = 'get_element_by_id';
+
+const result1 = getCustomCamelCase ( str );
+
+const result2 = getCustomCamelCase ( str2, '_' );
+
+console.log ( result1 ); // getElementById
+
+console.log ( result2 ); // getElementById
+```
