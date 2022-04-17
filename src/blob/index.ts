@@ -51,7 +51,7 @@ export function blobToBase64 ( blob:Blob ): Promise<BlobToBase64Result> {
 
 /**
  * base64 转 blob
- * @param { Object } config 配置参数
+ * @param { Base64ToBlobConfig } config 配置参数
  * **/
 
 export function base64ToBlob ( config:Base64ToBlobConfig ): Promise<Base64ToBlobResult> {
