@@ -748,3 +748,8 @@ import { isHexColor } from 'quick-utils-js';
 console.log( isHexColor('#ddb8f1') ); // true
 
 ```
+# 更新日志
+
+## 1.0.1 
+1. ``blob/index``, ``blobToBase64``方法参数注释说明更新
+2. ``regex/index``, 方法名称更新, ``isUrl => isDomainUrl``、``isColor => isHexColor``
