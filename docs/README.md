@@ -445,3 +445,302 @@ console.log ( c ); // -19899999999
 console.log ( d ); // 1999999999900000000
 
 ```
+## Cookie
+
+```ts
+/**
+ *
+ * @desc  set cookie
+ * @param {String} cookie name
+ * @param {String} value
+ * @param {Number} days
+ */
+
+/**
+ *
+ * @desc get cookie
+ * @param  {String} cookie name
+ * @returns {String}
+ */
+
+/**
+ *
+ * @desc remove cookie
+ * @param  {String} cookie name
+ */
+
+
+import  { setCookie, getCookie, removeCookie } from 'quick-utils-js'
+
+setCookie ('yang-test', 'test_cookie', 1); // success
+
+const cookieVal = getCookie ( 'yang-test' );
+
+console.log ( cookieVal ); // test_cookie
+
+removeCookie ( 'yang-test' ); // success
+
+
+console.log('删除后：', getCookie ( 'yang-test' ) ); // ''
+
+```
+## Blob
+
+### Blob to Base64
+
+```ts
+/**
+ * @desc blob to base64
+ * @param { Blob } blob blob
+ * @return { Promise<blobToBase64Result> }
+ * **/
+
+import  { blobToBase64 } from 'quick-utils-js'
+
+const blobToBase64test = async () => {
+
+    const result = await blobToBase64( new File([new Blob()], "xxx.png") );
+
+    console.log( result );
+
+}
+
+```
+### Base64 to Blob
+
+```ts
+
+/**
+ * base64 to blob
+ * @param { Base64ToBlobConfig } config params
+ * **/
+
+import  { base64ToBlob } from 'quick-utils-js'
+
+const result = await base64ToBlob({ base64Str: base64, fileName: '1', contentType: 'jpg' });
+
+console.log( result );
+
+```
+
+### Download File
+
+```ts
+/**
+ * @desc download blob file
+ * @param { string } fileName
+ * @param { blob } blob file
+ **/
+
+
+import  {  downloadFile } from 'quick-utils-js'
+
+downloadFile ('test.json', new Blob([JSON.stringify( { hello: "world"}, null, 2)], {type : 'application/json'}) );
+
+
+```
+## Date
+
+###  format unix timestamp
+
+```ts
+/**
+ * @desc date format
+ * @param { string|number } timestamp
+ * @param { string } formatStr  format string   default => yyyy-MM-dd hh:mm:ss
+ * @returns { null | string }
+ * **/
+
+import  {  dateFormat } from 'quick-utils-js'
+
+console.log ( 'date format:', dateFormat('1666666777878') ); // 2022-10-25 10:59:37
+
+```
+###  get remain time
+
+```ts
+/**
+ *
+ * @desc get { now - endTime } time
+ * @param  {Date} endTime
+ * @return {FormatRemainTimeResult}
+ */
+
+import  {  getRemainTime } from 'quick-utils-js';
+
+console.log( getRemainTime ( new  Date().getTime() + 10000 ) ); // { days: 0, hours: 0, minutes: 0, seconds: 10 }
+
+```
+
+### get time Left
+
+```ts
+/**
+ * @desc ${ startTime - endTime } time, if startTime > endTime, return 0
+ * @param { Date | String | unix } startTime
+ * @param { Date | String } endTime
+ * @returns { FormatTimeValue | null } { d, h, m, s }
+ */
+
+import  {  getTimeLeft } from 'quick-utils-js';
+
+console.log( getTimeLeft ( new  Date().getTime(), new Date().getTime() + 20000 ) ); // {d: 0, h: 0, m: 0, s: 20}
+
+```
+## Random
+
+###  random number
+
+```ts
+/**
+ *
+ * @desc generate [min, max ] number
+ * @param  {Number} min number
+ * @param  {Number} max number
+ * @return {Number} random number
+ */
+
+import  { randomNum } from 'quick-utils-js';
+
+console.log('randomNum:', randomNum( 10, 12) );
+```
+
+### random word
+
+```ts
+/**
+ * @desc generate arbitrarily length str
+ * @param { boolean } randomFlag arbitrarily length
+ * @param { number } min
+ * @param { number } max
+ * @return { string }
+ */
+
+
+import  { randomWord } from 'quick-utils-js';
+
+console.log ( 'randomWord', randomWord( true , 5, 10 )); // oQPfS92
+
+
+
+```
+
+### random hex color
+
+```ts
+import  { randomColor } from 'quick-utils-js';
+
+console.log ('random color', randomColor() ); // #ddb8f1
+
+```
+## Regex
+
+### domain url
+
+```ts
+import  { isDomainUrl } from 'quick-utils-js';
+
+console.log( isDomainUrl('http://www.baidu.com') ); // true
+
+```
+
+### http[s] url
+
+```ts
+import  { isNetWorkUrl } from 'quick-utils-js';
+
+console.log( isNetWorkUrl('http://www.baidu.com') ); // true
+
+console.log( isNetWorkUrl('https://www.baidu.com') ); // true
+
+```
+### http url
+
+```ts
+import  { isHttpUrl } from 'quick-utils-js';
+
+console.log( isHttpUrl('http://www.baidu.com') ); // true
+
+```
+### https url
+
+```ts
+import  { isHttpsUrl } from 'quick-utils-js';
+
+console.log( httpsUrl('https://www.baidu.com') ); // true
+
+```
+
+### phone number ( strict )
+
+```ts
+import  { isPhoneStrict } from 'quick-utils-js';
+
+console.log( isPhoneStrict('13800138000') ); // true
+
+```
+### phone number ( not strict )
+
+```ts
+import  { isPhone } from 'quick-utils-js';
+
+console.log( isPhone ( '12345678900' ) ); // true
+
+```
+### id card number
+
+```ts
+import  { isIdCard } from 'quick-utils-js';
+
+log( isIdCard('420102199010101111') ); // true
+
+```
+### email
+
+```ts
+import  { isEmail } from 'quick-utils-js';
+
+console.log(isEmail('2770723534@qq.com')); // true
+```
+
+### password
+
+```ts
+// The value contains 8 to 20 characters, including digits, uppercase and lowercase letters, and special characters
+import  { isPassword } from 'quick-utils-js';
+
+console.log( isPassword('!@1234Aa') ); // true
+
+```
+### field name
+
+```ts
+// The value contains a maximum of 30 characters including digits, uppercase and lowercase letters, and special characters -_+
+import  { isFieldName } from 'quick-utils-js';
+
+console.log( isFieldName('name') ); // true
+```
+### letter or number
+
+```ts
+import { isNumberOrLetter } from 'quick-utils-js';
+
+console.log( isNumberOrLetter('123') ); // true
+
+```
+### number format
+
+```ts
+// Digit accuracy check, whether the integer or decimal is greater than 0, up to eight decimal 19.8n accuracy
+import { isNumberOrFloat } from 'quick-utils-js';
+
+console.log( isNumberOrFloat('12356789.12345678') ); // true
+
+```
+### hex color
+
+```ts
+import { isHexColor } from 'quick-utils-js';
+console.log( isHexColor('#ddb8f1') ); // true
+
+```
