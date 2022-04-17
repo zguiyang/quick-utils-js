@@ -746,6 +746,6 @@ console.log( isHexColor('#ddb8f1') ); // true
 ```
 # Change log
 
-## 1.0.1
+## 1.0.3
 1. ``blob/index``,``blobToBase64``params annotation update
 2. ``regex/index``, function name update, ``isUrl => isDomainUrl``、``isColor => isHexColor``
