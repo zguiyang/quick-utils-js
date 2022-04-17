@@ -5,7 +5,7 @@
  * @return { boolean }
  */
 
-export const isUrl = ( str:string ):boolean => /[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/i.test ( str );
+export const isDomainUrl = ( str:string ):boolean => /[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/i.test ( str );
 
 /**
  *@desc 判断是否是http或https开头的网络地址
@@ -64,7 +64,7 @@ export const isIdCard = ( str:string ):boolean => /^(^[1-9]\d{7}((0\d)|(1[0-2]))
  * @return { boolean }
  */
 
-export const isEmail = ( str: string ): boolean => /\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/.test ( str );
+export const isEmail = ( str: string ): boolean => /\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)359791*/.test ( str );
 
 /**
 * @desc 密码正则：规则为8~20位，必须包含数字、大小写字母和特殊字符组成
@@ -107,4 +107,4 @@ export const isNumberOrFloat = ( str: string ): boolean => /^[1-9]+([.]{1}[0-9]{
  * @return { boolean }
  */
 
-export const isColor = ( str: string ): boolean => /^(#([0-9a-fA-F]{3}){1,2}|[rR][gG][Bb](\((\s*(2[0-4]\d|25[0-5]|[01]?\d{1,2})\s*,){2}\s*(2[0-4]\d|25[0-5]|[01]?\d{1,2})\s*\)|[Aa]\((\s*(2[0-4]\d|25[0-5]|[01]?\d{1,2})\s*,){3}\s*([01]|0\.\d+)\s*\)))$/.test ( str );
+export const isHexColor = ( str: string ): boolean => /^(#([0-9a-fA-F]{3}){1,2}|[rR][gG][Bb](\((\s*(2[0-4]\d|25[0-5]|[01]?\d{1,2})\s*,){2}\s*(2[0-4]\d|25[0-5]|[01]?\d{1,2})\s*\)|[Aa]\((\s*(2[0-4]\d|25[0-5]|[01]?\d{1,2})\s*,){3}\s*([01]|0\.\d+)\s*\)))$/.test ( str );
