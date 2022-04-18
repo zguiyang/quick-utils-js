@@ -31,9 +31,6 @@
     "type": "git",
     "url": "git@github.com:zguiyang/quick-utils-js.git"
   },
-  "publishConfig": {
-    "registry":"https://npm.pkg.github.com"
-  },
   "author": {
     "name": "zhaoguiyang",
     "email": "2770723534@qq.com",
