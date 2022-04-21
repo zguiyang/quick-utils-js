@@ -35,7 +35,7 @@ console.log ( generateUUID () );
 ```
 # API
 
-## Array
+## 数组
 
 ### 数组去重
 
@@ -245,7 +245,7 @@ const result = sliceArray<number> ( arr, 3 );
 console.log ( result ); // [ [1, 2, 3], [ 4, 5, 6 ], [ 7 ] ]
 
 ```
-## Object
+## 对象
 
 ### 遍历对象
 
@@ -318,7 +318,7 @@ console.log ( JSON.stringify ( obj ) ); // {"name":null,"phone":null,"address":n
 
 ```
 
-## String
+## 字符串
 
 ### 驼峰命名转换
 
@@ -364,7 +364,7 @@ console.log ( result1 ); // getElementById
 
 console.log ( result2 ); // getElementById
 ```
-## Number
+## 数字
 
 ### 千分位
 
@@ -543,7 +543,7 @@ downloadFile ('test.json', new Blob([JSON.stringify( { hello: "world"}, null, 2)
 
 ```
 
-## Date
+## 日期时间
 
 ###  时间戳格式化
 
@@ -591,7 +591,7 @@ import  {  getTimeLeft } from 'quick-utils-js';
 console.log( getTimeLeft ( new  Date().getTime(), new Date().getTime() + 20000 ) ); // {d: 0, h: 0, m: 0, s: 20}
 
 ```
-## Random
+## 随机生成
 
 ###  随机数
 
@@ -637,7 +637,7 @@ import  { randomColor } from 'quick-utils-js';
 console.log ('random color', randomColor() ); // #ddb8f1
 
 ```
-## Regex
+## 正则校验
 
 ### 域名地址
 
@@ -748,8 +748,98 @@ import { isHexColor } from 'quick-utils-js';
 console.log( isHexColor('#ddb8f1') ); // true
 
 ```
+## 设备信息
+
+### 获取浏览器信息
+
+```ts
+import { getExplore } from "quick-utils-js";
+
+console.log( getExplore () ); // Chrome: 100.0.4896.88
+
+```
+### 获取系统信息
+
+```ts
+import { getOS } from "quick-utils-js";
+
+console.log ( getOS() ); // MacOSX
+
+```
+## DOM
+
+### 滚动距离
+```ts
+import {  getScrollTop  } from "quick-utils-js";
+
+console.log( getScrollTop () ); // scroll top 2419
+
+```
+
+### 设置滚动条
+```ts
+import {  setScrollTop, scrollTo } from "quick-utils-js";
+
+/**
+ *
+ * @desc 设置滚动条距顶部的距离
+ * @param { number } value top value
+ */
+
+setScrollTop ( 200 );
+
+/**
+ *
+ * @desc  在${duration}时间(ms)内，滚动条平滑滚动到${to}指定位置
+ * @param { number } to 目标距离
+ * @param { number } durationVal
+ */
+
+scrollTo ( 300, 200);
+
+```
+### 滚动到顶部
+```ts
+import {  scrollToTop } from "quick-utils-js";
+/**
+ * Scroll To Top
+ * @param { element } element element
+ * **/
+
+
+scrollToTop ();
+
+```
+### 滚动到底部
+```ts
+import {  scrollToBottom } from "quick-utils-js";
+/**
+ * Scroll To Bottom
+ * @param { element } element element
+ * **/
+
+scrollToBottom ();
+
+```
+### 获取元素位置
+```ts
+/**
+ *
+ * @desc  获取一个元素的距离文档(document)的位置，类似jQ中的offset()
+ * @param { HTMLElement| null } ele 元素节点
+ * @returns { DomOffsetPos }
+ */
+
+import {  getElOffsetPos } from "quick-utils-js";
+
+console.log( getElOffsetPos ('#app') ); // elPos: { left: 8, top: 2105, parent: body }
+
+```
+
 # 更新日志
 
-## 1.0.3 
+## 1.0.3
+refactor
+
 1. ``blob/index``, ``blobToBase64``方法参数注释说明更新
 2. ``regex/index``, 方法名称更新, ``isUrl => isDomainUrl``、``isColor => isHexColor``
