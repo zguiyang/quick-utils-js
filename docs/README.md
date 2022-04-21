@@ -633,6 +633,13 @@ import  { randomColor } from 'quick-utils-js';
 console.log ('random color', randomColor() ); // #ddb8f1
 
 ```
+### Random UUID
+```ts
+import  { generateUUID } from 'quick-utils-js';
+
+console.log ('uuid', generateUUID() ); // 'd1d023b0-5559-4f95-9ead-2446afca559f'
+
+```
 ## Regex
 
 ### domain url
@@ -804,7 +811,6 @@ scrollTo ( 300, 200);
 ```ts
 import {  scrollToTop } from "quick-utils-js";
 /**
- * Scroll To Top
  * @param { element } element element
  * **/
 
@@ -816,7 +822,6 @@ scrollToTop ();
 ```ts
 import {  scrollToBottom } from "quick-utils-js";
 /**
- * scroll to bottom
  * @param { element } element element
  * **/
 
@@ -824,10 +829,9 @@ scrollToBottom ();
 
 ```
 ### get element position info
+Gets an element's distance from the document, similar to offset() in jQ.
 ```ts
 /**
- *
- * @desc  Gets an element's distance from the document, similar to offset() in jQ.
  * @param { HTMLElement| null } ele element node
  * @returns { DomOffsetPos }
  */
@@ -836,6 +840,86 @@ import {  getElOffsetPos } from "quick-utils-js";
 
 console.log( getElOffsetPos ('#app') ); // elPos: { left: 8, top: 2105, parent: body }
 
+```
+## Utils
+### Amount transferred to uppercase
+```ts
+/**
+ *
+ * @param  { Number } money
+ * @return {String}
+ */
+
+import {  digitUppercase } from "quick-utils-js";
+
+console.log( digitUppercase ( 100.98 ) ); // 壹佰元玖角捌分
+
+
+```
+### get file extension name
+```ts
+/**
+ * xxx.txt => txt
+ * @param { string } filename
+ * @return { string | undefined }
+ * **/
+
+import {  getFileExtension } from "quick-utils-js";
+
+console.log( getFileExtension ('test.jpg') ); // jpg
+
+
+```
+
+## Helper
+### number verification
+```ts
+import {  isNumber } from "quick-utils-js";
+
+console.log( isNumber ( '777') ) // false 
+console.log( isNumber ( 7 ) ) // true
+```
+### string verification
+```ts
+import {  isString } from "quick-utils-js";
+
+console.log( isString ( '777') ) // true 
+console.log( isString ( 7 ) ) // false
+```
+### boolean verification
+```ts
+import {  isBoolean } from "quick-utils-js";
+
+console.log( isBoolean ( !'' ) ) // true 
+console.log( isBoolean ( 3 > 5 ) ) // true
+```
+### array verification
+```ts
+import { isArray } from "quick-utils-js";
+
+console.log( isArray ( [] ) ) // true 
+console.log( isArray ( {} ) ) // false
+```
+###  object verification
+```ts
+import {  isObject } from "quick-utils-js";
+
+console.log( isObject ( [] ) ) // false 
+console.log( isObject ( {} ) ) // true
+```
+### empty array verification
+```ts
+import {  isEmptyArray } from "quick-utils-js";
+
+console.log( isEmptyArray ( [] ) ) // true 
+console.log( isEmptyArray ( [ 1 ] ) ) // false
+```
+### empty object verification
+```ts
+import { isEmptyObject } from "quick-utils-js";
+
+console.log('isEmptyObject', isEmptyObject ( {} ) ) // true 
+console.log('isEmptyObject', isEmptyObject ( { a: 1 } ) ) // false
 ```
 
 # Change log
