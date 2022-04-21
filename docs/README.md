@@ -14,7 +14,8 @@ We also welcome suggestions to optimize, or directly raise`PR`, any questions, c
 
 1. [lodash](https://lodash.com/)
 2. [outils](https://github.com/proYang/outils)
-3. community
+3. [dayjs](https://day.js.org/)
+4. community
 
 # Compatibility
 
