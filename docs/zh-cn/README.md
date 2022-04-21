@@ -637,6 +637,14 @@ import  { randomColor } from 'quick-utils-js';
 console.log ('random color', randomColor() ); // #ddb8f1
 
 ```
+### 随机UUID
+```ts
+import  { generateUUID } from 'quick-utils-js';
+
+console.log ('uuid', generateUUID() ); // 'd1d023b0-5559-4f95-9ead-2446afca559f'
+
+```
+
 ## 正则校验
 
 ### 域名地址
@@ -802,7 +810,6 @@ scrollTo ( 300, 200);
 ```ts
 import {  scrollToTop } from "quick-utils-js";
 /**
- * Scroll To Top
  * @param { element } element element
  * **/
 
@@ -814,7 +821,6 @@ scrollToTop ();
 ```ts
 import {  scrollToBottom } from "quick-utils-js";
 /**
- * Scroll To Bottom
  * @param { element } element element
  * **/
 
@@ -822,10 +828,11 @@ scrollToBottom ();
 
 ```
 ### 获取元素位置
+
+获取一个元素的距离文档(document)的位置，类似jQ中的offset()
 ```ts
 /**
  *
- * @desc  获取一个元素的距离文档(document)的位置，类似jQ中的offset()
  * @param { HTMLElement| null } ele 元素节点
  * @returns { DomOffsetPos }
  */
@@ -835,6 +842,87 @@ import {  getElOffsetPos } from "quick-utils-js";
 console.log( getElOffsetPos ('#app') ); // elPos: { left: 8, top: 2105, parent: body }
 
 ```
+## 工具方法
+### 金额转大写
+```ts
+/**
+ *
+ * @param  { Number } money
+ * @return {String}
+ */
+
+import {  digitUppercase } from "quick-utils-js";
+
+console.log( digitUppercase ( 100.98 ) ); // 壹佰元玖角捌分
+
+
+```
+### 获取文件后缀名
+```ts
+/**
+ * xxx.txt => txt
+ * @param { string } filename
+ * @return { string | undefined }
+ * **/
+
+import {  getFileExtension } from "quick-utils-js";
+
+console.log( getFileExtension ('test.jpg') ); // jpg
+
+
+```
+
+## 辅助方法
+### 判断数字
+```ts
+import {  isNumber } from "quick-utils-js";
+
+console.log( isNumber ( '777') ) // false 
+console.log( isNumber ( 7 ) ) // true
+```
+### 判断字符串
+```ts
+import {  isString } from "quick-utils-js";
+
+console.log( isString ( '777') ) // true 
+console.log( isString ( 7 ) ) // false
+```
+### 判断布尔值
+```ts
+import {  isBoolean } from "quick-utils-js";
+
+console.log( isBoolean ( !'' ) ) // true 
+console.log( isBoolean ( 3 > 5 ) ) // true
+```
+### 判断数组
+```ts
+import { isArray } from "quick-utils-js";
+
+console.log( isArray ( [] ) ) // true 
+console.log( isArray ( {} ) ) // false
+```
+### 判断对象
+```ts
+import {  isObject } from "quick-utils-js";
+
+console.log( isObject ( [] ) ) // false 
+console.log( isObject ( {} ) ) // true
+```
+### 判断是否空数组
+```ts
+import {  isEmptyArray } from "quick-utils-js";
+
+console.log( isEmptyArray ( [] ) ) // true 
+console.log( isEmptyArray ( [ 1 ] ) ) // false
+```
+### 判断是否空对象
+```ts
+import { isEmptyObject } from "quick-utils-js";
+
+console.log('isEmptyObject', isEmptyObject ( {} ) ) // true 
+console.log('isEmptyObject', isEmptyObject ( { a: 1 } ) ) // false
+```
+
 
 # 更新日志
 
