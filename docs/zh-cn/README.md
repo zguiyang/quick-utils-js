@@ -5,6 +5,15 @@
 `device`、`dom`、`number`、`object`、`random`、`regex`、`string`相关的操作方法和部分工具方法。目前工具库中部分工具函数还不是很多，后续会慢慢增加，
 此外,这个工具库和 [lodash](https://lodash.com/) 的区别是：此工具中的工具函数都是从项目业务中抽离出来的工具方法（业务方向工具函数），并不是纯工具方法。也欢迎大家提出建议优化，或直接提`pr`,有任何问题，可在[issue](https://github.com/zguiyang/quick-utils-js/issues) 中提问。
 
+# 引用
+
+**站在巨人的肩膀上开发而成**
+
+1. [lodash](https://lodash.com/)
+2. [outils](https://github.com/proYang/outils)
+3. community
+
+
 # 兼容性
 
  ## 浏览器
