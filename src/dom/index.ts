@@ -19,6 +19,7 @@ export function getScrollTop (): number {
 
 /**
  * Scroll To Top
+ * @param { element } element element
  * **/
 
 export function scrollToTop ( element: Element ) {
@@ -29,6 +30,7 @@ export function scrollToTop ( element: Element ) {
 
 /**
  * Scroll To Bottom
+ * @param { element } element element
  * **/
 
 export function scrollToBottom ( element: Element ) {
