@@ -744,8 +744,105 @@ import { isHexColor } from 'quick-utils-js';
 console.log( isHexColor('#ddb8f1') ); // true
 
 ```
+### 十六进制颜色
+
+```ts
+import { isHexColor } from 'quick-utils-js';
+console.log( isHexColor('#ddb8f1') ); // true
+
+```
+## Device Info
+
+### get browser info
+
+```ts
+import { getExplore } from "quick-utils-js";
+
+console.log( getExplore () ); // Chrome: 100.0.4896.88
+
+```
+### get system os info
+
+```ts
+import { getOS } from "quick-utils-js";
+
+console.log ( getOS() ); // MacOSX
+
+```
+## DOM
+
+### get scroll top value
+```ts
+import {  getScrollTop  } from "quick-utils-js";
+
+console.log( getScrollTop () ); // scroll top 2419
+
+```
+
+### set scroll top value
+```ts
+import {  setScrollTop, scrollTo } from "quick-utils-js";
+
+/**
+ *
+ * @param { number } value top value
+ */
+
+setScrollTop ( 200 );
+
+/**
+ *
+ * @desc  Within ${duration} time (ms), the scroll bar scrolls smoothly to the position specified by ${to}
+ * @param { number } to 目标距离
+ * @param { number } durationVal
+ */
+
+scrollTo ( 300, 200);
+
+```
+### scroll to top
+```ts
+import {  scrollToTop } from "quick-utils-js";
+/**
+ * Scroll To Top
+ * @param { element } element element
+ * **/
+
+
+scrollToTop ();
+
+```
+### scroll to bottom
+```ts
+import {  scrollToBottom } from "quick-utils-js";
+/**
+ * scroll to bottom
+ * @param { element } element element
+ * **/
+
+scrollToBottom ();
+
+```
+### get element position info
+```ts
+/**
+ *
+ * @desc  Gets an element's distance from the document, similar to offset() in jQ.
+ * @param { HTMLElement| null } ele element node
+ * @returns { DomOffsetPos }
+ */
+
+import {  getElOffsetPos } from "quick-utils-js";
+
+console.log( getElOffsetPos ('#app') ); // elPos: { left: 8, top: 2105, parent: body }
+
+```
+
 # Change log
 
 ## 1.0.3
+
+refactor
+
 1. ``blob/index``,``blobToBase64``params annotation update
 2. ``regex/index``, function name update, ``isUrl => isDomainUrl``、``isColor => isHexColor``
