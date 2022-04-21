@@ -936,7 +936,17 @@ console.log('isEmptyObject', isEmptyObject ( { a: 1 } ) ) // false
 # 更新日志
 
 ## 1.0.3
+
 refactor
 
 1. ``blob/index``, ``blobToBase64``方法参数注释说明更新
+
 2. ``regex/index``, 方法名称更新, ``isUrl => isDomainUrl``、``isColor => isHexColor``
+
+## 1.0.4
+refactor
+1. delete ``utils/copyToClipboard``
+
+2. move ``utils/generateUUID`` to ``random/generateUUID``
+
+3. delete ``helper/isSupportWebP``、``helper/arrayEqual``

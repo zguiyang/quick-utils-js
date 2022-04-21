@@ -937,4 +937,13 @@ console.log('isEmptyObject', isEmptyObject ( { a: 1 } ) ) // false
 refactor
 
 1. ``blob/index``,``blobToBase64``params annotation update
+
 2. ``regex/index``, function name update, ``isUrl => isDomainUrl``、``isColor => isHexColor``
+
+## 1.0.4
+refactor
+1. delete ``utils/copyToClipboard``
+
+2. move ``utils/generateUUID`` to ``random/generateUUID``
+
+3. delete ``helper/isSupportWebP``、``helper/arrayEqual``
