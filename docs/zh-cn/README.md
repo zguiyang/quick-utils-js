@@ -961,12 +961,16 @@ console.log('isEmptyObject', isEmptyObject ( { a: 1 } ) ) // false
 
 ## 1.0.4
 
-**Refactors**
-
-1. move ``utils/generateUUID`` to ``random/generateUUID``
-
 **Breaking Changes**
 
 1. delete ``utils/copyToClipboard``
 
 2. delete ``helper/isSupportWebP``、``helper/arrayEqual``
+
+**Fixes**
+
+1. 修复在生产环境中，控制台会出现错误信息bug
+
+**Refactors**
+
+1. move ``utils/generateUUID`` to ``random/generateUUID``
