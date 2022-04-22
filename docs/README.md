@@ -934,17 +934,21 @@ console.log('isEmptyObject', isEmptyObject ( { a: 1 } ) ) // false
 
 # Change log
 
-## 1.0.1
+## 1.0.4
+
+**Breaking Changes**
+
+1. delete ``utils/copyToClipboard``
+
+2. delete ``helper/isSupportWebP``、``helper/arrayEqual``
 
 **Fixes**
 
-``rollup.config.js`` fix missing *.esm.js bug in dist directory
+1. Fixed bug where console error messages appear in production environment
 
-## 1.0.2
+**Refactors**
 
-**Build**
-
-1. ``package.json`` update info
+1. move ``utils/generateUUID`` to ``random/generateUUID``
 
 ## 1.0.3
 
@@ -956,18 +960,14 @@ console.log('isEmptyObject', isEmptyObject ( { a: 1 } ) ) // false
 
 1. ``regex/index``, function name update, ``isUrl => isDomainUrl``、``isColor => isHexColor``
 
-## 1.0.4
+## 1.0.2
 
-**Breaking Changes**
+**Build**
 
-1. delete ``utils/copyToClipboard``
+1. ``package.json`` update info
 
-2. delete ``helper/isSupportWebP``、``helper/arrayEqual``
+## 1.0.1
 
 **Fixes**
 
-1. 修复在生产环境中，控制台会出现错误信息bug
-
-**Refactors**
-
-1. move ``utils/generateUUID`` to ``random/generateUUID``
+``rollup.config.js`` fix missing *.esm.js bug in dist directory
