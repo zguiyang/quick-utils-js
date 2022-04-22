@@ -12,7 +12,8 @@
 1. [lodash](https://lodash.com/)
 2. [outils](https://github.com/proYang/outils)
 3. [dayjs](https://day.js.org/)
-4. 社区
+4. [bignumber.js](https://mikemcl.github.io/bignumber.js/)
+5. 社区
 
 
 # 兼容性
@@ -936,18 +937,36 @@ console.log('isEmptyObject', isEmptyObject ( { a: 1 } ) ) // false
 
 # 更新日志
 
+## 1.0.1
+
+**Fixes**
+
+``rollup.config.js`` fix missing *.esm.js bug in dist directory
+
+## 1.0.2
+
+**Build**
+
+1. ``package.json`` update info
+
 ## 1.0.3
 
-refactor
+**Refactors**
 
 1. ``blob/index``, ``blobToBase64``方法参数注释说明更新
+
+**Breaking Changes**
 
 2. ``regex/index``, 方法名称更新, ``isUrl => isDomainUrl``、``isColor => isHexColor``
 
 ## 1.0.4
-refactor
+
+**Refactors**
+
+1. move ``utils/generateUUID`` to ``random/generateUUID``
+
+**Breaking Changes**
+
 1. delete ``utils/copyToClipboard``
 
-2. move ``utils/generateUUID`` to ``random/generateUUID``
-
-3. delete ``helper/isSupportWebP``、``helper/arrayEqual``
+2. delete ``helper/isSupportWebP``、``helper/arrayEqual``

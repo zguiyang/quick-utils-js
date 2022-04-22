@@ -15,7 +15,8 @@ We also welcome suggestions to optimize, or directly raise`PR`, any questions, c
 1. [lodash](https://lodash.com/)
 2. [outils](https://github.com/proYang/outils)
 3. [dayjs](https://day.js.org/)
-4. community
+4. [bignumber.js](https://mikemcl.github.io/bignumber.js/)
+5. community
 
 # Compatibility
 
@@ -933,18 +934,36 @@ console.log('isEmptyObject', isEmptyObject ( { a: 1 } ) ) // false
 
 # Change log
 
+## 1.0.1
+
+**Fixes**
+
+``rollup.config.js`` fix missing *.esm.js bug in dist directory
+
+## 1.0.2
+
+**Build**
+
+1. ``package.json`` update info
+
 ## 1.0.3
 
-refactor
+**Refactors**
 
 1. ``blob/index``,``blobToBase64``params annotation update
 
-2. ``regex/index``, function name update, ``isUrl => isDomainUrl``、``isColor => isHexColor``
+**Breaking Changes**
+
+1. ``regex/index``, function name update, ``isUrl => isDomainUrl``、``isColor => isHexColor``
 
 ## 1.0.4
-refactor
+
+**Refactors**
+
+1. move ``utils/generateUUID`` to ``random/generateUUID``
+
+**Breaking Changes**
+
 1. delete ``utils/copyToClipboard``
 
-2. move ``utils/generateUUID`` to ``random/generateUUID``
-
-3. delete ``helper/isSupportWebP``、``helper/arrayEqual``
+2. delete ``helper/isSupportWebP``、``helper/arrayEqual``
