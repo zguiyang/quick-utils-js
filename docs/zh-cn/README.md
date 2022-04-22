@@ -937,28 +937,6 @@ console.log('isEmptyObject', isEmptyObject ( { a: 1 } ) ) // false
 
 # 更新日志
 
-## 1.0.1
-
-**Fixes**
-
-``rollup.config.js`` fix missing *.esm.js bug in dist directory
-
-## 1.0.2
-
-**Build**
-
-1. ``package.json`` update info
-
-## 1.0.3
-
-**Refactors**
-
-1. ``blob/index``, ``blobToBase64``方法参数注释说明更新
-
-**Breaking Changes**
-
-2. ``regex/index``, 方法名称更新, ``isUrl => isDomainUrl``、``isColor => isHexColor``
-
 ## 1.0.4
 
 **Breaking Changes**
@@ -974,3 +952,25 @@ console.log('isEmptyObject', isEmptyObject ( { a: 1 } ) ) // false
 **Refactors**
 
 1. move ``utils/generateUUID`` to ``random/generateUUID``
+
+## 1.0.3
+
+**Refactors**
+
+1. ``blob/index``, ``blobToBase64``方法参数注释说明更新
+
+**Breaking Changes**
+
+2. ``regex/index``, 方法名称更新, ``isUrl => isDomainUrl``、``isColor => isHexColor``
+
+## 1.0.2
+
+**Build**
+
+1. ``package.json`` update info
+
+## 1.0.1
+
+**Fixes**
+
+``rollup.config.js`` fix missing *.esm.js bug in dist directory
