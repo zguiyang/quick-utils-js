@@ -70,3 +70,31 @@ test('reset object value to null', () => {
   let result = resetObjectValue( obj );
   expect(result).toEqual({ a: null, b: null, c: { c1: null, c2: [], c3: [] }, d: null } );
 });
+
+test('reset object value custom options', () => {
+  const obj = {
+    a: 'test',
+    b: {
+      c: [ 'test' ],
+      d: {
+        e: 123,
+      },
+    },
+    d: () => {
+
+      console.log ( 'test' );
+
+    },
+  };
+  let result = resetObjectValue( obj, { array: null, number: 0, string: undefined, other: null } );
+  expect(result).toEqual({
+    a: undefined,
+    b: {
+      c: null,
+      d: {
+        e: 0,
+      },
+    },
+    d: null,
+  } );
+});

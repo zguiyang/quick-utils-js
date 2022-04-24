@@ -1,10 +1,17 @@
-import { isObject, isArray, isEmptyObject } from '../helper';
+import { isObject, isArray, getValueType, isEmptyObject } from '../helper';
 
 import { RecordObj } from '../types';
 
 export type CommonCallback = ( key: string, val: any ) => any;
 
 export type ObjectEachCallback = ( key: string, val: any ) => any;
+
+export interface ResetObjectOptions {
+  array?: any,
+  string?: any,
+  number?: any,
+  other?: any,
+}
 
 /**
  * 深度遍历对象, 将多层对象扁平化
@@ -144,31 +151,34 @@ export function objectDiff<T=any> ( original: RecordObj, target: RecordObj ): T 
 /**
  * @desc 初始化对象属性值
  * @param { Object } obj 需要初始化对象的值
+ * @param { ResetObjectOptions } options 重置数据配置项
  * @return { Object } 返回数据清空的对象
  * */
 
-export function resetObjectValue<T=any> ( obj ): T {
+export function resetObjectValue<T=any> ( obj, options?: ResetObjectOptions ): T {
+
+  const resetOptions: ResetObjectOptions = options || {
+    array: [],
+    string: null,
+    number: null,
+    other: null,
+  };
 
   for ( const key in obj ) {
 
     const currentVal = obj[ key ];
 
+    const currentType = getValueType ( currentVal );
 
-    if ( isObject ( currentVal ) ) {
+    if ( currentType === 'object' ) {
 
-      obj[ key ] = resetObjectValue ( currentVal );
-
-    } else if ( isArray ( currentVal ) ) {
-
-      obj[ key ] = [];
+      obj[ key ] = resetObjectValue ( currentVal, options );
 
     } else {
 
-      obj[ key ] = null;
+      obj[ key ] = resetOptions.hasOwnProperty ( currentType ) ? resetOptions[ currentType ] : resetOptions.other;
 
     }
-
-
 
   }
 
