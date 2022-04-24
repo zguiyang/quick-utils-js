@@ -1,3 +1,3 @@
-export default {
+module.exports = {
   '**/*.ts': () => 'tsc -p tsconfig.json --noEmit',
 };
