@@ -1,3 +1,3 @@
 module.exports = {
-  '**/*.ts': () => 'tsc -p tsconfig.json --noEmit',
+  'src/**/*.ts': () => 'tsc -p tsconfig.json --noEmit',
 };
