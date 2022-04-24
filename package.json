@@ -71,10 +71,16 @@
     "bignumber.js": "^9.0.2",
     "dayjs": "^1.10.7"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint",
+      "pre-push": "npm run lint"
+    }
+  },
   "lint-staged": {
     "src/**/*.ts": [
-      "npm run eslint",
-      "npm run eslint:fix"
+      "npm run eslint:fix",
+      "npm run eslint"
     ]
   }
 }
