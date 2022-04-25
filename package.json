@@ -78,9 +78,6 @@
     }
   },
   "lint-staged": {
-    "*.ts": [
-      "npm run eslint:fix",
-      "npm run eslint"
-    ]
+    "*.ts": "npm run eslint:fix"
   }
 }
