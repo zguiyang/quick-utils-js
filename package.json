@@ -27,7 +27,8 @@
     "eslint": "eslint src --ext .ts",
     "lint": "lint-staged",
     "eslint:fix": "eslint src --fix --ext .ts",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "cm": "cz"
   },
   "repository": {
     "type": "git",
@@ -46,7 +47,9 @@
     "@typescript-eslint/eslint-plugin": "^5.9.0",
     "@typescript-eslint/parser": "^5.9.0",
     "builtin-modules": "^3.1.0",
+    "commitizen": "^4.2.4",
     "cross-env": "^7.0.2",
+    "cz-conventional-changelog": "^3.3.0",
     "eslint": "^8.6.0",
     "eslint-config-alloy": "^4.4.0",
     "husky": "^7.0.4",
@@ -74,7 +77,8 @@
   "husky": {
     "hooks": {
       "pre-commit": "npm run lint",
-      "commit-msg": "npm run lint"
+      "commit-msg": "npm run lint",
+      "prepare-commit-msg": "exec < /dev/tty && npx cz --hook || true"
     }
   },
   "lint-staged": {
