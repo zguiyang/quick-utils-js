@@ -22,12 +22,12 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=development rollup -cw",
     "build": "cross-env NODE_ENV=production rollup -c",
-    "prepare": "husky install",
     "test": "jest --no-cache",
     "coverage": "jest --coverage",
     "eslint": "eslint src --ext .ts",
     "lint": "lint-staged",
-    "eslint:fix": "eslint src --fix --ext .ts"
+    "eslint:fix": "eslint src --fix --ext .ts",
+    "prepare": "husky install"
   },
   "repository": {
     "type": "git",
@@ -78,7 +78,7 @@
     }
   },
   "lint-staged": {
-    "src/**/*.ts": [
+    "*.ts": [
       "npm run eslint:fix",
       "npm run eslint"
     ]
