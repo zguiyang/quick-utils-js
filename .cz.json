@@ -13,6 +13,10 @@
       "description": "new feature",
       "title": "feature"
     },
+    "release": {
+      "description": "release new version",
+      "title": "release"
+    },
     "style": {
       "description": "Changes that do not affect the meaning of the code\\n            (white-space, formatting, missing semi-colons, etc)",
       "title": "style"
