@@ -28,7 +28,7 @@
     "lint": "lint-staged",
     "eslint:fix": "eslint src --fix --ext .ts",
     "prepare": "husky install",
-    "cm": "cz"
+    "commit": "cz"
   },
   "repository": {
     "type": "git",
