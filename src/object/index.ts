@@ -14,9 +14,9 @@ export interface ResetObjectOptions {
 }
 
 /**
- * 深度遍历对象, 将多层对象扁平化
- * @param { RecordObj }  obj 遍历对象
- * @param { ObjectEachCallback } fn 每一个key执行的方法
+ * Depth traverses the object, flattening multiple layers of objects
+ * @param { RecordObj }  obj each object
+ * @param { ObjectEachCallback } fn the callback function
  * @returns void
  * **/
 
@@ -52,9 +52,9 @@ export function objectEach ( obj: RecordObj, fn: ObjectEachCallback ): void {
 }
 
 /**
-* 对象比较(不比较原型链的属性)
-* @param { RecordObj } original 原始对象
-* @param { RecordObj } target 目标对象
+* object diff
+* @param { RecordObj } original original object
+* @param { RecordObj } target target object
 * @returns new diff object
  * **/
 
@@ -149,10 +149,10 @@ export function objectDiff<T=any> ( original: RecordObj, target: RecordObj ): T 
 }
 
 /**
- * @desc 初始化对象属性值
- * @param { Object } obj 需要初始化对象的值
- * @param { ResetObjectOptions } options 重置数据配置项
- * @return { Object } 返回数据清空的对象
+ * @desc reset object value
+ * @param { Object } obj target object
+ * @param { ResetObjectOptions } options options
+ * @return { Object }
  * */
 
 export function resetObjectValue<T=any> ( obj, options?: ResetObjectOptions ): T {

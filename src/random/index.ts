@@ -1,6 +1,6 @@
 /**
  *
- * @desc 生成指定范围[min, max]的随机整数
+ * @desc Generates a random integer in the specified range [min, Max]
  * @param  {Number} min
  * @param  {Number} max
  * @return {Number}
@@ -18,7 +18,7 @@ export function randomNum ( min: number, max: number ): number {
 
 /**
  *
- * @desc 随机生成颜色
+ * @desc random color
  * @return {String}
  */
 
@@ -29,8 +29,8 @@ export function randomColor (): string {
 }
 
 /**
- * @desc 产生任意长度随机字母数字组合
- * @param { boolean } randomFlag 是否任意长度 min-任意长度最小位[固定位数] max-任意长度最大位
+ * @desc Generates random alphanumeric combinations of any length
+ * @param { boolean } randomFlag Whether Any length min- Minimum bit of any length [Fixed bit] Max - Maximum bit of any length
  * @param { number } min
  * @param { number } max
  * @return { string }
@@ -48,7 +48,7 @@ export function randomWord ( randomFlag: boolean, min: number, max:number ): str
     'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R',
     'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z' ];
 
-  // 随机产生
+  // random crate
 
   if( randomFlag ){
 
@@ -69,8 +69,8 @@ export function randomWord ( randomFlag: boolean, min: number, max:number ): str
 }
 
 /**
- * @desc generateUUID 生成UUID
- * @returns { string } 返回字符串
+ * @desc generateUUID
+ * @returns { string }
  */
 
 export function generateUUID ():string {

@@ -46,7 +46,7 @@ export function setCookie ( name:string, value:string, days: number ):void {
 
 /**
  *
- * @desc 根据name删除cookie
+ * @desc remove cookie
  * @param  {String} name
  */
 

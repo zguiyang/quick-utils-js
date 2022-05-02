@@ -16,8 +16,8 @@ export interface Base64ToBlobResult {
 }
 
 /**
- * @desc 将一个blob对象转为base64的字符串
- * @param { Blob } blob blob对象
+ * @desc blob to base64
+ * @param { Blob } blob blob file
  * @return { Promise<blobToBase64Result> }
  * **/
 
@@ -39,9 +39,9 @@ export function blobToBase64 ( blob:Blob ): Promise<BlobToBase64Result> {
 
     fileReader.onerror = () => {
 
-      console.error ( '文件流异常' );
+      console.error ( 'file error' );
 
-      resolve ( { msg: '文件流异常', base64Url: null } );
+      resolve ( { msg: 'file error', base64Url: null } );
 
     };
 
@@ -51,7 +51,7 @@ export function blobToBase64 ( blob:Blob ): Promise<BlobToBase64Result> {
 
 /**
  * base64 转 blob
- * @param { Base64ToBlobConfig } config 配置参数
+ * @param { Base64ToBlobConfig } config
  * **/
 
 export function base64ToBlob ( config:Base64ToBlobConfig ): Promise<Base64ToBlobResult> {
@@ -112,7 +112,7 @@ export function base64ToBlob ( config:Base64ToBlobConfig ): Promise<Base64ToBlob
 }
 
 /**
- * @desc 通过a标签模拟下载blob文件
+ * @desc  download blob
  * @param { string } fileName
  * @param { blob } blob
  */

@@ -1,7 +1,7 @@
 
 /**
  *
- * @desc 现金额转大写
+ * @desc Change the cash amount to uppercase
  * @param  {Number} money
  * @return {String}
  */
@@ -88,8 +88,8 @@ export function digitUppercase ( money: number ): string {
 }
 
 /**
- * @desc 获取文件扩展名 xxx.txt => txt
- * @param { string } filename 文件名称
+ * @desc get file extension name xxx.txt => txt
+ * @param { string } filename file name
  * @return { string | undefined }
  * **/
 

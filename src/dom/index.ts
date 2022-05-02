@@ -6,7 +6,7 @@ export interface DomOffsetPos {
 
 /**
  *
- * @desc 获取滚动条距顶部的距离
+ * @desc get scroll top value
  */
 
 export function getScrollTop (): number {
@@ -41,7 +41,7 @@ export function scrollToBottom ( element: Element ) {
 
 /**
  *
- * @desc 设置滚动条距顶部的距离
+ * @desc set scroll top value
  * @param { number } value
  */
 
@@ -55,7 +55,7 @@ export function setScrollTop ( value:number ): number {
 
 /**
  *
- * @desc  在${duration}时间内，滚动条平滑滚动到${to}指定位置
+ * @desc  Within ${duration}，The scroll bar scrolls smoothly to ${to}
  * @param { number } to
  * @param { number } durationVal
  */
@@ -118,8 +118,8 @@ export function scrollTo ( to, durationVal?: number ) {
 
 /**
  *
- * @desc  获取一个元素的距离文档(document)的位置，类似jQ中的offset()
- * @param { HTMLElement| null } ele 元素节点
+ * @desc  Gets an element's distance from the document, similar to offset() in jQ.
+ * @param { HTMLElement| null } ele element node
  * @returns { DomOffsetPos }
  */
 

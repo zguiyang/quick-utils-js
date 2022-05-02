@@ -12,7 +12,7 @@ export interface FormatRemainTimeResult extends FormatTimeValue {
 }
 
 /**
- * @desc 根据时间戳获取出具体的天、时、分、秒等
+ * @desc According to the timestamp to get the specific day, hour, minute, second, etc
  * @param { number } timeValue
  * **/
 
@@ -46,7 +46,7 @@ export function getTimeValue ( timeValue: number ): FormatTimeValue {
 
 /**
  *
- * @desc   格式化现在距${ endTime }的剩余时间
+ * @desc  format the time to the specific format
  * @param  {Date} endTime
  * @return {FormatRemainTimeResult}
  */
@@ -54,9 +54,9 @@ export function getTimeValue ( timeValue: number ): FormatTimeValue {
 
 export function getRemainTime ( endTime ): FormatRemainTimeResult {
 
-  let startDate = new Date (); // 开始时间
+  let startDate = new Date (); // start time
 
-  let endDate = new Date ( endTime ); // 结束时间
+  let endDate = new Date ( endTime ); // end time
 
   let t = endDate.getTime () - startDate.getTime ();
 
@@ -70,10 +70,10 @@ export function getRemainTime ( endTime ): FormatRemainTimeResult {
 }
 
 /**
- * @desc ${ startTime - endTime }的剩余时间,startTime大于endTime时，均返回0
+ * @desc ${starttime-endTime} Remaining time, if startTime > endTime, return 0
  * @param { Date | String | unix } startTime
  * @param { Date | String } endTime
- * @returns { FormatTimeValue | null } { d, h, m, s } 天 时 分 秒
+ * @returns { FormatTimeValue | null } { d, h, m, s } day h m s
  */
 
 export function getTimeLeft ( startTime, endTime ): FormatTimeValue | null {
@@ -91,10 +91,10 @@ export function getTimeLeft ( startTime, endTime ): FormatTimeValue | null {
 }
 
 /**
- * @desc 日期时间格式化
- * @param { string|number } timestamp 需要格式化的时间戳
- * @param { string } formatStr 格式化时间的展示格式
- * @returns { null | string } 返回日期转换结果
+ * @desc date format
+ * @param { string|number } timestamp unix
+ * @param { string } formatStr format: YYYY-MM-DD HH:mm:ss
+ * @returns { null | string }
  * **/
 
 export function dateFormat ( timestamp:string|number, formatStr?: string ): null | string {
