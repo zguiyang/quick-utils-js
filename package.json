@@ -23,7 +23,7 @@
     "dev": "cross-env NODE_ENV=development rollup -cw",
     "start": "docsify start . -c ssr.config.js",
     "build": "cross-env NODE_ENV=production rollup -c",
-    "docs": "git puush docs main",
+    "docs": "git push docs main",
     "test": "jest --no-cache",
     "coverage": "jest --coverage",
     "eslint": "eslint src --ext .ts",
