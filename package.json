@@ -21,6 +21,7 @@
   ],
   "scripts": {
     "dev": "cross-env NODE_ENV=development rollup -cw",
+    "start": "docsify start . -c ssr.config.js",
     "build": "cross-env NODE_ENV=production rollup -c",
     "test": "jest --no-cache",
     "coverage": "jest --coverage",
