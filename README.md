@@ -8,6 +8,9 @@ related operation methods and some tool methods. At present, some tool functions
 In addition, the library differs from [lodash](https://lodash.com/) in that the tool functions in this tool are tool methods that are isolated from the project business (business direction tool functions) rather than pure tool methods.
 We also welcome suggestions to optimize, or directly raise`PR`, any questions, can be asked in the issue
 
+# repo
+[gitee](https://gitee.com/zhaoguiyang/quick-utils-js)
+
 # Compatibility
 
 ## Browser
