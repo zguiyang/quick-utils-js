@@ -1,7 +1,5 @@
 import { isObject, isArray, getValueType, isEmptyObject } from '../helper';
 
-import { RecordObj } from '../types';
-
 export type CommonCallback = ( key: string, val: any ) => any;
 
 export type ObjectEachCallback = ( key: string, val: any ) => any;
@@ -15,12 +13,12 @@ export interface ResetObjectOptions {
 
 /**
  * Depth traverses the object, flattening multiple layers of objects
- * @param { RecordObj }  obj each object
+ * @param { Record<string, any> }  obj each object
  * @param { ObjectEachCallback } fn the callback function
  * @returns void
  * **/
 
-export function objectEach ( obj: RecordObj, fn: ObjectEachCallback ): void {
+export function objectEach ( obj: Record<string, any>, fn: ObjectEachCallback ): void {
 
 
   // 如果不是对象直接返回
@@ -53,14 +51,14 @@ export function objectEach ( obj: RecordObj, fn: ObjectEachCallback ): void {
 
 /**
 * object diff
-* @param { RecordObj } original original object
-* @param { RecordObj } target target object
+* @param { Record<string, any> } original original object
+* @param { Record<string, any> } target target object
 * @returns new diff object
  * **/
 
-export function objectDiff<T=any> ( original: RecordObj, target: RecordObj ): T {
+export function objectDiff<T=any> ( original: Record<string, any>, target: Record<string, any> ): T {
 
-  const result: RecordObj = {};
+  const result: Record<string, any> = {};
 
   const targetKeys: string[] = Object.keys ( target );
 
@@ -144,7 +142,7 @@ export function objectDiff<T=any> ( original: RecordObj, target: RecordObj ): T 
 
   } );
 
-  return result;
+  return result as T;
 
 }
 

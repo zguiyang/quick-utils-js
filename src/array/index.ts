@@ -1,5 +1,3 @@
-import { RecordObj } from '../types';
-
 import { isArray } from '../helper';
 
 /**
@@ -8,7 +6,7 @@ import { isArray } from '../helper';
  * @return {  Array<any>> }
  * **/
 
-export function uniqueArrayObj<T=RecordObj> ( arr:T[] ): T[] {
+export function uniqueArrayObj<T=Record<string, any>> ( arr:T[] ): T[] {
 
   let hashTable = {};
 
