@@ -1,6 +1,6 @@
 # 更新日志
 
-## [1.1.0](https://github.com/zguiyang/quick-utils-js/compare/v1.0.4...v1.1.0) (2022-07-09)
+ ### [1.1.0](https://github.com/zguiyang/quick-utils-js/compare/v1.0.4...v1.1.0) (2022-07-09)
 
 
 ### 🎉 新功能
