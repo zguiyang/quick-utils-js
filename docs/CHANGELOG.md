@@ -1,6 +1,20 @@
 # 更新日志
 
- ### [1.1.0](https://github.com/zguiyang/quick-utils-js/compare/v1.0.4...v1.1.0) (2022-07-09)
+
+
+## [1.2.0](https://github.com/zguiyang/quick-utils-js/compare/v1.1.0...v1.2.0) (2022-07-09)
+
+
+### 🎉 新功能
+
+*  🎉 增加随机id方法 ([464c4ad](https://github.com/zguiyang/quick-utils-js/commit/464c4adf6e824d8d14b6c4d2bd731793d354edf7))
+
+
+### 🐛 Bug 修复
+
+* 🐛  修复邮箱正则校验bug ([99d0318](https://github.com/zguiyang/quick-utils-js/commit/99d031899b1d280dae7906a26ca5d7f6baa495bb))
+
+### [1.1.0](https://github.com/zguiyang/quick-utils-js/compare/v1.0.4...v1.1.0) (2022-07-09)
 
 
 ### 🎉 新功能
