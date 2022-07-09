@@ -3,7 +3,7 @@ import { ref } from 'vue';
 
 import { randomColor, isEmail } from 'quick-utils-js';
 
-const hexColor = ref<string>( randomColor () );
+const hexColor = ref<string> ( randomColor () );
 
 const generateColor = () => {
 
@@ -12,9 +12,9 @@ const generateColor = () => {
 };
 
 
-console.log (  isEmail('2770723534@qq.com') );
+console.log ( isEmail ( '2770723534@qq.com' ) );
 
-console.log (  isEmail('2770723534@stacs.cn') );
+console.log ( isEmail ( '2770723534@stacs.cn' ) );
 
 
 </script>
