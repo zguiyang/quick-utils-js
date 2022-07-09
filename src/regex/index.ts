@@ -64,7 +64,7 @@ export const isIdCard = ( str:string ):boolean => /^(^[1-9]\d{7}((0\d)|(1[0-2]))
  * @return { boolean }
  */
 
-export const isEmail = ( str: string ): boolean => /\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)359791*/.test ( str );
+export const isEmail = ( str: string ): boolean => /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/.test ( str );
 
 /**
 * @desc Password regular: Contains 8 to 20 characters, including digits, uppercase and lowercase letters, and special characters
