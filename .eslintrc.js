@@ -12,6 +12,8 @@ module.exports = {
   },
   },
   rules: {
+    "indent": "off",
+    "@typescript-eslint/indent": ["error"],
     '@typescript-eslint/no-require-imports': 'off',
     '@typescript-eslint/prefer-optional-chain': 'off',
     'guard-for-in': 'off',
@@ -28,7 +30,6 @@ module.exports = {
     '@typescript-eslint/no-explicit-any': 'off',
     'global-require': 'off',
     'template-curly-spacing': 'off',
-    'indent': [ 'error', 2 ],
     'no-irregular-whitespace': 'error',
     'dot-location': 'error',
     'no-extra-semi': 'error',
