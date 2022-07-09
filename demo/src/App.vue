@@ -9,13 +9,13 @@ const idStr = ref<string> ( generateID () );
 
 const generateColor = () => {
 
-    hexColor.value = randomColor ();
+  hexColor.value = randomColor ();
 
 };
 
 const randomID = () => {
 
-    idStr.value = generateID ();
+  idStr.value = generateID ();
 
 };
 

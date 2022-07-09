@@ -3,7 +3,7 @@ import { getRemainTime, getTimeLeft, dateFormat } from '../src/date';
 test('get remain time', () => {
 
     const val = getRemainTime ( new  Date().getTime() + 10000 );
-
+ 
     expect( val ).toEqual({ formatStr: '0天 0小时 0分钟 10秒', d: 0, h: 0, m:0, s: 10 });
 });
 
