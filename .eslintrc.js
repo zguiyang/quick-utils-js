@@ -2,9 +2,14 @@ module.exports = {
   extends: [
     'alloy',
     'alloy/typescript',
+    'plugin:vue/base'
   ],
-  parser: '@typescript-eslint/parser',
   plugins: [ '@typescript-eslint' ],
+  parserOptions: {
+    parser: "@typescript-eslint/parser",
+    ecmaFeatures : {
+      jsx : false
+  },
   rules: {
     '@typescript-eslint/no-require-imports': 'off',
     '@typescript-eslint/prefer-optional-chain': 'off',
