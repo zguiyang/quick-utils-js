@@ -6,6 +6,7 @@ module.exports = {
   parser: '@typescript-eslint/parser',
   plugins: [ '@typescript-eslint' ],
   rules: {
+    '@typescript-eslint/no-require-imports': 'off',
     '@typescript-eslint/prefer-optional-chain': 'off',
     'guard-for-in': 'off',
     'no-return-assign': 'off',
