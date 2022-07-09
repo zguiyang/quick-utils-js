@@ -14,7 +14,7 @@
 
 * 🐛  修复邮箱正则校验bug ([99d0318](https://github.com/zguiyang/quick-utils-js/commit/99d031899b1d280dae7906a26ca5d7f6baa495bb))
 
-### [1.1.0](https://github.com/zguiyang/quick-utils-js/compare/v1.0.4...v1.1.0) (2022-07-09)
+### [1.1.0](https://github.com/zguiyang/quick-utils-js/compare/v1.0.4...v1.1.0) (2022-06-09)
 
 
 ### 🎉 新功能
