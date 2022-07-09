@@ -13,7 +13,7 @@ module.exports = {
   },
   rules: {
     "indent": "off",
-    "@typescript-eslint/indent": ["error"],
+    "@typescript-eslint/indent": ["error", 2],
     '@typescript-eslint/no-require-imports': 'off',
     '@typescript-eslint/prefer-optional-chain': 'off',
     'guard-for-in': 'off',
