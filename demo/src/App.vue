@@ -1,13 +1,21 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 
-import { randomColor, isEmail } from 'quick-utils-js';
+import { randomColor, isEmail, generateID } from 'quick-utils-js';
 
 const hexColor = ref<string> ( randomColor () );
 
+const idStr = ref<string> ( generateID () );
+
 const generateColor = () => {
 
-  hexColor.value = randomColor ();
+    hexColor.value = randomColor ();
+
+};
+
+const randomID = () => {
+
+    idStr.value = generateID ();
 
 };
 
@@ -22,9 +30,13 @@ console.log ( isEmail ( '2770723534@stacs.cn' ) );
 <template>
   <img alt="Vue logo" src="./assets/logo.png" />
 
-  <p>{{ hexColor }}</p>
+  <p>随机颜色：{{ hexColor }}</p>
+
+  <p>随机ID：{{ idStr }}</p>
 
   <button type="button" @click="generateColor">生成颜色</button>
+
+  <button type="button" @click="randomID">生成id</button>
 
 </template>
 
