@@ -22,6 +22,7 @@
   "scripts": {
     "start": "docsify start . -c ssr.config.js",
     "build": "tsup --config ./tsup.config.ts",
+    "docs:serve": "docsify  serve ./docs",
     "docs:publish": "git push docs main",
     "test": "jest --no-cache",
     "coverage": "jest --coverage",
@@ -54,6 +55,7 @@
     "cross-env": "^7.0.2",
     "cz-conventional-changelog": "^3.3.0",
     "cz-customizable": "^6.9.0",
+    "docsify-cli": "^4.4.4",
     "eslint": "^8.6.0",
     "eslint-config-alloy": "^4.4.0",
     "husky": "^7.0.4",
