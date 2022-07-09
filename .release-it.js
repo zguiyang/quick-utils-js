@@ -31,6 +31,6 @@ module.exports = {
   },
   hooks: {
     "before:init" : [ "echo 开始校验代码","pnpm run test", "pnpm run eslint","echo 📦 开始打包项目,准备发布",  "pnpm run build" ],
-    "after:release" : [ "echo 测试覆盖率", "pnpm run coverage", "echo 完成 成功发布 ${name} v${version} 到 ${ repo.repository}" ]
+    "after:release" : [ "echo 完成 成功发布 ${name} v${version} 到 ${ repo.repository}" ]
   }
 }
