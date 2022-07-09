@@ -30,7 +30,7 @@ module.exports = {
     },
   },
   hooks: {
-    "before:init" : [ "echo 开始校验代码格式" "pnpm run eslint", "echo 📦 开始打包项目,准备发布",  "pnpm run build" ],
+    "before:init" : [ "echo 开始校验代码格式", "pnpm run eslint", "echo 📦 开始打包项目,准备发布",  "pnpm run build" ],
     "after:release" : [ "echo 完成 成功发布 ${name} v${version} 到 ${ repo.repository}",  ]
   }
 }

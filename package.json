@@ -53,6 +53,7 @@
     "commitizen": "^4.2.4",
     "cross-env": "^7.0.2",
     "cz-conventional-changelog": "^3.3.0",
+    "cz-customizable": "^6.9.0",
     "eslint": "^8.6.0",
     "eslint-config-alloy": "^4.4.0",
     "husky": "^7.0.4",
