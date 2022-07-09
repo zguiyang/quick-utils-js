@@ -1,6 +1,6 @@
 /**
  *
- * @desc Generates a random integer in the specified range [min, Max]
+ * @desc 生成随机数，可以指定范围
  * @param  {Number} min
  * @param  {Number} max
  * @return {Number}
@@ -18,7 +18,7 @@ export function randomNum ( min: number, max: number ): number {
 
 /**
  *
- * @desc random color
+ * @desc  随机生成十六进制颜色
  * @return {String}
  */
 
@@ -29,8 +29,8 @@ export function randomColor (): string {
 }
 
 /**
- * @desc Generates random alphanumeric combinations of any length
- * @param { boolean } randomFlag Whether Any length min- Minimum bit of any length [Fixed bit] Max - Maximum bit of any length
+ * @desc 随机生成字符串
+ * @param { boolean } randomFlag 是否生成指定长度范围的字符串
  * @param { number } min
  * @param { number } max
  * @return { string }
@@ -50,13 +50,13 @@ export function randomWord ( randomFlag: boolean, min: number, max:number ): str
 
   // random crate
 
-  if( randomFlag ){
+  if ( randomFlag ){
 
     range = Math.round ( Math.random () * ( max - min ) ) + min;
 
   }
 
-  for( let i = 0; i < range; i ++ ){
+  for ( let i = 0; i < range; i ++ ){
 
     pos = Math.round ( Math.random () * ( arr.length - 1 ) );
 
@@ -69,7 +69,18 @@ export function randomWord ( randomFlag: boolean, min: number, max:number ): str
 }
 
 /**
- * @desc generateUUID
+ * @desc 生成随机id
+ * @returns { string }
+ * **/
+
+export function generateID (): string {
+
+  return randomWord ( true, 16, 32 );
+
+}
+
+/**
+ * @desc 生成uuid
  * @returns { string }
  */
 
