@@ -1,13 +1,20 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 
-import { randomColor } from 'quick-utils-js';
+import { randomColor, isEmail } from 'quick-utils-js';
 
 const hexColor = ref<string>( randomColor () );
 
 const generateColor = () => {
+
   hexColor.value = randomColor ();
+
 };
+
+
+console.log (  isEmail('2770723534@qq.com') );
+
+console.log (  isEmail('2770723534@stacs.cn') );
 
 
 </script>
