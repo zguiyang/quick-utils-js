@@ -12,21 +12,18 @@ test('The object element is deduplicated', () => {
 
 test('array recursion map callback', () => {
 
-  const list = [ { label:'a', value:1, id: '111', children: [ {  label: '999', value: 2, id: 2 } ] }, { label: '90998', value: 7, id: 10 } ];
+  const list:any[] = [ { label:'a', value:1, id: '111', children: [ {  label: '999', value: 2, id: 2 } ] }, { label: '90998', value: 7, id: 10 } ];
 
   const result: any[] = arrayRecursionMap( list, ( item ) => {
-    const temp = {
+    const temp: any = {
       key: item.label,
       val: item.value,
-      children: [],
-
     };
 
     if ( item.children ) {
 
       temp.children = item.children as any;
-    } else {
-      delete  temp.children;
+
     }
 
     return temp;

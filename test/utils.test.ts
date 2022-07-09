@@ -1,4 +1,4 @@
-import { digitUppercase,  getFileExtension, generateUUID } from '../src/utils';
+import { digitUppercase,  getFileExtension } from '../src/utils';
 
 test('amount to uppercase', () => {
 
@@ -22,11 +22,4 @@ test ('get file ext name 2', () => {
     const fileName = 'file.JPG';
     expect( getFileExtension( fileName )).toBe('jpg');
 
-})
-
-test('create uuid ', () => {
-
-    const uuid = generateUUID();
-
-    expect(uuid.length > 0 ).toBeTruthy();
 })

@@ -1,16 +1,16 @@
-import { isUrl, isNetWorkUrl, isHttpUrl, isHttpsUrl, isPhoneStrict, isPhone, isIdCard, isEmail, isPassword, isFieldName,
-    isNumberOrLetter, isNumberOrFloat, isColor } from '../src/regex';
+import { isHttpUrl, isNetWorkUrl, isHttpsUrl, isPhoneStrict, isPhone, isIdCard, isEmail, isPassword, isFieldName,
+    isNumberOrLetter, isNumberOrFloat, isHexColor } from '../src/regex';
 
 test(' is url test false', () => {
 
-    const result = isUrl('../b/cx/cvc');
+    const result = isHttpUrl('../b/cx/cvc');
 
     expect( result ).toBeFalsy();
 });
 
 test(' is url test true', () => {
 
-    const result = isUrl('http://www.baidu.com');
+    const result = isHttpUrl('http://www.baidu.com');
 
     expect( result ).toBeTruthy();
 });
@@ -106,6 +106,10 @@ test('email test', () => {
 
     expect( isEmail('2770723534@stacs.cn') ).toBeTruthy();
 
+    expect( isEmail('ahbjh_bjhb@stacs.cn') ).toBeTruthy();
+
+    expect( isEmail('ahbjh98898@stacs.cn') ).toBeTruthy();
+
 });
 
 test('password test', () => {
@@ -175,16 +179,16 @@ test('number float test ', () => {
 
 test ( 'color test', () => {
 
-    expect( isColor('124') ).toBeFalsy();
+    expect( isHexColor('124') ).toBeFalsy();
 
-    expect( isColor('124456') ).toBeFalsy();
+    expect( isHexColor('124456') ).toBeFalsy();
 
-    expect( isColor('dbdbdb') ).toBeFalsy();
+    expect( isHexColor('dbdbdb') ).toBeFalsy();
 
-    expect( isColor('#') ).toBeFalsy();
+    expect( isHexColor('#') ).toBeFalsy();
 
-    expect( isColor('#dbdbdb') ).toBeTruthy();
+    expect( isHexColor('#dbdbdb') ).toBeTruthy();
 
-    expect( isColor('#fff') ).toBeTruthy();
+    expect( isHexColor('#fff') ).toBeTruthy();
 
 })

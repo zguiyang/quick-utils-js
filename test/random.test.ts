@@ -1,4 +1,4 @@
-import {  randomNum, randomColor, randomWord } from '../src/random';
+import {  randomNum, randomColor, randomWord, generateID } from '../src/random';
 
 test ('randomNum create number test ', () => {
 
@@ -25,5 +25,15 @@ test('random create word length test ', () => {
     expect( word.length ).toBeGreaterThan( 10 );
 
     expect( word.length ).toBeLessThan( 20 );
+
+})
+
+test('随机ID生成测试 ', () => {
+
+    const id = generateID ( );
+
+    expect( id.length ).toBeGreaterThan( 16 );
+
+    expect( id.length ).toBeLessThan( 32 );
 
 })
