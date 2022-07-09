@@ -10,7 +10,7 @@ module.exports = [
     name: '🐛 fix: 修复 bug',
   },
   {
-    label: '📝  代码修改',
+    label: '📝  文档修改',
     value: 'docs',
     name: '📝 docs: 文档的变更',
     hidden: true,
