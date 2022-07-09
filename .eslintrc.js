@@ -7,8 +7,9 @@ module.exports = {
   plugins: [ '@typescript-eslint' ],
   parserOptions: {
     parser: "@typescript-eslint/parser",
-    ecmaFeatures : {
+    ecmaFeatures: {
       jsx : false
+  },
   },
   rules: {
     '@typescript-eslint/no-require-imports': 'off',
