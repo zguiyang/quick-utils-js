@@ -22,7 +22,7 @@ module.exports = [
     hidden: true,
   },
   {
-    label: '♻ 代码重构',
+    label: '♻️ 代码重构',
     value: 'refactor',
     name: '♻️ refactor: 重构代码',
     hidden: true,
