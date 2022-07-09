@@ -640,19 +640,37 @@ console.log ( 'randomWord', randomWord( true , 5, 10 )); // oQPfS92
 
 ```
 
+### 随机ID
+
+```ts
+/**
+ * @desc 生成随机id
+ * @returns { string }
+ * **/
+
+
+import  { generateID } from 'quick-utils-js';
+
+console.log ( 'generateID', randomWord()); // XXXX
+
+
+
+```
+
+### 随机UUID
+```ts
+import  { generateUUID } from 'quick-utils-js';
+
+console.log ('uuid', generateUUID() ); // 'd1d023b0-5559-4f95-9ead-2446afca559f'
+
+```
+
 ### 随机十六进制颜色
 
 ```ts
 import  { randomColor } from 'quick-utils-js';
 
 console.log ('random color', randomColor() ); // #ddb8f1
-
-```
-### 随机UUID
-```ts
-import  { generateUUID } from 'quick-utils-js';
-
-console.log ('uuid', generateUUID() ); // 'd1d023b0-5559-4f95-9ead-2446afca559f'
 
 ```
 
