@@ -1,42 +1,42 @@
-# 介绍
+# Introduction
 
-该工具为我们提供了前端项目业务中快速常用的工具方法函数，工具库的代码大部分来自网络和社区，并使用了部分
-[outils](https://github.com/proYang/outils) 源码，项目中全部使用`typescript`开发。目前工具库中提供了`array`、`blob`、`cookie`、`date`、
-`device`、`dom`、`number`、`object`、`random`、`regex`、`string`相关的操作方法和部分工具方法。目前工具库中部分工具函数还不是很多，后续会慢慢增加，
-此外,这个工具库和 [lodash](https://lodash.com/) 的区别是：此工具中的工具函数都是从项目业务中抽离出来的工具方法（业务方向工具函数），并不是纯工具方法。也欢迎大家提出建议优化，或直接提`pr`,有任何问题，可在[issue](https://github.com/zguiyang/quick-utils-js/issues) 中提问。
+This tool provides us with a quick and common tool method functions in the front-end project business. Most of the code of the tool library comes from the network and the community, and uses part of
+[outils](https://github.com/proYang/outils) sound code, All projects are developed using`Typescript`,
+The current tool library contains`Array`,`Blob`,`Cookie`,`Date`,`Device`,`Dom`,`Number`,`Object`,`Random`,`Regex`,`String`
+related operation methods and some tool methods. At present, some tool functions in the tool library are not very many, and will be gradually increased later.
 
-# 引用
+In addition, the library differs from [lodash](https://lodash.com/) in that the tool functions in this tool are tool methods that are isolated from the project business (business direction tool functions) rather than pure tool methods.
+We also welcome suggestions to optimize, or directly raise`PR`, any questions, can be asked in the issue
 
-**站在巨人的肩膀上开发而成**
+# reference
+
+**Developed on the shoulders of giants**
 
 1. [lodash](https://lodash.com/)
 2. [outils](https://github.com/proYang/outils)
 3. [dayjs](https://day.js.org/)
 4. [bignumber.js](https://mikemcl.github.io/bignumber.js/)
-5. 社区
+5. community
 
+# Compatibility
 
-# 兼容性
+## Browser
 
- ## 浏览器
+Internet Explorer is not supported.
+The latest 2 versions of modern browsers such as`Edge`,`Firefox`,`Chrome`,`Safari`.
+Other versions of these browsers have not been rigorously tested due to development resource constraints. But `quick-utils-js` is expected to work well on less old versions of these browsers(for example, within 2 years). Feel free to [issue](https://github.com/zguiyang/quick-utils-js/issues) if you find any problems
 
-不支持 IE 浏览器。
+## Typescript
 
-`Edge`、`Firefox`、`Chrome`、`Safari` 等现代浏览器的最新的 2 个版本确保会被支持。
-对于这些浏览器的其他版本中，由于开发资源的限制并没有做过严格的测试。但是预期`quick-utils-js`应该在这些浏览器不算太老的版本上能正常的运行
-（比如 2 年之内的版本）。如果你发现了任何问题欢迎来提 [issue](https://github.com/zguiyang/quick-utils-js/issues) 
+Need to release > 3.9.10
 
-## typescript
+# Quick start
 
-需要版本 > 3.9.10
-
-# 快速开始
-
-## 安装
+## Install
 
 `npm i quick-utils-js ` or `yarn add quick-utils-js`
 
-## 使用
+## Usage
 
 ```js
 import { generateUUID } from "quick-utils-js";
@@ -44,17 +44,18 @@ import { generateUUID } from "quick-utils-js";
 console.log ( generateUUID () );
 
 ```
+
 # API
 
-## 数组
+## Array
 
-### 数组去重
+### Array to unique
 
-针对数组中的重复对象元素去重，并返回新数组
+Removes duplicate object elements from an array and returns a new array
 
 ```ts
 /**
- * @param { Array<T> } arr  需要去重的数组
+ * @param { Array<T> } arr unique arr data
  * @return {  Array<T> }
  * **/
 
@@ -67,15 +68,15 @@ const result = uniqueArrayObj<{ name: string, id: string }> ( arr );
 console.log( JSON.stringify ( result ) ); // [{"name":"yang","id":"1222333"},{"name":"yang2","id":"1222333"},{"name":"yang","id":"1234567"}]
 ```
 
-### 数组递归遍历
+### The array is iterated recursively
 
-对于tree结构的数组进行遍历，并根据你的需要生成新的tree数组返回
+Iterate over the tree array and generate a new tree array based on your needs
 
 ```ts
 /**
- * @param { array<T> } data 遍历的数组
- * @param { ( item:T ) => R } callback 每次遍历的回调函数
- * @param { string } childKey 递归的数组key名
+ * @param { array<T> } data The array to iterate over
+ * @param { ( item:T ) => R } callback The callback function for each iteration
+ * @param { string } childKey The name of the recursive array key
  * @return { array } R[]
  * */
 
@@ -158,14 +159,14 @@ console.log( JSON.stringify ( result ) ); // [{"label":"顶级节点一","value"
 
 ```
 
-### 扁平化数组
+### Flat array
 
-扁平化数组：就是将一个多级tree结构的数组拍平成一个一级数组, 此方法会返回一个新数组
+Flatten an array of multilevel trees into a one-level array. This method returns a new array
 ```ts
 /**
  *
- * @param { any<T> } data 需要扁平化的数组
- * @param { string } childKey 递归子级key
+ * @param { any<T> } data The array needs to be flattened
+ * @param { string } childKey Recursive child key
  * @return { array }
  * **/
 import { arrayRecursionMap } from "quick-utils-js";
@@ -237,13 +238,13 @@ console.log(JSON.stringify ( result ) );
 
 ```
 
-### 数组切割
+### Slice array
 
-数组元素切割, `[ 1, 2, 3, 4, 5, 6 ]  => [ [ 1, 2, 3 ], [ 4, 5, 6 ] ]`
+slice array element , `[ 1, 2, 3, 4, 5, 6 ]  => [ [ 1, 2, 3 ], [ 4, 5, 6 ] ]`
 ```ts
 /**
- * @param { Array<T> } arr 进行切割的数组
- * @param { number } step 切割的步长
+ * @param { Array<T> } arr need slice array
+ * @param { number } step slice length
  * @return { Array<T> }
  */
 
@@ -256,16 +257,15 @@ const result = sliceArray<number> ( arr, 3 );
 console.log ( result ); // [ [1, 2, 3], [ 4, 5, 6 ], [ 7 ] ]
 
 ```
-## 对象
+## Object
 
-### 遍历对象
+### Object Each
 
-深度遍历对象, 可以获取到每一个key和value
+The object is deeply traversed to obtain each key and value
 ```ts
 /**
- * 深度遍历对象, 获取对象中的每一个key和value
- * @param { RecordObj }  obj 遍历的对象
- * @param { ObjectEachCallback } fn 每一次遍历的回调
+ * @param { RecordObj }  obj each obj
+ * @param { ObjectEachCallback } fn each callback
  * @returns void
  * **/
 
@@ -285,16 +285,15 @@ console.log( JSON.stringify( result ) ); // {"name":"yang","phone":"18190678380"
 
 
 ```
-### 对象比较
+### Object Diff
 
-对象比较(不比较原型链的属性), 返回差异部分的属性，支持多级
+Object comparison (does not compare the attributes of the prototype chain), returns the attributes of the difference part, supports multiple levels
 
 ```ts
 
 /**
-* 对象比较(不比较原型链的属性)
-* @param original 原始对象
-* @param target 目标对象
+* @param { Object } original object data
+* @param { Object } target target object data
 * @returns new diff object
  * **/
 import { objectDiff } from "quick-utils-js";
@@ -308,15 +307,14 @@ const diffObj = objectDiff ( original, target );
 console.log ( JSON.stringify ( diffObj ) ); // {"user":{"phone":"18190678381","intro":{"a":"intro10"}},"test":"test1"}
 
 ```
-### 初始化对象
+### Init Object
 
-将一个对象中的所有属性值置空, 此方法会影响原对象
+reset object key value
 
 ```ts
 /**
- * @desc 初始化对象属性值
- * @param { Object } obj 需要初始化对象的值
- * @return { Object } 返回数据清空的对象
+ * @param { Object } obj
+ * @return { Object }
  * */
 
 import { resetObjectValue } from "quick-utils-js";
@@ -329,16 +327,16 @@ console.log ( JSON.stringify ( obj ) ); // {"name":null,"phone":null,"address":n
 
 ```
 
-## 字符串
+## String
 
-### 驼峰命名转换
+### KebabCase
 
-驼峰命名转换为横杆/下划线命名， ``getElementById => get-element-by-id/get_element_by_id``
+Hump naming is converted to bar/underline naming, ``getElementById => get-element-by-id/get_element_by_id``
 
 ```ts
 /**
- * @param { string } str 需要转换的字符串 
- * @param { string } separator connector
+ * @param { string } str key 
+ * @param { string } separator
  * **/
 import { getCustomKebabCase } from "quick-utils-js";
 
@@ -352,14 +350,14 @@ console.log ( result1 ); // get-element-by-id
 
 console.log ( result2 ); // get_element_by_id
 ```
-### 横杆/下划线命名转换
+### CamelCase
 
-横杆/下划线命名转换为驼峰命名， ``get-element-by-id/get_element_by_id => getElementById``
+Bar/underline naming is converted to camel naming, ``get-element-by-id/get_element_by_id => getElementById``
 
 ```ts
 /**
- * @param { string } str 需要转换的字符串 
- * @param { string } separator connector
+ * @param { string } str key 
+ * @param { string } separator
  * **/
 import { getCustomCamelCase } from "quick-utils-js";
 
@@ -375,11 +373,11 @@ console.log ( result1 ); // getElementById
 
 console.log ( result2 ); // getElementById
 ```
-## 数字
 
-### 千分位
+## Number
 
-数字千分位格式化，支持大数计算
+### Thousands
+Number to thousands, The decimal is automatically truncated when it exceeds eight places.
 
 ```ts
 /**
@@ -406,7 +404,7 @@ console.log ( result ); // 123,456,789
 console.log ( result2 ); // 123,456,789.1234
  
 ```
-### 千分位还原数字字符串
+### Thousands to normal number
 
 ``999,999,999 => 999999999``
 
@@ -431,9 +429,8 @@ console.log ( result ); // '123456789'
 console.log ( result2 ); // '123456789.1234'
 
 ```
-### 数字计算
-
-数字计算: 加减乘除, 支持大数计算
+### Numerical calculation
+Large number calculation: addition, subtraction, multiplication, division, support large numbers
 
 ```ts
 /**
@@ -461,7 +458,6 @@ console.log ( d ); // 1999999999900000000
 ## Cookie
 
 ```ts
-
 /**
  *
  * @desc  set cookie
@@ -483,7 +479,8 @@ console.log ( d ); // 1999999999900000000
  * @param  {String} cookie name
  */
 
-import  { setCookie, getcookie, removeCookie } from 'quick-utils-js'
+
+import  { setCookie, getCookie, removeCookie } from 'quick-utils-js'
 
 setCookie ('yang-test', 'test_cookie', 1); // success
 
@@ -497,15 +494,14 @@ removeCookie ( 'yang-test' ); // success
 console.log('删除后：', getCookie ( 'yang-test' ) ); // ''
 
 ```
-
 ## Blob
 
-### Blob 转 Base64
+### Blob to Base64
 
 ```ts
 /**
- * @desc blob 转 base64
- * @param { Blob } blob
+ * @desc blob to base64
+ * @param { Blob } blob blob
  * @return { Promise<blobToBase64Result> }
  * **/
 
@@ -520,13 +516,13 @@ const blobToBase64test = async () => {
 }
 
 ```
-### Base64 转 Blob
+### Base64 to Blob
 
 ```ts
 
 /**
- * base64 转 blob
- * @param { Base64ToBlobConfig } config 配置参数
+ * base64 to blob
+ * @param { Base64ToBlobConfig } config params
  * **/
 
 import  { base64ToBlob } from 'quick-utils-js'
@@ -537,11 +533,11 @@ console.log( result );
 
 ```
 
-### 下载文件
+### Download File
 
 ```ts
 /**
- * @desc 下载文件
+ * @desc download blob file
  * @param { string } fileName
  * @param { blob } blob file
  **/
@@ -553,10 +549,9 @@ downloadFile ('test.json', new Blob([JSON.stringify( { hello: "world"}, null, 2)
 
 
 ```
+## Date
 
-## 日期时间
-
-###  时间戳格式化
+###  format unix timestamp
 
 ```ts
 /**
@@ -571,7 +566,7 @@ import  {  dateFormat } from 'quick-utils-js'
 console.log ( 'date format:', dateFormat('1666666777878') ); // 2022-10-25 10:59:37
 
 ```
-###  获取现在距未来的时间差
+###  get remain time
 
 ```ts
 /**
@@ -587,7 +582,7 @@ console.log( getRemainTime ( new  Date().getTime() + 10000 ) ); // { days: 0, ho
 
 ```
 
-###  获取结束时间和开始时间的时间差
+### get time Left
 
 ```ts
 /**
@@ -602,9 +597,9 @@ import  {  getTimeLeft } from 'quick-utils-js';
 console.log( getTimeLeft ( new  Date().getTime(), new Date().getTime() + 20000 ) ); // {d: 0, h: 0, m: 0, s: 20}
 
 ```
-## 随机生成
+## Random
 
-###  随机数
+###  random number
 
 ```ts
 /**
@@ -620,11 +615,11 @@ import  { randomNum } from 'quick-utils-js';
 console.log('randomNum:', randomNum( 10, 12) );
 ```
 
-### 随机字符串
+### random word
 
 ```ts
 /**
- * @desc 产生任意长度随机字母数字组合
+ * @desc generate arbitrarily length str
  * @param { boolean } randomFlag arbitrarily length
  * @param { number } min
  * @param { number } max
@@ -640,7 +635,7 @@ console.log ( 'randomWord', randomWord( true , 5, 10 )); // oQPfS92
 
 ```
 
-### 随机十六进制颜色
+### random hex color
 
 ```ts
 import  { randomColor } from 'quick-utils-js';
@@ -648,17 +643,16 @@ import  { randomColor } from 'quick-utils-js';
 console.log ('random color', randomColor() ); // #ddb8f1
 
 ```
-### 随机UUID
+### Random UUID
 ```ts
 import  { generateUUID } from 'quick-utils-js';
 
 console.log ('uuid', generateUUID() ); // 'd1d023b0-5559-4f95-9ead-2446afca559f'
 
 ```
+## Regex
 
-## 正则校验
-
-### 域名地址
+### domain url
 
 ```ts
 import  { isDomainUrl } from 'quick-utils-js';
@@ -694,7 +688,7 @@ console.log( httpsUrl('https://www.baidu.com') ); // true
 
 ```
 
-### 电话号码 ( 强校验 )
+### phone number ( strict )
 
 ```ts
 import  { isPhoneStrict } from 'quick-utils-js';
@@ -702,7 +696,7 @@ import  { isPhoneStrict } from 'quick-utils-js';
 console.log( isPhoneStrict('13800138000') ); // true
 
 ```
-### 电话号码 ( 弱校验 )
+### phone number ( not strict )
 
 ```ts
 import  { isPhone } from 'quick-utils-js';
@@ -710,7 +704,7 @@ import  { isPhone } from 'quick-utils-js';
 console.log( isPhone ( '12345678900' ) ); // true
 
 ```
-### 身份证号码
+### id card number
 
 ```ts
 import  { isIdCard } from 'quick-utils-js';
@@ -718,7 +712,7 @@ import  { isIdCard } from 'quick-utils-js';
 log( isIdCard('420102199010101111') ); // true
 
 ```
-### 邮箱
+### email
 
 ```ts
 import  { isEmail } from 'quick-utils-js';
@@ -726,7 +720,7 @@ import  { isEmail } from 'quick-utils-js';
 console.log(isEmail('2770723534@qq.com')); // true
 ```
 
-### 密码
+### password
 
 ```ts
 // The value contains 8 to 20 characters, including digits, uppercase and lowercase letters, and special characters
@@ -735,7 +729,7 @@ import  { isPassword } from 'quick-utils-js';
 console.log( isPassword('!@1234Aa') ); // true
 
 ```
-###  名称
+### field name
 
 ```ts
 // The value contains a maximum of 30 characters including digits, uppercase and lowercase letters, and special characters -_+
@@ -743,7 +737,7 @@ import  { isFieldName } from 'quick-utils-js';
 
 console.log( isFieldName('name') ); // true
 ```
-### 字母或数字
+### letter or number
 
 ```ts
 import { isNumberOrLetter } from 'quick-utils-js';
@@ -751,13 +745,20 @@ import { isNumberOrLetter } from 'quick-utils-js';
 console.log( isNumberOrLetter('123') ); // true
 
 ```
-### 数字金额
+### number format
 
 ```ts
 // Digit accuracy check, whether the integer or decimal is greater than 0, up to eight decimal 19.8n accuracy
 import { isNumberOrFloat } from 'quick-utils-js';
 
 console.log( isNumberOrFloat('12356789.12345678') ); // true
+
+```
+### hex color
+
+```ts
+import { isHexColor } from 'quick-utils-js';
+console.log( isHexColor('#ddb8f1') ); // true
 
 ```
 ### 十六进制颜色
@@ -767,9 +768,9 @@ import { isHexColor } from 'quick-utils-js';
 console.log( isHexColor('#ddb8f1') ); // true
 
 ```
-## 设备信息
+## Device Info
 
-### 获取浏览器信息
+### get browser info
 
 ```ts
 import { getExplore } from "quick-utils-js";
@@ -777,7 +778,7 @@ import { getExplore } from "quick-utils-js";
 console.log( getExplore () ); // Chrome: 100.0.4896.88
 
 ```
-### 获取系统信息
+### get system os info
 
 ```ts
 import { getOS } from "quick-utils-js";
@@ -787,7 +788,7 @@ console.log ( getOS() ); // MacOSX
 ```
 ## DOM
 
-### 滚动距离
+### get scroll top value
 ```ts
 import {  getScrollTop  } from "quick-utils-js";
 
@@ -795,13 +796,12 @@ console.log( getScrollTop () ); // scroll top 2419
 
 ```
 
-### 设置滚动条
+### set scroll top value
 ```ts
 import {  setScrollTop, scrollTo } from "quick-utils-js";
 
 /**
  *
- * @desc 设置滚动条距顶部的距离
  * @param { number } value top value
  */
 
@@ -809,7 +809,7 @@ setScrollTop ( 200 );
 
 /**
  *
- * @desc  在${duration}时间(ms)内，滚动条平滑滚动到${to}指定位置
+ * @desc  Within ${duration} time (ms), the scroll bar scrolls smoothly to the position specified by ${to}
  * @param { number } to 目标距离
  * @param { number } durationVal
  */
@@ -817,7 +817,7 @@ setScrollTop ( 200 );
 scrollTo ( 300, 200);
 
 ```
-### 滚动到顶部
+### scroll to top
 ```ts
 import {  scrollToTop } from "quick-utils-js";
 /**
@@ -828,7 +828,7 @@ import {  scrollToTop } from "quick-utils-js";
 scrollToTop ();
 
 ```
-### 滚动到底部
+### scroll to bottom
 ```ts
 import {  scrollToBottom } from "quick-utils-js";
 /**
@@ -838,13 +838,11 @@ import {  scrollToBottom } from "quick-utils-js";
 scrollToBottom ();
 
 ```
-### 获取元素位置
-
-获取一个元素的距离文档(document)的位置，类似jQ中的offset()
+### get element position info
+Gets an element's distance from the document, similar to offset() in jQ.
 ```ts
 /**
- *
- * @param { HTMLElement| null } ele 元素节点
+ * @param { HTMLElement| null } ele element node
  * @returns { DomOffsetPos }
  */
 
@@ -853,8 +851,8 @@ import {  getElOffsetPos } from "quick-utils-js";
 console.log( getElOffsetPos ('#app') ); // elPos: { left: 8, top: 2105, parent: body }
 
 ```
-## 工具方法
-### 金额转大写
+## Utils
+### Amount transferred to uppercase
 ```ts
 /**
  *
@@ -868,7 +866,7 @@ console.log( digitUppercase ( 100.98 ) ); // 壹佰元玖角捌分
 
 
 ```
-### 获取文件后缀名
+### get file extension name
 ```ts
 /**
  * xxx.txt => txt
@@ -883,94 +881,53 @@ console.log( getFileExtension ('test.jpg') ); // jpg
 
 ```
 
-## 辅助方法
-### 判断数字
+## Helper
+### number verification
 ```ts
 import {  isNumber } from "quick-utils-js";
 
 console.log( isNumber ( '777') ) // false 
 console.log( isNumber ( 7 ) ) // true
 ```
-### 判断字符串
+### string verification
 ```ts
 import {  isString } from "quick-utils-js";
 
 console.log( isString ( '777') ) // true 
 console.log( isString ( 7 ) ) // false
 ```
-### 判断布尔值
+### boolean verification
 ```ts
 import {  isBoolean } from "quick-utils-js";
 
 console.log( isBoolean ( !'' ) ) // true 
 console.log( isBoolean ( 3 > 5 ) ) // true
 ```
-### 判断数组
+### array verification
 ```ts
 import { isArray } from "quick-utils-js";
 
 console.log( isArray ( [] ) ) // true 
 console.log( isArray ( {} ) ) // false
 ```
-### 判断对象
+###  object verification
 ```ts
 import {  isObject } from "quick-utils-js";
 
 console.log( isObject ( [] ) ) // false 
 console.log( isObject ( {} ) ) // true
 ```
-### 判断是否空数组
+### empty array verification
 ```ts
 import {  isEmptyArray } from "quick-utils-js";
 
 console.log( isEmptyArray ( [] ) ) // true 
 console.log( isEmptyArray ( [ 1 ] ) ) // false
 ```
-### 判断是否空对象
+### empty object verification
 ```ts
 import { isEmptyObject } from "quick-utils-js";
 
 console.log('isEmptyObject', isEmptyObject ( {} ) ) // true 
 console.log('isEmptyObject', isEmptyObject ( { a: 1 } ) ) // false
 ```
-
-
-# 更新日志
-
-## 1.0.4
-
-**Breaking Changes**
-
-1. delete ``utils/copyToClipboard``
-
-2. delete ``helper/isSupportWebP``、``helper/arrayEqual``
-
-**Fixes**
-
-1. 修复在生产环境中，控制台会出现错误信息bug
-
-**Refactors**
-
-1. move ``utils/generateUUID`` to ``random/generateUUID``
-
-## 1.0.3
-
-**Refactors**
-
-1. ``blob/index``, ``blobToBase64``方法参数注释说明更新
-
-**Breaking Changes**
-
-2. ``regex/index``, 方法名称更新, ``isUrl => isDomainUrl``、``isColor => isHexColor``
-
-## 1.0.2
-
-**Build**
-
-1. ``package.json`` update info
-
-## 1.0.1
-
-**Fixes**
-
-``rollup.config.js`` fix missing *.esm.js bug in dist directory
