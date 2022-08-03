@@ -86,7 +86,7 @@ test('id card test', () => {
 
     expect(  isIdCard('51072519970228741f') ).toBeFalsy();
 
-    expect( isIdCard('510725199702287410') ).toBeTruthy();
+    expect( isIdCard('520715198702277412') ).toBeTruthy();
 
     expect( isIdCard('51072519970228741x') ).toBeTruthy();
 
