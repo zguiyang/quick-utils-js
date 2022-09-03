@@ -24,4 +24,3 @@ example/
 coverage/
 build/
 .DS_Store
-deploy.sh
