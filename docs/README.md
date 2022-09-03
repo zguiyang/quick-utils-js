@@ -676,6 +676,8 @@ console.log ('random color', randomColor() ); // #ddb8f1
 
 ## 正则校验
 
+!> ⚠️ 正则校验模块在后续版本中将不再维护，并在下个大版本中会删除正则校验相关模块，建议使用[regex-utils-js](http://regex.utils.zhaoguiyang.cn/)
+
 ### 域名地址
 
 ```ts
