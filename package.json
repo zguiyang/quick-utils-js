@@ -20,11 +20,9 @@
     "dist"
   ],
   "scripts": {
-    "start": "docsify start . -c ssr.config.js",
     "build": "tsup --config ./tsup.config.ts",
     "demo": "pnpm run --filter ./demo dev",
-    "docs:serve": "docsify  serve ./docs",
-    "docs:publish": "git push docs main",
+    "docs:dev": "docsify  serve ./docs",
     "test": "jest --no-cache",
     "coverage": "jest --coverage",
     "eslint": "eslint . --ext .ts,.js,.vue",
