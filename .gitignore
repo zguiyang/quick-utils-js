@@ -24,4 +24,4 @@ example/
 coverage/
 build/
 .DS_Store
-scirpts/deploy.sh
+deploy.sh
