@@ -1,6 +1,7 @@
+import { describe, it, expect } from 'vitest';
+
 import { setScrollTop, getScrollTop, scrollToBottom } from '../src/dom';
 describe('dom api test', () => {
-    window.scrollTo = jest.fn();
     let body = document.body,
         bodyHeight = getComputedStyle(body).getPropertyValue('height'),
         top = 100;
@@ -9,7 +10,7 @@ describe('dom api test', () => {
 
     setScrollTop( top );
 
-    test ('set scroll top', () => {
+    it ('set scroll top', () => {
         expect(getScrollTop()).toBe( 0 );
     });
 

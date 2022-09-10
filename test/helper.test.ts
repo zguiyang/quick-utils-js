@@ -1,4 +1,6 @@
-import { isNumber, isArray, isEmptyArray, isBoolean, isEmptyObject, isObject, isString } from '../src/helper';
+import { test, expect } from 'vitest';
+
+import { isNumber, isArray, isEmptyArray, isBoolean, isEmptyObject, isObject, isString } from '../src';
 
 // 数字校验
 test('isNumber false', () => {

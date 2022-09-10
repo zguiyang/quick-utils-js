@@ -1,3 +1,5 @@
+import { test, expect } from 'vitest';
+
 import { getCustomKebabCase, getCustomCamelCase } from '../src/string';
 
 test('CamelCase to kebab-case', () => {

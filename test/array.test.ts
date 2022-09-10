@@ -1,7 +1,9 @@
+import { describe, expect } from 'vitest';
+
 import { uniqueArrayObj, arrayRecursionMap, flatTreeArray, sliceArray } from '../src';
 
 
-test('The object element is deduplicated', () => {
+describe('The object element is deduplicated', () => {
   const arr = [ { a: 1, b:1 }, { a: 1, b: 1 }, { a: 1, b: 1 }, { d: 1, e: 2 } ];
 
   const arr2 =  [ { a: 1, b:1 }, { a: 2, b: 1 }, { a: 3, b: 1 }, { d: 1, e: 2 } ];
@@ -17,7 +19,7 @@ test('The object element is deduplicated', () => {
 });
 
 
-test('array recursion map callback', () => {
+describe('array recursion map callback', () => {
 
   const list:any[] = [ { label:'a', value:1, id: '111', children: [ {  label: '999', value: 2, id: 2 } ] }, { label: '90998', value: 7, id: 10 } ];
 
@@ -41,7 +43,7 @@ test('array recursion map callback', () => {
 
 });
 
-test('tree array to flat array', () => {
+describe('tree array to flat array', () => {
 
   const list = [ { a: 1, b: 1, children: [ { c: 1, d: 1 } ] }, { b:2, c: 2}, { d:3, children: [ { e: 4 }] } ];
 
@@ -51,7 +53,7 @@ test('tree array to flat array', () => {
 
 });
 
-test('slice array', () => {
+describe('slice array', () => {
 
   const list = [ 1, 2, 3, 4, 5, 6 ];
 

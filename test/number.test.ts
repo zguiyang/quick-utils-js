@@ -1,4 +1,6 @@
-import { numberToThousands, thousandsToString, numberCalculate } from "../src/number";
+import { test, expect } from 'vitest';
+
+import { numberToThousands, thousandsToString, numberCalculate } from "../src";
 
 test('number to thousands', () => {
 

@@ -1,4 +1,6 @@
-import { digitUppercase,  getFileExtension } from '../src/utils';
+import { test, expect } from 'vitest';
+
+import { digitUppercase,  getFileExtension } from '../src';
 
 test('amount to uppercase', () => {
 

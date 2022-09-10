@@ -1,4 +1,6 @@
-import {  randomNum, randomColor, randomWord, generateID } from '../src/random';
+import { test, expect } from 'vitest';
+
+import {  randomNum, randomColor, randomWord, generateID } from '../src';
 
 test ('randomNum create number test ', () => {
 

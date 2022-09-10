@@ -1,14 +1,16 @@
+import { describe, it, expect } from 'vitest';
+
 import { getCookie, setCookie, removeCookie } from "../src/cookie";
 
 describe('cookie api test', () => {
     const cookieName = 'test-cookie';
-    test('set cookie test', () => {
+    it('set cookie test', () => {
         setCookie(cookieName, cookieName, 1);
     });
-    test('get test cookie', () => {
+    it('get test cookie', () => {
         expect( getCookie( cookieName)).toBe( cookieName );
     })
-    test('remove cookie', () => {
+    it('remove cookie', () => {
 
         removeCookie( cookieName );
 

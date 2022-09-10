@@ -1,5 +1,7 @@
+import { test, expect } from 'vitest';
+
 import { isHttpUrl, isNetWorkUrl, isHttpsUrl, isPhoneStrict, isPhone, isIdCard, isEmail, isPassword, isFieldName,
-    isNumberOrLetter, isNumberOrFloat, isHexColor } from '../src/regex';
+    isNumberOrLetter, isNumberOrFloat, isHexColor } from '../src';
 
 test(' is url test false', () => {
 

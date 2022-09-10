@@ -1,4 +1,6 @@
-import { objectDiff, objectEach, resetObjectValue } from '../src/object';
+import { test, expect } from 'vitest';
+
+import { objectDiff, objectEach, resetObjectValue } from '../src';
 
 
 // 对象比较
