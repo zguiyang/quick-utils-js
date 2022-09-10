@@ -3,22 +3,45 @@ import { isArray } from '../helper';
 /**
  * @desc Array decrement, object decrement
  * @param { Array<any> } arr  decrement array
+ * @param { string } key Array decrement for key
  * @return {  Array<any>> }
  * **/
 
-export function uniqueArrayObj<T=Record<string, any>> ( arr:T[] ): T[] {
+export function uniqueArrayObj<T=Record<string, any>> ( arr:T[], key?:string ): T[] {
+
+  let result:any[] = [];
 
   let hashTable = {};
 
-  return arr.filter ( ( el ) => {
+  if ( key ) {
 
-    let key = JSON.stringify ( el );
+    arr.forEach ( ( item ) => {
 
-    let match = Boolean ( hashTable[ key ] );
+      if ( !hashTable[ item[ key ] ] ) {
 
-    return ( match ? false : hashTable[ key ] = true );
+        hashTable[ item[ key ] ] = item;
 
-  } );
+      }
+
+    } );
+
+    result = Object.values ( hashTable );
+
+  } else {
+
+    result = arr.filter ( ( el ) => {
+
+      let key = JSON.stringify ( el );
+
+      let match = Boolean ( hashTable[ key ] );
+
+      return ( match ? false : hashTable[ key ] = true );
+
+    } );
+
+  }
+
+  return result;
 
 }
 

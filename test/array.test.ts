@@ -1,12 +1,19 @@
-import { uniqueArrayObj, arrayRecursionMap, flatTreeArray, sliceArray } from '../src/array';
+import { uniqueArrayObj, arrayRecursionMap, flatTreeArray, sliceArray } from '../src';
 
 
 test('The object element is deduplicated', () => {
   const arr = [ { a: 1, b:1 }, { a: 1, b: 1 }, { a: 1, b: 1 }, { d: 1, e: 2 } ];
 
-  const result = uniqueArrayObj( arr );
+  const arr2 =  [ { a: 1, b:1 }, { a: 2, b: 1 }, { a: 3, b: 1 }, { d: 1, e: 2 } ];
 
-  expect( result ).toEqual([ { a: 1, b: 1 }, { d: 1, e: 2} ] );
+  const result = uniqueArrayObj ( arr );
+
+  const result2 = uniqueArrayObj ( arr2, 'b' );
+
+  expect( result ).toEqual([ { a: 1, b: 1 }, { d: 1, e: 2 } ] );
+
+  expect( result2 ).toEqual([ { a: 1, b: 1 }, { d: 1, e: 2 } ] );
+
 });
 
 
