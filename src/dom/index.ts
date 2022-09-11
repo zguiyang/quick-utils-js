@@ -18,24 +18,15 @@ export function getScrollTop (): number {
 }
 
 /**
- * Scroll To Top
- * @param { element } element element
- * **/
-
-export function scrollToTop ( element: Element ) {
-
-  element.scrollIntoView ( { behavior: 'smooth', block: 'start' } );
-
-}
-
-/**
  * Scroll To Bottom
  * @param { element } element element
  * **/
 
 export function scrollToBottom ( element: Element ) {
 
-  element.scrollIntoView ( { behavior: 'smooth', block: 'end' } );
+  const el = element || document.body;
+
+  el.scrollIntoView ( { behavior: 'smooth', block: 'end' } );
 
 }
 
@@ -45,11 +36,9 @@ export function scrollToBottom ( element: Element ) {
  * @param { number } value
  */
 
-export function setScrollTop ( value:number ): number {
+export function setScrollTop ( value?:number ): void {
 
-  window.scrollTo ( 0, value );
-
-  return value;
+  window.scrollTo ( 0, value || 100 );
 
 }
 
@@ -60,7 +49,7 @@ export function setScrollTop ( value:number ): number {
  * @param { number } durationVal
  */
 
-export function scrollTo ( to, durationVal?: number ) {
+export function scrollTo ( to: number, durationVal?: number ) {
 
   const duration = durationVal || 0;
 
