@@ -1,6 +1,5 @@
 export type ValueTypeEnum = 'string' | 'number' | 'boolean' | 'object' | 'array' | 'unknown';
 
-
 export const isNumber = ( data:any ):boolean => typeof data === 'number';
 
 export const isString = ( data:any ):boolean => typeof data === 'string';
@@ -42,5 +41,12 @@ export function getValueType ( data: any ): ValueTypeEnum {
     return 'unknown';
 
   }
+
+}
+
+export function enhanceTypeof ( data: any ): string {
+
+  return Object.prototype.toString.call ( data ).slice ( 8, -1 ).
+    toLowerCase ( );
 
 }

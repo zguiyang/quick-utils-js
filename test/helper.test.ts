@@ -1,6 +1,20 @@
 import { test, expect } from 'vitest';
 
-import { isNumber, isArray, isEmptyArray, isBoolean, isEmptyObject, isObject, isString } from '../src';
+import { enhanceTypeof, isNumber, isArray, isEmptyArray, isBoolean, isEmptyObject, isObject, isString } from '../src';
+
+test ('enhanceTypeof test...', () => {
+
+  expect ( enhanceTypeof ( '123' ) ).toBe ( 'string' );
+
+  expect ( enhanceTypeof ( 123 ) ).toBe ( 'number' );
+
+  expect ( enhanceTypeof ( [ { a: 1 } ] ) ).toBe ( 'array' );
+
+  expect ( enhanceTypeof ( { a: 1 } ) ).toBe ( 'object' );
+
+  expect ( enhanceTypeof ( null ) ).toBe ( 'null' );
+
+});
 
 // 数字校验
 test('isNumber false', () => {
