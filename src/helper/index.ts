@@ -14,37 +14,7 @@ export const isEmptyArray = ( data: any ):boolean => isArray ( data ) && !data.l
 
 export const isEmptyObject = ( data:any ):boolean => isObject ( data ) ? !Object.keys ( data ).length : false;
 
-export function getValueType ( data: any ): ValueTypeEnum {
-
-  if ( isNumber ( data ) ) {
-
-    return 'number';
-
-  } else if ( isString ( data ) ) {
-
-    return 'string';
-
-  } else if ( isBoolean ( data ) ) {
-
-    return 'boolean';
-
-  } else if ( isArray ( data ) ) {
-
-    return 'array';
-
-  } else if ( isObject ( data ) ) {
-
-    return 'object';
-
-  } else {
-
-    return 'unknown';
-
-  }
-
-}
-
-export function enhanceTypeof ( data: any ): string {
+export function getValueType ( data: any ): ValueTypeEnum | string {
 
   return Object.prototype.toString.call ( data ).slice ( 8, -1 ).
     toLowerCase ( );
