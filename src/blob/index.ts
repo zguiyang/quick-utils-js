@@ -18,7 +18,7 @@ export interface Base64ToBlobResult {
 /**
  * @desc blob to base64
  * @param { Blob } blob blob file
- * @return { Promise<blobToBase64Result> }
+ * @return Promise<blobToBase64Result>
  * **/
 
 export function blobToBase64 ( blob:Blob ): Promise<BlobToBase64Result> {

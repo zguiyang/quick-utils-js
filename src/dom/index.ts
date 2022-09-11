@@ -120,7 +120,7 @@ export function scrollTo ( to, durationVal?: number ) {
  *
  * @desc  Gets an element's distance from the document, similar to offset() in jQ.
  * @param { HTMLElement| null } ele element node
- * @returns { DomOffsetPos }
+ * @returns DomOffsetPos
  */
 
 export function getElOffsetPos ( ele:HTMLElement | null ): DomOffsetPos {

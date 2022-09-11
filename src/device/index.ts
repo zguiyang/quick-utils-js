@@ -50,8 +50,6 @@ export function getOS (): string | undefined {
 
   let userAgent = 'navigator' in window && 'userAgent' in navigator && navigator.userAgent.toLowerCase () || '';
 
-  // let vendor = 'navigator' in window && 'vendor' in navigator && navigator.vendor.toLowerCase () || '';
-
   let appVersion = 'navigator' in window && 'appVersion' in navigator && navigator.appVersion.toLowerCase () || '';
 
   if ( /iphone/i.test ( userAgent ) || /ipad/i.test ( userAgent ) || /ipod/i.test ( userAgent ) ) return 'ios';

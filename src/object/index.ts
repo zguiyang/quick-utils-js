@@ -1,24 +1,13 @@
 import { isObject, isArray, getValueType, isEmptyObject } from '../helper';
 
-export type CommonCallback = ( key: string, val: any ) => any;
-
-export type ObjectEachCallback = ( key: string, val: any ) => any;
-
-export interface ResetObjectOptions {
-  array?: any,
-  string?: any,
-  number?: any,
-  other?: any,
-}
-
 /**
  * Depth traverses the object, flattening multiple layers of objects
  * @param { Record<string, any> }  obj each object
- * @param { ObjectEachCallback } fn the callback function
+ * @param { ( key: string, val: any ) => any } fn the callback function
  * @returns void
  * **/
 
-export function objectEach ( obj: Record<string, any>, fn: ObjectEachCallback ): void {
+export function objectEach ( obj: Record<string, any>, fn: ( key: string, val: any ) => any ): void {
 
   if ( !isObject ( obj ) ) {
 
@@ -138,13 +127,21 @@ export function objectDiff<T=any> ( original: Record<string, any>, target: Recor
 /**
  * @desc reset object value
  * @param { Object } obj target object
- * @param { ResetObjectOptions } options options
+ * @param { object } options options
+ * @param { object } options.array  set reset array value
+ * @param { object } options.string  set reset string value
+ * @param { object } options.number  set reset number value
+ * @param { object } options.other  set reset other value
  * @return { Object }
  * */
 
-export function resetObjectValue<T=any> ( obj, options?: ResetObjectOptions ): T {
+export function resetObjectValue<T=any> ( obj, options?: {
+  array?: any,
+  string?: any,
+  number?: any,
+  other?: any, } ): T {
 
-  const resetOptions: ResetObjectOptions = options || {
+  const resetOptions = options || {
     array: [],
     string: null,
     number: null,
