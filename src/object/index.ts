@@ -20,9 +20,6 @@ export interface ResetObjectOptions {
 
 export function objectEach ( obj: Record<string, any>, fn: ObjectEachCallback ): void {
 
-
-  // 如果不是对象直接返回
-
   if ( !isObject ( obj ) ) {
 
     throw Error ( `obj is ${ typeof obj}` );
@@ -35,7 +32,7 @@ export function objectEach ( obj: Record<string, any>, fn: ObjectEachCallback ):
 
     const value = obj[ key ];
 
-    if ( isObject ( value ) && value ) {
+    if ( value && isObject ( value ) ) {
 
       objectEach ( value, fn );
 
@@ -64,8 +61,6 @@ export function objectDiff<T=any> ( original: Record<string, any>, target: Recor
 
   targetKeys.forEach ( key => {
 
-    // 新增的属性
-
     if ( !original[ key ] ) {
 
       result[ key ] = target[ key ];
@@ -73,8 +68,6 @@ export function objectDiff<T=any> ( original: Record<string, any>, target: Recor
       return;
 
     }
-
-    // 属性是个对象
 
     if ( isObject ( target[ key ] ) ) {
 
@@ -89,8 +82,6 @@ export function objectDiff<T=any> ( original: Record<string, any>, target: Recor
       return;
 
     }
-
-    // 属性是个数组
 
     if ( isArray ( target[ key ] ) ) {
 
@@ -131,8 +122,6 @@ export function objectDiff<T=any> ( original: Record<string, any>, target: Recor
       return;
 
     }
-
-    // 属性值更新了
 
     if ( original[ key ] !== target[ key ] ) {
 
