@@ -1,4 +1,10 @@
+/**
+ * @vitest-environment jsdom
+ */
+
+
 import { describe, it, expect } from 'vitest';
+
 import { blobToBase64, base64ToBlob } from '../src';
 
 describe('blob api test', () => {

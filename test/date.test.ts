@@ -1,6 +1,6 @@
 import { test, expect } from 'vitest';
 
-import { getRemainTime, getTimeLeft, dateFormat } from '../src/date';
+import { getRemainTime, getTimeLeft, dateFormat } from '../src';
 
 test('get remain time', () => {
 

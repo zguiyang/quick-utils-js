@@ -1,6 +1,10 @@
+/**
+ * @vitest-environment jsdom
+ */
+
 import { describe, it, expect } from 'vitest';
 
-import { getCookie, setCookie, removeCookie } from "../src/cookie";
+import { getCookie, setCookie, removeCookie } from "../src";
 
 describe('cookie api test', () => {
     const cookieName = 'test-cookie';

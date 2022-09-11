@@ -1,6 +1,10 @@
+/**
+ * @vitest-environment jsdom
+ */
+
 import { describe, it, expect } from 'vitest';
 
-import { setScrollTop, getScrollTop, scrollToBottom } from '../src/dom';
+import { setScrollTop, getScrollTop } from '../src';
 describe('dom api test', () => {
     let body = document.body,
         bodyHeight = getComputedStyle(body).getPropertyValue('height'),
