@@ -10,7 +10,7 @@ echo "🚀 deploying docs..."
 cd docs/
 
 git add .
-git commit -am 'ci: 🚀 deploy docs'
+git commit -am 'ci: 🚀 deploy docs_cp'
 
 # push to server
 

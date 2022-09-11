@@ -22,7 +22,9 @@
   "scripts": {
     "build": "tsup --config ./tsup.config.ts",
     "demo": "pnpm run --filter ./demo dev",
-    "docs:dev": "docsify  serve ./docs",
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:serve": "vitepress serve docs",
     "test": "vitest",
     "coverage": "vitest run --coverage",
     "eslint": "eslint . --ext .ts,.js,.vue",
@@ -53,7 +55,6 @@
     "cross-env": "^7.0.2",
     "cz-conventional-changelog": "^3.3.0",
     "cz-customizable": "^6.9.0",
-    "docsify-cli": "^4.4.4",
     "eslint": "^8.6.0",
     "eslint-config-alloy": "^4.4.0",
     "eslint-plugin-vue": "^9.2.0",
@@ -65,7 +66,9 @@
     "tslib": "^2.0.0",
     "tsup": "^6.1.2",
     "typescript": "^4.8.3",
-    "vitest": "^0.23.2"
+    "vitepress": "1.0.0-alpha.13",
+    "vitest": "^0.23.2",
+    "vue": "^3.2.39"
   },
   "dependencies": {
     "bignumber.js": "^9.0.2",

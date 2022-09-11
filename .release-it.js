@@ -16,7 +16,7 @@ module.exports = {
   },
   plugins: {
     "@release-it/conventional-changelog": {
-      infile: "./docs/CHANGELOG.md",
+      infile: "./docs/changelog.md",
       header: "# 更新日志\n\n",
       preset: {
         name: "conventionalcommits",
