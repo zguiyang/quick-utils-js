@@ -2,7 +2,6 @@
  * @vitest-environment jsdom
  */
 
-
 import { describe, it, expect } from 'vitest';
 
 import { blobToBase64, base64ToBlob } from '../src';
@@ -10,8 +9,8 @@ import { blobToBase64, base64ToBlob } from '../src';
 describe('blob api test', () => {
 
     it ("blob to base64", async () => {
-        expect(await blobToBase64(new File([new Blob()], "xxx.png"))).toEqual({
-            base64Url: "data:application/octet-stream;base64,",
+        expect(await blobToBase64(new File([ new Blob ( ) ], "xxx.png"))).toEqual({
+            base64Url: "data:application/octet-stream;base64,W29iamVjdCBCbG9iXQ==",
             "msg": 'success',
         });
     });
