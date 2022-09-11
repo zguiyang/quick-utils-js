@@ -52,7 +52,7 @@ export function getTimeValue ( timeValue: number ): FormatTimeValue {
  */
 
 
-export function getRemainTime ( endTime ): FormatRemainTimeResult {
+export function getRemainTime ( endTime: string | Date ): FormatRemainTimeResult {
 
   let startDate = new Date (); // start time
 
