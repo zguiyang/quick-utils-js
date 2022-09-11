@@ -5,16 +5,22 @@ set -e
 
 NowPath=`pwd`
 
+PROJECT_NAME='quick.utils.js'
+
+echo "📦 building docs..."
+
+pnpm run docs:build
+
 echo "🚀 deploying docs..."
 
-cd docs/
+cd docs/.vitepress/dist
 
-git add .
-git commit -am 'ci: 🚀 deploy docs_cp'
+git add . -f
+git commit -am 'ci: 🚀 deploy docs'
 
 # push to server
 
-git push origin master
+git push -f git@www.zhaoguiyang.cn:/www/repo/$PROJECT_NAME.git
 
 cd $NowPath
 
