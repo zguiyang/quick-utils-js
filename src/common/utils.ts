@@ -79,10 +79,10 @@ export function digitUppercase ( money: number ): string {
 
   return (
     head +
-      s.
-        replace ( /(零.)*零元/, '元' ).
-        replace ( /(零.)+/g, '零' ).
-        replace ( /^整$/, '零元整' )
+        s.
+          replace ( /(零.)*零元/, '元' ).
+          replace ( /(零.)+/g, '零' ).
+          replace ( /^整$/, '零元整' )
   );
 
 }

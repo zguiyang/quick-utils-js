@@ -4,7 +4,7 @@
 
 import { describe, it, expect } from 'vitest';
 
-import { getExplore, getOS } from '../src';
+import { getExplore, getOS } from '../../src';
 
 describe('device api test', () => {
     Object.defineProperty(window.navigator, 'userAgent', {

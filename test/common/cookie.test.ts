@@ -4,7 +4,7 @@
 
 import { describe, it, expect } from 'vitest';
 
-import { getCookie, setCookie, removeCookie } from "../src";
+import { getCookie, setCookie, removeCookie } from "../../src";
 
 describe('cookie api test', () => {
     const cookieName = 'test-cookie';
