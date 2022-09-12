@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 
-import { randomColor, isEmail, generateID } from 'quick-utils-js';
+import { randomColor, generalEmailReg, generateID } from 'quick-utils-js';
 
 const hexColor = ref<string> ( randomColor () );
 
@@ -20,9 +20,9 @@ const randomID = () => {
 };
 
 
-console.log ( isEmail ( '2770723534@qq.com' ) );
+console.log ( generalEmailReg ( '2770723534@qq.com' ) );
 
-console.log ( isEmail ( '2770723534@stacs.cn' ) );
+console.log ( generalEmailReg ( '2770723534@stacs.cn' ) );
 
 
 </script>
