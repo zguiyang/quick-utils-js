@@ -50,6 +50,7 @@
     "@release-it/conventional-changelog": "^5.0.0",
     "@typescript-eslint/eslint-plugin": "^5.9.0",
     "@typescript-eslint/parser": "^5.9.0",
+    "@vitest/coverage-c8": "^0.23.2",
     "builtin-modules": "^3.1.0",
     "commitizen": "^4.2.4",
     "cross-env": "^7.0.2",
