@@ -1,18 +1,18 @@
 import { test, expect } from 'vitest';
 
-import { enhanceTypeof, isNumber, isArray, isEmptyArray, isBoolean, isEmptyObject, isObject, isString } from '../src';
+import { getValueType, isNumber, isArray, isEmptyArray, isBoolean, isEmptyObject, isObject, isString } from '../src';
 
 test ('enhanceTypeof test...', () => {
 
-  expect ( enhanceTypeof ( '123' ) ).toBe ( 'string' );
+  expect ( getValueType ( '123' ) ).toBe ( 'string' );
 
-  expect ( enhanceTypeof ( 123 ) ).toBe ( 'number' );
+  expect ( getValueType ( 123 ) ).toBe ( 'number' );
 
-  expect ( enhanceTypeof ( [ { a: 1 } ] ) ).toBe ( 'array' );
+  expect ( getValueType ( [ { a: 1 } ] ) ).toBe ( 'array' );
 
-  expect ( enhanceTypeof ( { a: 1 } ) ).toBe ( 'object' );
+  expect ( getValueType ( { a: 1 } ) ).toBe ( 'object' );
 
-  expect ( enhanceTypeof ( null ) ).toBe ( 'null' );
+  expect ( getValueType ( null ) ).toBe ( 'null' );
 
 });
 
