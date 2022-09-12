@@ -15,10 +15,12 @@ hero:
       text: Github
       link: https://github.com/zguiyang/quick-utils-js
 features:
-  - title: 简单易用
-    details: 支持esm、cjs两种规范
+  - title: 开箱即用
+    details: 纯js工具方法，不受框架限制，种类齐全，目前有七十多种方法，后续会不断增加
+  - title: 常用工具方法
+    details: 数组、字符串、对象便捷操作等等...
+  - title: 正则校验
+    details: 常用的各种数据校验，手机号、邮箱、身份证号等等...
   - title: 稳定可靠
     details: typescript开发而成，完整的测试用例，请放心使用
-  - title: 方法齐全
-    details: 包含了业务工具方法及常用正则校验等等...
 ---
