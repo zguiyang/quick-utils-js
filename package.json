@@ -5,12 +5,14 @@
   "main": "./dist/index.js",
   "module": "./dist/esm/index.js",
   "types": "./dist/index.d.ts",
+  "homepage": "http://quick.utils.zhaoguiyang.cn",
   "keywords": [
     "common",
     "quick",
     "util",
     "typeScript",
     "javaScript",
+    "regex",
     "web"
   ],
   "directories": {
@@ -42,6 +44,10 @@
     "name": "zhaoguiyang",
     "email": "2770723534@qq.com",
     "url": "https://github.com/zguiyang"
+  },
+  "bugs": {
+    "url": "https://github.com/zguiyang/quick-utils-js/issues",
+    "email": ""
   },
   "license": "ISC",
   "devDependencies": {
