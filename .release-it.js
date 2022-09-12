@@ -16,7 +16,7 @@ module.exports = {
   },
   plugins: {
     "@release-it/conventional-changelog": {
-      infile: "docs/changelog.md",
+      infile: "docs/CHANGELOG.md",
       header: "# 更新日志\n\n",
       ignoreRecommendedBump: true,
       strictSemVer: true,

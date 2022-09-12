@@ -23,7 +23,7 @@ export default defineConfig ( {
     nav: [
       { text: '引导', link: '/guide/foreword', activeMatch: '/guide/' },
       { text: 'APIs', link: '/apis/utils/common', activeMatch: '/apis/' },
-      { text: '更新日志', link: '/changelog.md' },
+      { text: '更新日志', link: '/CHANGELOG.md' },
     ],
     sidebar: {
       '/guide/': [
