@@ -22,8 +22,8 @@ export default defineConfig ( {
     lastUpdatedText: '上次更新',
     nav: [
       { text: '引导', link: '/guide/foreword', activeMatch: '/guide/' },
+      { text: 'APIs', link: '/apis/utils/common', activeMatch: '/apis/' },
       { text: '更新日志', link: '/changelog.md' },
-      { text: '工具推荐', items: [ { text: 'regex-utils-js', link: 'http://regex.utils.zhaoguiyang.cn' } ] },
     ],
     sidebar: {
       '/guide/': [
@@ -42,46 +42,67 @@ export default defineConfig ( {
             },
           ],
         },
+      ],
+      '/apis/': [
         {
-          text: 'API',
+          text: '工具方法',
           collapsed: true,
           collapsible: false,
           items: [
             {
               text: '通用方法',
-              link: '/guide/apis/common',
+              link: '/apis/utils/common',
             },
             {
               text: '数字操作',
-              link: '/guide/apis/number',
+              link: '/apis/utils/number',
             },
             {
               text: '字符串操作',
-              link: '/guide/apis/string',
+              link: '/apis/utils/string',
             },
             {
               text: '数组操作',
-              link: '/guide/apis/array',
+              link: '/apis/utils/array',
             },
             {
               text: '对象操作',
-              link: '/guide/apis/object',
+              link: '/apis/utils/object',
             },
             {
               text: 'Dom操作',
-              link: '/guide/apis/dom',
+              link: '/apis/utils/dom',
             },
             {
               text: '日期时间',
-              link: '/guide/apis/date',
+              link: '/apis/utils/date',
             },
             {
               text: '随机生成',
-              link: '/guide/apis/random',
+              link: '/apis/utils/random',
             },
             {
               text: '辅助方法',
-              link: '/guide/apis/helper',
+              link: '/apis/utils/helper',
+            },
+          ],
+        },
+        {
+          text: '正则校验',
+          collapsed: true,
+          collapsible: false,
+          items: [
+            {
+              text: '常用正则',
+              link: '/apis/regex/common',
+            },
+            {
+              text: '数字正则',
+              link: '/apis/regex/number',
+            },
+            {
+              text: '字符串正则',
+              link: '/apis/regex/string',
             },
           ],
         },
