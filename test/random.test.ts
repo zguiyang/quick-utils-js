@@ -24,7 +24,7 @@ test('random create word length test ', () => {
 
     const word = randomWord ( true, 10, 20 );
 
-    expect( word.length ).toBeGreaterThan( 10 );
+    expect( word.length ).toBeGreaterThan( 9 );
 
     expect( word.length ).toBeLessThan( 20 );
 
@@ -34,8 +34,6 @@ test('随机ID生成测试 ', () => {
 
     const id = generateID ( );
 
-    expect( id.length ).toBeGreaterThan( 16 );
-
-    expect( id.length ).toBeLessThan( 32 );
+    expect( id.length ).toBe ( 16 );
 
 })
