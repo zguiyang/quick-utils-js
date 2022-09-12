@@ -16,8 +16,10 @@ module.exports = {
   },
   plugins: {
     "@release-it/conventional-changelog": {
-      infile: "./docs/changelog.md",
+      infile: "docs/changelog.md",
       header: "# 更新日志\n\n",
+      ignoreRecommendedBump: true,
+      strictSemVer: true,
       preset: {
         name: "conventionalcommits",
         types: commitTypes,
@@ -30,7 +32,7 @@ module.exports = {
     },
   },
   hooks: {
-    "before:init" : [ "echo 开始校验代码","pnpm run test", "pnpm run eslint","echo 📦 开始打包项目,准备发布",  "pnpm run build" ],
-    "after:release" : [ "echo 完成 成功发布 ${name} v${version} 到 ${ repo.repository}" ]
+    "before:init" : [ "echo 📦 开始打包项目,准备发布",  "pnpm run build", "echo 打包成功，进行发版操作了..." ],
+    "after:release" : [ "echo ✅ 发布完成 ${name}-v${version}" ]
   }
 }
