@@ -32,7 +32,7 @@ console.log ( generalEmailReg ( '2770723534@stacs.cn' ) );
 
   <p>随机颜色：{{ hexColor }}</p>
 
-  <p>随机ID：{{ idStr }}</p>
+  <p>随机ID：{{ idStr }}, {{ idStr.length }}</p>
 
   <button type="button" @click="generateColor">生成颜色</button>
 
