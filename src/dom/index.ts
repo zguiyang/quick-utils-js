@@ -75,11 +75,11 @@ export function scrollTo ( to: number, durationVal?: number ) {
   } ) ();
 
 
-  let diff = to - getScrollTop ();
+  const diff = to - getScrollTop ();
 
   if ( diff === 0 ) return;
 
-  let step = diff / duration * 10;
+  const step = diff / duration * 10;
 
   requestAnimFrame ( () => {
 
@@ -114,7 +114,7 @@ export function scrollTo ( to: number, durationVal?: number ) {
 
 export function getElOffsetPos ( ele:HTMLElement | null ): DomOffsetPos {
 
-  let pos:DomOffsetPos = {
+  const pos:DomOffsetPos = {
     left: 0,
     top: 0,
     parent: null,

@@ -54,11 +54,11 @@ export function getTimeValue ( timeValue: number ): FormatTimeValue {
 
 export function getRemainTime ( endTime: string | Date ): FormatRemainTimeResult {
 
-  let startDate = new Date (); // start time
+  const startDate = new Date (); // start time
 
-  let endDate = new Date ( endTime ); // end time
+  const endDate = new Date ( endTime ); // end time
 
-  let t = endDate.getTime () - startDate.getTime ();
+  const t = endDate.getTime () - startDate.getTime ();
 
   const timeValue = getTimeValue ( t );
 
@@ -84,7 +84,7 @@ export function getTimeLeft ( startTime, endTime ): FormatTimeValue | null {
 
   }
 
-  let t = dayjs ( endTime ).valueOf () - dayjs ( startTime ).valueOf ();
+  const t = dayjs ( endTime ).valueOf () - dayjs ( startTime ).valueOf ();
 
   return getTimeValue ( t );
 

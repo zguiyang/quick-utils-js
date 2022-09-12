@@ -7,11 +7,11 @@
 
 export function getCookie ( name:string ): string {
 
-  let arr = document.cookie.replace ( /\s/g, '' ).split ( ';' );
+  const arr = document.cookie.replace ( /\s/g, '' ).split ( ';' );
 
   for ( const item of arr ) {
 
-    let tempArr = item.split ( '=' );
+    const tempArr = item.split ( '=' );
 
     if ( tempArr[ 0 ] === name ) {
 
@@ -36,7 +36,7 @@ export function getCookie ( name:string ): string {
 
 export function setCookie ( name:string, value:string, days: number ):void {
 
-  let date = new Date ();
+  const date = new Date ();
 
   date.setDate ( date.getDate () + days );
 

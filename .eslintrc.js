@@ -1,18 +1,16 @@
 module.exports = {
-  extends: [
-    'alloy',
-    'alloy/typescript',
-    'plugin:vue/base'
-  ],
-  plugins: [ '@typescript-eslint' ],
-  parserOptions: {
-    parser: "@typescript-eslint/parser",
-    ecmaFeatures: {
-      jsx : false
+  root: true,
+  env: {
+    node: true,
+    es6: true,
   },
-  },
+  extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended'],
+  parser: '@typescript-eslint/parser',
+  plugins: ['@typescript-eslint'],
   rules: {
+    "no-undef": "off",
     "indent": "off",
+    "no-useless-escape": "off",
     "@typescript-eslint/indent": ["error", 2],
     '@typescript-eslint/no-require-imports': 'off',
     '@typescript-eslint/prefer-optional-chain': 'off',
@@ -99,6 +97,5 @@ module.exports = {
     'semi': [ 'error', 'always' ],
     'no-console': 'off',
     '@typescript-eslint/camelcase': 'off',
-  },
+  }
 };
-

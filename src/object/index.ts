@@ -60,7 +60,7 @@ export function objectDiff<T=any> ( original: Record<string, any>, target: Recor
 
     if ( isObject ( target[ key ] ) ) {
 
-      let values = objectDiff ( original[ key ] || {}, target[ key ] );
+      const values = objectDiff ( original[ key ] || {}, target[ key ] );
 
       if ( !isEmptyObject ( values ) ) {
 
@@ -160,6 +160,7 @@ export function resetObjectValue<T=any> ( obj, options?: {
 
     } else {
 
+      // eslint-disable-next-line no-prototype-builtins
       obj[ key ] = resetOptions.hasOwnProperty ( currentType ) ? resetOptions[ currentType ] : resetOptions.other;
 
     }

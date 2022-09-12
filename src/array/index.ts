@@ -11,7 +11,7 @@ export function uniqueArrayObj<T=Record<string, any>> ( arr:T[], key?:string ): 
 
   let result:any[] = [];
 
-  let hashTable = {};
+  const hashTable = {};
 
   if ( key ) {
 
@@ -31,9 +31,9 @@ export function uniqueArrayObj<T=Record<string, any>> ( arr:T[], key?:string ): 
 
     result = arr.filter ( ( el ) => {
 
-      let key = JSON.stringify ( el );
+      const key = JSON.stringify ( el );
 
-      let match = Boolean ( hashTable[ key ] );
+      const match = Boolean ( hashTable[ key ] );
 
       return ( match ? false : hashTable[ key ] = true );
 
@@ -134,9 +134,9 @@ export function flatTreeArray<T = any> ( data: T[], childKey = 'children' ): T[]
 
 export function sliceArray<T=any> ( arr: T[], step: number ): Array<T[]> {
 
-  let result: Array<T[]> = [];
+  const result: Array<T[]> = [];
 
-  let len = arr.length;
+  const len = arr.length;
 
   for ( let i = 0; i < len; i += step ) {
 

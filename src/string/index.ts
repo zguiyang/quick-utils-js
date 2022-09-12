@@ -32,7 +32,7 @@ export function getCustomKebabCase ( str: string, separator?:string ): string {
 
 export function getCustomCamelCase ( str: string, separator?:string ):string {
 
-  let arr = str.split ( separator || '-' );
+  const arr = str.split ( separator || '-' );
 
   return arr.map ( ( item, index ) => {
 

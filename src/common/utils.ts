@@ -16,7 +16,7 @@ export function digitUppercase ( money: number ): string {
 
     const digitNum = parseInt ( digit, 10 );
 
-    let value = number.toString ().split ( 'e' );
+    const value = number.toString ().split ( 'e' );
 
     return Number ( `${value[ 0 ] }e${ value[ 1 ] ? Number ( value[ 1 ] ) + digitNum : digitNum}` );
 
@@ -29,22 +29,22 @@ export function digitUppercase ( money: number ): string {
 
     const digitNum = parseInt ( digit, 10 );
 
-    let value = number.toString ().split ( 'e' );
+    const value = number.toString ().split ( 'e' );
 
     return Number ( `${value[ 0 ] }e${ value[ 1 ] ? Number ( value[ 1 ] ) - digitNum : -digitNum}` );
 
   };
 
-  let fraction = [ '角', '分' ];
+  const fraction = [ '角', '分' ];
 
-  let digit = [ '零', '壹', '贰', '叁', '肆', '伍', '陆', '柒', '捌', '玖' ];
+  const digit = [ '零', '壹', '贰', '叁', '肆', '伍', '陆', '柒', '捌', '玖' ];
 
-  let unit = [
+  const unit = [
     [ '元', '万', '亿' ],
     [ '', '拾', '佰', '仟' ],
   ];
 
-  let head = num < 0 ? '欠' : '';
+  const head = num < 0 ? '欠' : '';
 
   num = Math.abs ( num );
 

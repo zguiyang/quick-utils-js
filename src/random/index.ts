@@ -8,9 +8,9 @@
 
 export function randomNum ( min: number, max: number ): number {
 
-  let minNum = Math.ceil ( min );
+  const minNum = Math.ceil ( min );
 
-  let maxNum = Math.floor ( max );
+  const maxNum = Math.floor ( max );
 
   return Math.floor ( Math.random () * ( maxNum - minNum + 1 ) ) + minNum;
 
@@ -44,7 +44,7 @@ export function randomWord ( randomFlag: boolean, min: number, max:number ): str
 
   let range = min;
 
-  let arr = [ '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p',
+  const arr = [ '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p',
     'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R',
     'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z' ];
 
@@ -88,9 +88,9 @@ export function generateUUID ():string {
 
   let d = new Date ().getTime ();
 
-  let uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace ( /[xy]/g, ( c ) => {
+  const uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace ( /[xy]/g, ( c ) => {
 
-    let r = ( d + Math.random () * 16 ) % 16 | 0;
+    const r = ( d + Math.random () * 16 ) % 16 | 0;
 
     d = Math.floor ( d / 16 );
 

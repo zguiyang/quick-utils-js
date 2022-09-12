@@ -58,7 +58,7 @@ export function base64ToBlob ( config:Base64ToBlobConfig ): Promise<Base64ToBlob
 
   const { base64Str = '', contentType = '', sliceSize = 512, fileName = '' } = config;
 
-  return new Promise ( ( resolve, reject ) => {
+  return new Promise ( ( resolve ) => {
 
     const base64data = base64Str.split ( ',' );
 
@@ -70,15 +70,15 @@ export function base64ToBlob ( config:Base64ToBlobConfig ): Promise<Base64ToBlob
 
     // 使用 atob() 方法将数据解码
 
-    let byteCharacters = atob ( base64data ? base64data[ 1 ] : '' );
+    const byteCharacters = atob ( base64data ? base64data[ 1 ] : '' );
 
-    let byteArrays:any[] = [];
+    const byteArrays:any[] = [];
 
     for ( let offset = 0; offset < byteCharacters.length; offset += sliceSize ) {
 
-      let slice = byteCharacters.slice ( offset, offset + sliceSize );
+      const slice = byteCharacters.slice ( offset, offset + sliceSize );
 
-      let byteNumbers:number[] = [];
+      const byteNumbers:number[] = [];
 
       for ( let i = 0; i < slice.length; i ++ ) {
 
@@ -93,11 +93,11 @@ export function base64ToBlob ( config:Base64ToBlobConfig ): Promise<Base64ToBlob
 
     }
 
-    let resultBlob = new Blob ( byteArrays, {
+    const resultBlob = new Blob ( byteArrays, {
       type: contentType,
     } );
 
-    let result = Object.assign ( resultBlob, {
+    const result = Object.assign ( resultBlob, {
 
       // 这里一定要处理一下 URL.createObjectURL
 
