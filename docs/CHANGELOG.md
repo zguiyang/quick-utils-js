@@ -1,7 +1,5 @@
 # 更新日志
 
-
-
 ## [1.3.0](https://github.com/zguiyang/quick-utils-js/compare/v1.2.0...v1.3.0) (2022-09-12)
 
 
@@ -9,11 +7,6 @@
 
 * 移除了之前的正则方法，现在的正则校验是一个全新的模块
 * `scrollToTop`移除，`setScrollTop` 移除返回值
-
-### ⚡ 性能优化
-
-* ✅  测试工具替换为vitest ([6409b5d](https://github.com/zguiyang/quick-utils-js/commit/6409b5d5e248c5f22cbdddaf41f5c8cbdc623e31))
-
 
 ### ♻️ 代码重构
 
@@ -26,7 +19,6 @@
 * 🎉 `getRemainTime`  参数增加类型约束 ([dc99e78](https://github.com/zguiyang/quick-utils-js/commit/dc99e78761aa9bef961c74c3af8c996b6e7b5f57))
 * 🎉 随机ID生成，固定为16位 ([ad41d76](https://github.com/zguiyang/quick-utils-js/commit/ad41d76551f770e456f7f31588e9380d2096aa87))
 * 🎉 正则校验模块增加多个校验方法 ([f92f253](https://github.com/zguiyang/quick-utils-js/commit/f92f25350733b949d57e203c0f22a6320102482a))
-* 🎉 add `enhanceTypeof` in `helper.ts` ([5c639c1](https://github.com/zguiyang/quick-utils-js/commit/5c639c1179f39feeb00b8b1d0b8509bf8d101601))
 
 ## [1.2.0](https://github.com/zguiyang/quick-utils-js/compare/v1.1.0...v1.2.0) (2022-07-09)
 
