@@ -75,7 +75,7 @@ export function randomWord ( randomFlag: boolean, min: number, max:number ): str
 
 export function generateID (): string {
 
-  return randomWord ( true, 16, 32 );
+  return randomWord ( true, 16, 16 );
 
 }
 
