@@ -15,12 +15,14 @@ echo "🚀 deploying docs..."
 
 cd docs/.vitepress/dist
 
+echo "目前位于：`pwd`"
+
 git add . -f
 git commit -am 'ci: 🚀 deploy docs'
 
 # push to server
 
-git push -f git@www.zhaoguiyang.cn:/www/repo/$PROJECT_NAME.git
+git push -f git@www.zhaoguiyang.cn:/www/repo/$PROJECT_NAME.git master
 
 cd $NowPath
 
