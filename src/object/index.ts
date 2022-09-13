@@ -1,4 +1,4 @@
-import { isObject, isArray, getValueType, isEmptyObject } from '../helper';
+import { isObject, isArray, isEmptyObject } from '../helper';
 
 /**
  * Depth traverses the object, flattening multiple layers of objects
@@ -128,40 +128,35 @@ export function objectDiff<T=any> ( original: Record<string, any>, target: Recor
  * @desc reset object value
  * @param { Object } obj target object
  * @param { object } options options
- * @param { object } options.array  set reset array value
- * @param { object } options.string  set reset string value
- * @param { object } options.number  set reset number value
- * @param { object } options.other  set reset other value
+ * @param { array } options.ignore set ignore keys
+ * @param { object } options.resetKeyValues set key value
  * @return { Object }
  * */
 
 export function resetObjectValue<T=any> ( obj, options?: {
-  array?: any,
-  string?: any,
-  number?: any,
-  other?: any, } ): T {
+  ignore?: any[],
+  resetKeyValues?: Record<string, any>,
+} ): T {
 
-  const resetOptions = options || {
-    array: [],
-    string: null,
-    number: null,
-    other: null,
-  };
+  const ignoreKeys = options?.ignore ?? [];
+
+  const resetKeyValues = options?.resetKeyValues ?? {};
 
   for ( const key in obj ) {
 
-    const currentVal = obj[ key ];
+    if ( !ignoreKeys.includes ( key ) ) {
 
-    const currentType = getValueType ( currentVal );
+      const currentVal = obj[ key ];
 
-    if ( currentType === 'object' ) {
+      if ( isObject ( currentVal ) ) {
 
-      obj[ key ] = resetObjectValue ( currentVal, options );
+        obj[ key ] = resetObjectValue ( currentVal, options );
 
-    } else {
+      } else {
 
-      // eslint-disable-next-line no-prototype-builtins
-      obj[ key ] = resetOptions.hasOwnProperty ( currentType ) ? resetOptions[ currentType ] : resetOptions.other;
+        obj[ key ] = resetKeyValues[ key ] || null;
+
+      }
 
     }
 

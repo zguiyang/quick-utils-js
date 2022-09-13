@@ -1,4 +1,4 @@
-import { test, expect } from 'vitest';
+import { test, describe, expect } from 'vitest';
 
 import { objectDiff, objectEach, resetObjectValue } from '../src';
 
@@ -67,36 +67,98 @@ test('depth object foreach', () => {
   expect(result).toEqual({ a: 1, b:2, d: 3, e: 4, h: 6 });
 });
 
-test('reset object value to null', () => {
-  const obj = { a: 1, b: 2, c: { c1: 2, c2: [], c3: [ 1, 2 ] }, d: '8898' };
-  let result = resetObjectValue( obj );
-  expect(result).toEqual({ a: null, b: null, c: { c1: null, c2: [], c3: [] }, d: null } );
-});
-
-test('reset object value custom options', () => {
-  const obj = {
-    a: 'test',
-    b: {
-      c: [ 'test' ],
-      d: {
-        e: 123,
+describe ('reset object value custom options', () => {
+  it ('default reset', () => {
+    const obj = {
+      a: 'describe',
+      b: {
+        c: [ 'describe' ],
+        d: {
+          e: 123,
+        },
       },
-    },
-    d: () => {
+      d: () => {
 
-      console.log ( 'test' );
+        console.log ( 'describe' );
 
-    },
-  };
-  let result = resetObjectValue( obj, { array: null, number: 0, string: undefined, other: null } );
-  expect(result).toEqual({
-    a: undefined,
-    b: {
-      c: null,
-      d: {
-        e: 0,
       },
-    },
-    d: null,
-  } );
+    };
+    let result = resetObjectValue( obj );
+    expect(result).toEqual({
+      a: null,
+      b: {
+        c: null,
+        d: {
+          e: null,
+        },
+      },
+      d: null,
+    } );
+  })
+  it ('ignore key reset', () => {
+    const obj = {
+      a: 'describe',
+      b: {
+        c: [ 'describe' ],
+        d: {
+          e: 123,
+        },
+      },
+    };
+    let result = resetObjectValue( obj, { ignore: [ 'c', 'd' ] } );
+    expect(result).toEqual({
+      a: null,
+      b: {
+        c: [ 'describe' ],
+        d: {
+          e: 123,
+        },
+      },
+    } );
+  })
+
+  it ('custom reset key value', () => {
+    const obj = {
+      a: 'describe',
+      b: {
+        c: [ 'describe' ],
+        d: {
+          e: 123,
+        },
+      },
+    };
+    let result = resetObjectValue( obj, { resetKeyValues: { c: 'ccc', e: [ 333 ] } } );
+    expect(result).toEqual({
+      a: null,
+      b: {
+        c: 'ccc',
+        d: {
+          e: [ 333 ],
+        },
+      },
+    } );
+  })
+
+  it ('ignore key and custom reset key value  reset', () => {
+    const obj = {
+      a: 'aaaaa',
+      b: {
+        c: [ 'cccc' ],
+        d: {
+          e: 123,
+        },
+      },
+    };
+    let result = resetObjectValue( obj, { ignore: [ 'c' ], resetKeyValues: { c: 'test,,,' } } );
+    expect(result).toEqual({
+      a: null,
+      b: {
+        c: [ 'cccc' ],
+        d: {
+          e: null,
+        },
+      },
+    } );
+  })
+
 });

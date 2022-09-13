@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 
-import { randomColor, generalEmailReg, generateID } from 'quick-utils-js';
+import { randomColor, generalEmailReg, generateID, resetObjectValue } from 'quick-utils-js';
 
 const hexColor = ref<string> ( randomColor () );
 
@@ -23,6 +23,25 @@ const randomID = () => {
 console.log ( generalEmailReg ( '2770723534@qq.com' ) );
 
 console.log ( generalEmailReg ( '2770723534@stacs.cn' ) );
+
+console.log ( resetObjectValue ( { a: 1, b: 2, c: 3 } )  );
+console.log ( resetObjectValue ( { a: 1, b: 2, c: 3 }, { ignore: [ 'c' ] } )  );
+
+console.log ( resetObjectValue ( {
+  a: 'describe',
+  b: {
+    c: [ 'describe' ],
+    d: {
+      e: 123,
+    },
+  },
+  d: 123,
+}, { ignore: [ 'd' ] } )  );
+
+console.log ( resetObjectValue ( { a: 1, b: 2, c: 3 }, { ignore: [ 'c' ], resetKeyValues: { 'b': '55555~~~~' } } )  );
+console.log ( resetObjectValue ( { a: 1, b: 2, c: 3 }, { ignore: [ 'c' ], resetKeyValues: { 'b': '55555~~~~' } } )  );
+
+console.log ( JSON.stringify(resetObjectValue ( { a: 1, b: { d: { f: '123' } }, c: 3 }, { ignore: [ 'c' ], resetKeyValues: { 'f': '55555~~~~' } } ) ) );
 
 
 </script>

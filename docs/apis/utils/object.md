@@ -79,22 +79,23 @@ console.log ( diffObj ); // {"user":{"phone":"18190678381","intro":{"a":"intro10
 
 - 描述
 
-`resetObjectValue`, 将一个对象中的所有属性值置空, 此方法会影响原对象
+`resetObjectValue`, 将一个对象中的所有属性值置空,所有值重置为`null` 此方法会影响原对象
 
 - Type
 
 ```ts
  type resetObjectValue<T=any> = ( obj, options?: {
-    array?: any,
-    string?: any,
-    number?: any,
-    other?: any, } ) => T
+    ignore?: any[],
+    resetKeyValues?: Record<string, any>,
+} ) => T
 ```
 
 - 参数说明
 
 1. `obj` 需要初始化的对象
-2. `options` 你可以设置每种数据类型重置的值
+2. `options` 初始化的一些设置
+3. `options.ignore` 你可以忽略一些key，不进行重置操作 
+4. `options.resetKeyValues` 你可以指定某个keu的初始值，并且你指定的`key`，可以无视数据层级。 **注意：如果你设置的key，存在于`ignore`中，将不会生效**
 
 - 示例
 
@@ -102,10 +103,18 @@ console.log ( diffObj ); // {"user":{"phone":"18190678381","intro":{"a":"intro10
 
 import { resetObjectValue } from "quick-utils-js";
 
-const obj =  { name: 'yang', phone: '18190678381', address: 'lll', id: 123, list: [ 1, 2 , 3 ] };
+//  {"name":null,"phone":null,"address":null,"id":null,"list":[]}
+resetObjectValue ( { name: 'yang', phone: '18190678381', address: 'lll', id: 123, list: [ 1, 2 , 3 ] } );
 
-resetObjectValue ( obj );
+// {a: null, b: null, c: 3}
+console.log ( resetObjectValue ( { a: 1, b: 2, c: 3 }, { ignore: [ 'c' ] } )  );
 
-console.log ( obj ); // {"name":null,"phone":null,"address":null,"id":null,"list":[]}
+// {a: null, b: '55555~~~~', c: 3}
+console.log ( resetObjectValue ( { a: 1, b: 2, c: 3 }, { ignore: [ 'c' ], resetKeyValues: { 'b': '55555~~~~' } } )  );
+
+// {a:null,b:{d:{f:"55555~~~~"}},c:3}
+console.log ( resetObjectValue ( { a: 1, b: { d: { f: '123' } }, c: 3 }, { ignore: [ 'c' ], resetKeyValues: { 'f': '55555~~~~' } } )  );
+
+
 
 ```
