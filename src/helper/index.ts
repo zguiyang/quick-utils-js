@@ -14,6 +14,8 @@ export const isEmptyArray = ( data: any ):boolean => isArray ( data ) && !data.l
 
 export const isEmptyObject = ( data:any ):boolean => isObject ( data ) ? !Object.keys ( data ).length : false;
 
+export const isPromise = ( fn: any ): boolean => Object.prototype.toString.call ( fn ) === '[object Promise]';
+
 export const isAsyncFunction = ( fn: any ): boolean => Object.prototype.toString.call ( fn ) === '[object AsyncFunction]';
 
 export const isPlainFunction = ( fn: any ): boolean => Object.prototype.toString.call ( fn ) === '[object Function]';

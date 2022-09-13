@@ -1,7 +1,8 @@
 import { test, expect, describe } from 'vitest';
 
-import { getValueType, isNumber, isArray, isEmptyArray, isBoolean, isEmptyObject, isObject, isString,
-isAsyncFunction, isPlainFunction } from '../src';
+import {
+  getValueType, isNumber, isArray, isEmptyArray, isBoolean, isEmptyObject, isObject, isString,
+  isPromise, isAsyncFunction, isPlainFunction } from '../src';
 
 test ('enhanceTypeof test...', () => {
 
@@ -100,6 +101,25 @@ test('isString true', () => {
   const result = isString('21');
   expect(result).toBe(true);
 })
+
+test ('isPromise test', () => {
+
+  const a = () => { console.log('test...') };
+
+  function b () {
+
+    return Promise.resolve({});
+  }
+
+  const c = new Promise ( resolve => {} );
+
+  expect( isPromise ( a ) ).toBeFalsy();
+
+  expect ( isPromise( b () ) ).toBeTruthy();
+
+  expect( isPromise( c ) ).toBeTruthy();
+
+});
 
 describe ('function validator test...', () => {
 

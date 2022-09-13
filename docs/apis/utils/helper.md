@@ -79,6 +79,34 @@ console.log('isEmptyObject', isEmptyObject ( {} ) ) // true
 console.log('isEmptyObject', isEmptyObject ( { a: 1 } ) ) // false
 ```
 
+## 判断是否是Promise
+
+- 描述
+
+判断是否是`Promise`
+
+- 示例
+```ts
+import { isPromise } from "quick-utils-js";
+
+const a = () => { console.log('test...') };
+
+function b () {
+
+    return Promise.resolve({});
+}
+
+const c = new Promise ( resolve => {} );
+
+isPromise ( a ) // false
+
+isPromise( b () ) // true
+
+isPromise( c ) // true
+
+// ...
+```
+
 ## 判断是否是Async函数
 
 - 描述
