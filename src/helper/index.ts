@@ -18,6 +18,8 @@ export const isPromise = ( fn: any ): boolean => Object.prototype.toString.call 
 
 export const isNull = ( data: any ): boolean => Object.prototype.toString.call ( data ) === '[object Null]';
 
+export const isDate = ( data: any ): boolean => Object.prototype.toString.call ( data ) === '[object Date]';
+
 export const isAsyncFunction = ( fn: any ): boolean => Object.prototype.toString.call ( fn ) === '[object AsyncFunction]';
 
 export const isPlainFunction = ( fn: any ): boolean => Object.prototype.toString.call ( fn ) === '[object Function]';

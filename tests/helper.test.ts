@@ -2,7 +2,7 @@ import { test, expect, describe } from 'vitest';
 
 import {
   getValueType, isNumber, isArray, isEmptyArray, isBoolean, isEmptyObject, isObject, isString,
-  isPromise, isNull, isAsyncFunction, isPlainFunction } from '../src';
+  isPromise, isNull,isDate, isAsyncFunction, isPlainFunction } from '../src';
 
 test ('enhanceTypeof test...', () => {
 
@@ -106,6 +106,14 @@ test('isNull true', () => {
 
   expect( isNull( {} )).toBeFalsy();
   expect( isNull( null )).toBeTruthy();
+
+})
+
+test('isDate true', () => {
+
+  expect( isDate( '1998-01-02' )).toBeFalsy();
+  expect( isDate(  new Date () )).toBeTruthy();
+  expect( isDate(  new Date('1998-01-02') )).toBeTruthy();
 
 })
 

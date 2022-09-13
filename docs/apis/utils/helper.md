@@ -88,6 +88,17 @@ import { isNull } from "quick-utils-js";
 isNull( null ) // true
 ```
 
+## 判断是否Date
+
+- 示例
+```ts
+import { isDate } from "quick-utils-js";
+
+isDate(  '1998-01-02'  ) // false
+isDate( new Date () ) // true
+isDate( new Date('1998-01-02') ) // true
+```
+
 
 ## 判断是否是Promise
 
