@@ -6,7 +6,7 @@ const changelogConfig = require ('./config/changelog-config');
 module.exports = {
   git: {
     commit: true,
-    commitMessage: "ci: 发布新版本 v${version}"
+    commitMessage: "ci: 🚀 发布新版本 v${version}"
   },
   npm: {
       publish: false
