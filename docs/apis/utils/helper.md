@@ -79,6 +79,16 @@ console.log('isEmptyObject', isEmptyObject ( {} ) ) // true
 console.log('isEmptyObject', isEmptyObject ( { a: 1 } ) ) // false
 ```
 
+## 判断是否Null
+
+- 示例
+```ts
+import { isNull } from "quick-utils-js";
+
+isNull( null ) // true
+```
+
+
 ## 判断是否是Promise
 
 - 描述

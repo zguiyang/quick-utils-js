@@ -2,7 +2,7 @@ import { test, expect, describe } from 'vitest';
 
 import {
   getValueType, isNumber, isArray, isEmptyArray, isBoolean, isEmptyObject, isObject, isString,
-  isPromise, isAsyncFunction, isPlainFunction } from '../src';
+  isPromise, isNull, isAsyncFunction, isPlainFunction } from '../src';
 
 test ('enhanceTypeof test...', () => {
 
@@ -100,6 +100,13 @@ test('isString true', () => {
 test('isString true', () => {
   const result = isString('21');
   expect(result).toBe(true);
+})
+
+test('isNull true', () => {
+
+  expect( isNull( {} )).toBeFalsy();
+  expect( isNull( null )).toBeTruthy();
+
 })
 
 test ('isPromise test', () => {
