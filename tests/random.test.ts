@@ -26,7 +26,7 @@ test('random create word length test ', () => {
 
     expect( word.length ).toBeGreaterThan( 9 );
 
-    expect( word.length ).toBeLessThan( 20 );
+    expect( word.length ).toBeLessThan( 21 );
 
 })
 
