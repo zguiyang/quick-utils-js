@@ -3,7 +3,7 @@ layout: doc
 ---
 # 辅助工具方法
 
-## 判断数字
+## 判断是否为数字
 
 - 示例
 ```ts
@@ -14,7 +14,7 @@ console.log( isNumber ( '777') ) // false
 console.log( isNumber ( 7 ) ) // true
 ```
 
-## 判断字符串
+## 判断是否为字符串
 
 - 示例
 ```ts
@@ -25,7 +25,7 @@ console.log( isString ( '777') ) // true
 console.log( isString ( 7 ) ) // false
 ```
 
-## 判断布尔值
+## 判断是否为布尔值
 
 - 示例
 ```ts
@@ -36,7 +36,7 @@ console.log( isBoolean ( !'' ) ) // true
 console.log( isBoolean ( 3 > 5 ) ) // true
 ```
 
-## 判断数组
+## 判断是否为数组
 
 - 示例
 ```ts
@@ -47,7 +47,7 @@ console.log( isArray ( [] ) ) // true
 console.log( isArray ( {} ) ) // false
 ```
 
-## 判断对象
+## 判断是否为对象
 
 - 示例
 ```ts
@@ -58,7 +58,7 @@ console.log( isObject ( [] ) ) // false
 console.log( isObject ( {} ) ) // true
 ```
 
-## 判断是否空数组
+## 判断是否为空数组
 
 - 示例
 ```ts
@@ -68,7 +68,7 @@ console.log( isEmptyArray ( [] ) ) // true
 
 console.log( isEmptyArray ( [ 1 ] ) ) // false
 ```
-## 判断是否空对象
+## 判断是否为空对象
 
 - 示例
 ```ts
@@ -79,7 +79,7 @@ console.log('isEmptyObject', isEmptyObject ( {} ) ) // true
 console.log('isEmptyObject', isEmptyObject ( { a: 1 } ) ) // false
 ```
 
-## 判断是否Null
+## 判断是否为Null
 
 - 示例
 ```ts
@@ -88,7 +88,7 @@ import { isNull } from "quick-utils-js";
 isNull( null ) // true
 ```
 
-## 判断是否Date
+## 判断是否为Date
 
 - 示例
 ```ts
@@ -100,7 +100,7 @@ isDate( new Date('1998-01-02') ) // true
 ```
 
 
-## 判断是否是Promise
+## 判断是否为Promise
 
 - 描述
 
@@ -128,11 +128,11 @@ isPromise( c ) // true
 // ...
 ```
 
-## 判断是否是Async函数
+## 判断是否为Async函数
 
 - 描述
 
-判断是否是`async`函数`async function`
+判断是否为`async`函数`async function`
 
 - 示例
 ```ts
@@ -146,11 +146,11 @@ console.log( isAsyncFunction ( async () => { return Promise.resolve( { } ) } ) )
 // ...
 ```
 
-## 判断是否是普通函数
+## 判断是否为普通函数
 
 - 描述
 
-判断是否是普通函数
+判断是否为普通函数
 
 - 示例
 ```ts
@@ -170,8 +170,19 @@ console.log( isPlainFunction ( async () => { return Promise.resolve( { } ) } ) )
 
 获取任意数据类型
 
+- Type
+
+```ts
+export type ValueTypeEnum = 'string' | 'number' | 'boolean' | 'object' | 'array' | 'asyncFunction' | 'function'
+| 'date' | 'null' | 'promise' | 'unknown';
+
+type getValueType = ( data: any ) => ValueTypeEnum | string;
+
+```
+
 - 示例
 ```ts
+
 import { getValueType } from "quick-utils-js";
 
 console.log( getValueType ( {} ) ) // 'object'
