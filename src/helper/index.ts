@@ -1,4 +1,5 @@
-export type ValueTypeEnum = 'string' | 'number' | 'boolean' | 'object' | 'array' | 'unknown';
+export type ValueTypeEnum = 'string' | 'number' | 'boolean' | 'object' | 'array' | 'asyncFunction' | 'function'
+| 'date' | 'null' | 'promise' | 'unknown';
 
 export const isNumber = ( data:any ):boolean => typeof data === 'number';
 
