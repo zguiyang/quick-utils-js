@@ -1,6 +1,7 @@
-import { test, expect } from 'vitest';
+import { test, expect, describe } from 'vitest';
 
-import { getValueType, isNumber, isArray, isEmptyArray, isBoolean, isEmptyObject, isObject, isString } from '../src';
+import { getValueType, isNumber, isArray, isEmptyArray, isBoolean, isEmptyObject, isObject, isString,
+isAsyncFunction, isPlainFunction } from '../src';
 
 test ('enhanceTypeof test...', () => {
 
@@ -20,18 +21,18 @@ test ('enhanceTypeof test...', () => {
 test('isNumber false', () => {
   const result = isNumber('3');
   expect(result).toBe(false);
-}) 
+})
 
 test('isNumber true', () => {
   const result = isNumber(3);
   expect(result).toBe(true);
-}) 
+})
 
 // 数组校验
 test('isArray false', () => {
   const result = isArray({});
   expect(result).toBe(false);
-}) 
+})
 
 test('isArray true', () => {
   const result = isArray([]);
@@ -53,49 +54,76 @@ test('isEmptyArray true', () => {
 test('isBoolean false', () => {
   const result = isBoolean([]);
   expect(result).toBe(false);
-}) 
+})
 
 test('isBoolean false', () => {
   const result = isBoolean(true);
   expect(result).toBe(true);
-}) 
+})
 
 // 空对象校验
 test('isEmptyObject false', () => {
   const result = isEmptyObject({ a: 2 });
   expect(result).toBe(false);
-}) 
+})
 
 test('isEmptyObject true', () => {
   const result = isEmptyObject({ });
   expect(result).toBe(true);
-}) 
+})
 
 // 是否是对象
 test('isObject false', () => {
   const result = isObject(null);
   expect(result).toBe(false);
-}) 
+})
 test('isObject false', () => {
   const result = isObject([]);
   expect(result).toBe(false);
-}) 
+})
 test('isObject true', () => {
   const result = isObject({});
   expect(result).toBe(true);
-}) 
+})
 
 // 是否是字符串
 test('isString false', () => {
   const result = isString({});
   expect(result).toBe(false);
-}) 
+})
 
 test('isString true', () => {
   const result = isString('');
   expect(result).toBe(true);
-}) 
+})
 test('isString true', () => {
   const result = isString('21');
   expect(result).toBe(true);
+})
+
+describe ('function validator test...', () => {
+
+  it ('async function', () => {
+
+    const fn1 = () => {};
+    const fn2 = async () => { return Promise.resolve( { } ) };
+    const fn3 = () => { return new Promise(resolve => resolve({}) )};
+
+    expect ( isAsyncFunction( fn1 ) ).toBeFalsy();
+    expect ( isAsyncFunction( fn3 ) ).toBeFalsy ();
+    expect ( isAsyncFunction( fn2 ) ).toBeTruthy();
+
+  });
+
+  it ('plain function', () => {
+
+    const fn1 = () => {};
+    const fn2 = async () => { return Promise.resolve( { } ) };
+    const fn3 =  () => { return new Promise(resolve => {})};
+
+    expect ( isPlainFunction( fn2 ) ). toBeFalsy();
+    expect ( isPlainFunction( fn3 ) ).toBeTruthy();
+    expect ( isPlainFunction( fn1 ) ).toBeTruthy();
+  });
+
 })

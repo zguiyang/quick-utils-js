@@ -79,6 +79,42 @@ console.log('isEmptyObject', isEmptyObject ( {} ) ) // true
 console.log('isEmptyObject', isEmptyObject ( { a: 1 } ) ) // false
 ```
 
+## 判断是否是Async函数
+
+- 描述
+
+判断是否是`async`函数`async function`
+
+- 示例
+```ts
+import { isAsyncFunction } from "quick-utils-js";
+
+console.log( isAsyncFunction ( () => {} ) ) // false
+
+console.log( isAsyncFunction ( () => { return new Promise(resolve => resolve({}) )} ) ) // false
+
+console.log( isAsyncFunction ( async () => { return Promise.resolve( { } ) } ) ) // true
+// ...
+```
+
+## 判断是否是普通函数
+
+- 描述
+
+判断是否是普通函数
+
+- 示例
+```ts
+import { isPlainFunction } from "quick-utils-js";
+
+console.log( isPlainFunction ( () => {} ) ) // true
+
+console.log( isPlainFunction ( () => { return new Promise(resolve => resolve({}) )} ) ) // true
+
+console.log( isPlainFunction ( async () => { return Promise.resolve( { } ) } ) ) // false
+// ...
+```
+
 ## 获取任意数据类型
 
 - 描述

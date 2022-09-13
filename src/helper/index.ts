@@ -14,6 +14,10 @@ export const isEmptyArray = ( data: any ):boolean => isArray ( data ) && !data.l
 
 export const isEmptyObject = ( data:any ):boolean => isObject ( data ) ? !Object.keys ( data ).length : false;
 
+export const isAsyncFunction = ( fn: any ): boolean => Object.prototype.toString.call ( fn ) === '[object AsyncFunction]';
+
+export const isPlainFunction = ( fn: any ): boolean => Object.prototype.toString.call ( fn ) === '[object Function]';
+
 export function getValueType ( data: any ): ValueTypeEnum | string {
 
   return Object.prototype.toString.call ( data ).slice ( 8, -1 ).
