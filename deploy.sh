@@ -22,7 +22,7 @@ git commit -am 'ci: 🚀 deploy docs'
 
 # push to server
 
-git push -f git@www.zhaoguiyang.cn:/www/repo/$PROJECT_NAME.git master
+git push -f git@quick.utils.zhaoguiyang.cn:/www/repo/$PROJECT_NAME.git master
 
 cd $NowPath
 
