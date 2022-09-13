@@ -1,5 +1,23 @@
 # 更新日志
 
+
+
+### [1.3.1](https://github.com/zguiyang/quick-utils-js/compare/v1.3.0...v1.3.1) (2022-09-13)
+
+
+### ⚠ BREAKING CHANGES
+
+* `resetObjectValue`的`options`参数已经更改，无法与之前的方法兼容，使用者请及时修正更新
+
+### 🎉 新功能
+
+* 🎉  `resetObjectValue` 新增 `ignore`、`resetKeyValues` 参数 ([be21cf7](https://github.com/zguiyang/quick-utils-js/commit/be21cf70c1a27aa44f80c1f8940a07acff0b2515))
+* 🎉 `getValueType`返回值增加类型提示增强 ([ae29233](https://github.com/zguiyang/quick-utils-js/commit/ae2923395ee142b340ea275d05aebf14a90eb188))
+* 🎉 新增辅助方法: `isAsyncFunction`、`isPlainFunction` ([d51ba5f](https://github.com/zguiyang/quick-utils-js/commit/d51ba5f5c5b2484a997654bcc596bcdce96422b1))
+* 🎉 新增辅助方法：`isDate` ([e661edc](https://github.com/zguiyang/quick-utils-js/commit/e661edcb79271a8436b2b3cab8ffb2dba65da6b2))
+* 🎉 新增辅助方法：`isNull` ([a8ef596](https://github.com/zguiyang/quick-utils-js/commit/a8ef596b723d2a9d34dd86ded96067c7bf562303))
+* 🎉 新增辅助方法：`isPromise` ([15910e5](https://github.com/zguiyang/quick-utils-js/commit/15910e5892f2b04415c85c122e7e8cde70c21486))
+
 ## [1.3.0](https://github.com/zguiyang/quick-utils-js/compare/v1.2.0...v1.3.0) (2022-09-12)
 
 
