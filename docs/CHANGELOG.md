@@ -2,6 +2,13 @@
 
 
 
+### [1.3.2](https://github.com/zguiyang/quick-utils-js/compare/v1.3.1...v1.3.2) (2022-09-14)
+
+
+### 🐛 Bug 修复
+
+* 🐛 紧急修复`webpack`等打包器低版本不支持`es2020`语法问题，打包产物改为`es5` ([0e09250](https://github.com/zguiyang/quick-utils-js/commit/0e09250c7acd96d237e4140ecabf2e32b1345528))
+
 ### [1.3.1](https://github.com/zguiyang/quick-utils-js/compare/v1.3.0...v1.3.1) (2022-09-13)
 
 
