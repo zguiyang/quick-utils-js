@@ -138,9 +138,9 @@ export function resetObjectValue<T=any> ( obj, options?: {
   resetKeyValues?: Record<string, any>,
 } ): T {
 
-  const ignoreKeys = options?.ignore ?? [];
+  const ignoreKeys = options ? ( options.ignore || [] ) : [];
 
-  const resetKeyValues = options?.resetKeyValues ?? {};
+  const resetKeyValues = options ? ( options.resetKeyValues || {} ) : {};
 
   for ( const key in obj ) {
 
