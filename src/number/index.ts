@@ -17,7 +17,9 @@ export function numberToThousands ( num: number | string, unit?: string,
 
   const { integerLength, decimalsLength } = options || { integerLength: 24, decimalsLength: 8 };
 
-  BigNumber.config ( {
+  const BN = BigNumber.clone ();
+
+  BN.config ( {
     DECIMAL_PLACES: decimalsLength,
     EXPONENTIAL_AT: integerLength + decimalsLength + 1,
     RANGE: 500,
@@ -67,7 +69,7 @@ export function numberToThousands ( num: number | string, unit?: string,
 
   }
 
-  const bigNum = new BigNumber ( formatVal );
+  const bigNum = new BN ( formatVal );
 
   const [ formatIntegerVal = '', formatDecimalVal = '' ] = bigNum.toFormat ().split ( '.' );
 
@@ -99,7 +101,16 @@ export function thousandsToString ( str: string, groupSeparator?: string ):strin
 
 export function numberCalculate ( a: string | number, b: string | number, calcType: BigNumberCalcType ): string {
 
-  const bigNum = new BigNumber ( `${ a }` );
+  const BN = BigNumber.clone ();
+
+  BN.config ( {
+    DECIMAL_PLACES: 8,
+    EXPONENTIAL_AT: 32,
+  } );
+
+  const bigNum = new BN ( `${ a }` );
+
+  console.log ( 'bigNum:', a );
 
   return bigNum[ calcType ] ? bigNum[ calcType ] ( b ).toString () : '--';
 
