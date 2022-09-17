@@ -1,4 +1,3 @@
-
 /**
  *
  * @desc Change the cash amount to uppercase
@@ -106,5 +105,81 @@ export function getFileExtension ( filename:string ): string | undefined {
   }
 
   return undefined;
+
+}
+
+/**
+ * file size transform
+ * **/
+
+export function byteConvert ( bytes: number ) {
+
+  const symbols = [ 'bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB' ];
+
+  let bytesResult: string|number;
+
+  let exp = Math.floor ( Math.log ( bytes ) / Math.log ( 2 ) );
+
+  if ( exp < 1 ) {
+
+    exp = 0;
+
+  }
+
+  const i = Math.floor ( exp / 10 );
+
+  bytesResult = bytes / Math.pow ( 2, 10 * i );
+
+  if ( bytes.toString ().length > bytes.toFixed ( 2 ).toString ().length ) {
+
+    bytesResult = bytes.toFixed ( 2 );
+
+  }
+
+  return `${ bytesResult } ${ symbols[ i ]}`;
+
+}
+
+
+/**
+ * @desc file size bytes to kb...
+ * @param { number } bytes file size
+ * @param { boolean } unitType file size type
+ * @param { boolean } unit size unit if you need
+ * @return {  string | number }
+ * **/
+
+export function getFileSize ( bytes : number, unitType?: 'KB' | 'MB' | 'GB' | 'TB', unit?: boolean ): string | number {
+
+  const marker = 1024;
+
+  const kiloBytes = marker;
+
+  const megaBytes = marker * marker;
+
+  const gigaBytes = marker * marker * marker;
+
+  const teraBytes = marker * marker * marker * marker;
+
+  const unitTypeFnMap = {
+    'KB': ( val ) => ( bytes / kiloBytes ).toFixed ( 2 ),
+    'MB': ( val ) => ( bytes / megaBytes ).toFixed ( 2 ),
+    'GB': ( val ) => ( bytes / gigaBytes ).toFixed ( 2 ),
+    'TB': ( val ) => ( bytes / teraBytes ).toFixed ( 2 ),
+  };
+
+  if ( unitType ) {
+
+    const value = unitTypeFnMap[ unitType ] ( bytes );
+
+    return unit ? `${value} ${ unitType }` : value;
+
+  } else {
+
+    console.log ( 'bytes', byteConvert ( bytes ) );
+
+    return byteConvert ( bytes );
+
+  }
 
 }
