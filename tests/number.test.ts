@@ -67,7 +67,7 @@ describe('number calculate', () => {
     } );
 
     it ( 'idiv in calculate', function () {
-        const result = numberCalculate('10', '3', 'idev');
+        const result = numberCalculate('10', '3', 'idiv');
 
         expect( result ).toEqual('3');
     } );
