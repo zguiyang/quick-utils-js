@@ -1,6 +1,6 @@
 import BigNumber from 'bignumber.js';
 
-type BigNumberCalcType = 'plus' | 'minus' | 'times' | 'div' | 'idev' | 'mod' | 'pow';
+type BigNumberCalcType = 'plus' | 'minus' | 'times' | 'div' | 'idiv' | 'mod' | 'pow';
 
 /**
  * @desc The number is formatted in thousands and truncated automatically when the number exceeds eight decimal places
