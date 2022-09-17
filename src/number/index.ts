@@ -110,8 +110,6 @@ export function numberCalculate ( a: string | number, b: string | number, calcTy
 
   const bigNum = new BN ( `${ a }` );
 
-  console.log ( 'bigNum:', a );
-
   return bigNum[ calcType ] ? bigNum[ calcType ] ( b ).toString () : '--';
 
 }
