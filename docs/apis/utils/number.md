@@ -97,6 +97,8 @@ type BigNumberCalcType = 'plus' | 'minus' | 'times' | 'div' | 'idev' | 'mod' | '
 2. `b` 需要操作的数字b
 3. `calcType`  计算的类型
 
+**注意： 数字最多不能超过32位**
+
 - 示例
 
 ```ts
