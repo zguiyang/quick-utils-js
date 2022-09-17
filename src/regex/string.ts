@@ -8,7 +8,7 @@
 
 export function chineseReg ( str: string, maxLen?: number ): boolean {
 
-  const reg = `^[\\u4e00-\\u9fa5]{1,${ maxLen || 10 }}$`;
+  const reg = `^[\\u4e00-\\u9fa5]{1,${ maxLen || '' }}$`;
 
   return RegExp ( reg, 'g' ).test ( str );
 
@@ -24,7 +24,7 @@ export function chineseReg ( str: string, maxLen?: number ): boolean {
 
 export function numberReg ( str: string, maxLen?: number ): boolean {
 
-  const reg = `^[0-9]{1,${maxLen || 10 }}$`;
+  const reg = `^[0-9]{1,${maxLen || ''}}$`;
 
   return RegExp ( reg, 'g' ).test ( str );
 
@@ -40,7 +40,7 @@ export function numberReg ( str: string, maxLen?: number ): boolean {
 
 export function letterReg ( str: string, maxLen?: number ): boolean {
 
-  const reg = `^[a-zA-Z]{1,${ maxLen || 10 }}$`;
+  const reg = `^[a-zA-Z]{1,${ maxLen || '' }}$`;
 
   return RegExp ( reg, 'g' ).test ( str );
 
@@ -55,7 +55,7 @@ export function letterReg ( str: string, maxLen?: number ): boolean {
 
 export function upperLetterReg ( str: string, maxLen?: number ): boolean {
 
-  const reg = `^[A-Z]{1,${ maxLen || 10 }}$`;
+  const reg = `^[A-Z]{1,${ maxLen || '' }}$`;
 
   return RegExp ( reg, 'g' ).test ( str );
 
@@ -70,7 +70,7 @@ export function upperLetterReg ( str: string, maxLen?: number ): boolean {
 
 export function lowerLetterReg ( str: string, maxLen?:number ): boolean {
 
-  const reg = `^[a-z]{1,${ maxLen || 10 }}$`;
+  const reg = `^[a-z]{1,${ maxLen || '' }}$`;
 
   return RegExp ( reg, 'g' ).test ( str );
 
@@ -85,7 +85,7 @@ export function lowerLetterReg ( str: string, maxLen?:number ): boolean {
 
 export function letterNumberReg ( str: string, maxLen?:number ): boolean {
 
-  const reg = `^[A-Za-z0-9]{1,${maxLen || 10 }}$`;
+  const reg = `^[A-Za-z0-9]{1,${maxLen || '' }}$`;
 
   return RegExp ( reg, 'g' ).test ( str );
 
@@ -100,7 +100,7 @@ export function letterNumberReg ( str: string, maxLen?:number ): boolean {
 
 export function letterZhNumberReg ( str: string, maxLen?: number ): boolean {
 
-  const reg = `^[\\u4E00-\\u9FA5A-Za-z0-9]{1,${maxLen || 10}}$`;
+  const reg = `^[\\u4E00-\\u9FA5A-Za-z0-9]{1,${maxLen || ''}}$`;
 
   return RegExp ( reg, 'g' ).test ( str );
 

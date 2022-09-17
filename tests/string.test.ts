@@ -1,6 +1,6 @@
 import { test, expect } from 'vitest';
 
-import { getCustomKebabCase, getCustomCamelCase } from '../src/string';
+import { getCustomKebabCase, getCustomCamelCase } from '../src';
 
 test('CamelCase to kebab-case', () => {
 
