@@ -279,3 +279,34 @@ console.log( getFileExtension ('test.jpg') ); // jpg
 
 
 ```
+
+## 文件大小单位转换
+
+- 描述
+
+将文件的大小单位转化为常见的大小单位：`'KB' | 'MB' | 'GB' | 'TB'`, 保留两位小数
+
+- Type
+
+```ts
+
+ type getFileSize = ( bytes : number, unitType?: 'KB' | 'MB' | 'GB' | 'TB', unit?: boolean ) => string | number
+
+```
+
+- 参数说明
+
+1. `bytes` 文件字节大小
+2. `unitType` 转换的尺寸类型, 不传将会自动适配单位进行转换，并返回值中，包括了单位，
+3. `unit` 返回的值是否带有尺寸单位，`unitType`不传时，不会生效， 为`true`才会有单位值返回 
+
+- 示例
+
+```ts
+
+import {  getFileSize } from "quick-utils-js";
+
+console.log( getFileSize ( 1024, 'KB' ) );
+
+
+```
