@@ -55,23 +55,29 @@ export function uniqueArrayObj<T=Record<string, any>> ( arr:T[], key?:string ): 
 
 export function arrayRecursionMap<T = any, R = any> ( data: T[], callback: ( item: T ) => R, childKey = 'children' ): R[] {
 
-  let result: R[] = [];
-
   const eachItemFn = ( list: T[] ): R[] => {
 
     const childList: R[] = [];
 
     list.forEach ( item => {
 
-      const current = item[ childKey ];
+      const temp = callback ( item );
 
-      if ( current && current.length ) {
+      if ( !temp ) {
 
-        item[ childKey ] = eachItemFn ( current );
+        return;
 
       }
 
-      childList.push ( callback ( item ) );
+      const current = temp[ childKey ];
+
+      if ( current && current.length ) {
+
+        temp[ childKey ] = eachItemFn ( current );
+
+      }
+
+      childList.push ( temp );
 
     } );
 
@@ -79,9 +85,7 @@ export function arrayRecursionMap<T = any, R = any> ( data: T[], callback: ( ite
 
   };
 
-  result = eachItemFn ( data );
-
-  return result;
+  return eachItemFn ( data );
 
 }
 
