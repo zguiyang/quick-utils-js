@@ -1,4 +1,4 @@
-import { test, expect } from 'vitest';
+import { describe, test, expect } from 'vitest';
 
 import { uniqueArrayObj, arrayRecursionMap, flatTreeArray, sliceArray } from '../src';
 
@@ -19,27 +19,53 @@ test('The object element is deduplicated', () => {
 });
 
 
-test('array recursion map callback', () => {
+describe('array recursion map callback', () => {
 
-  const list:any[] = [ { label:'a', value:1, id: '111', children: [ {  label: '999', value: 2, id: 2 } ] }, { label: '90998', value: 7, id: 10 } ];
+  it ('return new array', () => {
+    const list:any[] = [ { label:'a', value:1, id: '111', children: [ {  label: '999', value: 2, id: 2 } ] }, { label: '90998', value: 7, id: 10 } ];
 
-  const result: any[] = arrayRecursionMap( list, ( item ) => {
-    const temp: any = {
-      key: item.label,
-      val: item.value,
-    };
+    const result: any[] = arrayRecursionMap( list, ( item ) => {
+      const temp: any = {
+        key: item.label,
+        val: item.value,
+      };
 
-    if ( item.children ) {
+      if ( item.children ) {
 
-      temp.children = item.children as any;
+        temp.children = item.children as any;
 
-    }
+      }
 
-    return temp;
+      return temp;
 
-  }, 'children');
+    }, 'children');
 
-  expect( result ).toEqual([ {key:'a', val:1, children: [ { key: '999', val: 2 } ] }, { key: '90998', val: 7 } ]);
+    expect( result ).toEqual([ {key:'a', val:1, children: [ { key: '999', val: 2 } ] }, { key: '90998', val: 7 } ]);
+  });
+
+  it ('callback test...', () => {
+
+    const list:any[] = [ { label:'a', value:1, id: '111', children: [ {  label: '999', value: 2, id: 2 } ] }, { label: '90998', value: 7, id: 10 } ];
+
+    const result: any[] = arrayRecursionMap( list, ( item ) => {
+      const temp: any = {
+        key: item.label,
+        val: item.value,
+      };
+
+      if ( item.id === 2 || item.value === 7 ) {
+
+        return null;
+
+      }
+
+      return temp;
+
+    }, 'children');
+
+    expect( result ).toEqual([ {key:'a', val:1 } ]);
+
+  });
 
 });
 
