@@ -90,6 +90,46 @@ export function arrayRecursionMap<T = any, R = any> ( data: T[], callback: ( ite
 }
 
 /**
+ * @description deep filter for array
+ * @param { any[] } arr filter arr
+ * @param { ( item ) => boolean } callback filter callback
+ * @param { string } childrenKey  children key deep each key
+ * @return array
+ * **/
+
+export function arrayDeepFilter<T=any> ( arr: T[], callback: ( item ) => boolean, childrenKey = 'children' ): Array<T> {
+
+  function eachItem ( list: Array<T> ) {
+
+    const result: T[] = [];
+
+    list.forEach ( item => {
+
+      if ( callback ( item ) ) {
+
+        const children = item[ childrenKey ];
+
+        if ( children && children.length ) {
+
+          item[ childrenKey ] = eachItem ( children );
+
+        }
+
+        result.push ( item );
+
+      }
+
+    } );
+
+    return result;
+
+  }
+
+  return eachItem ( arr );
+
+}
+
+/**
  *
  * @desc Flattening an array
  * @param { any[] } data flat array

@@ -52,12 +52,6 @@ console.log( result ); // [{"name":"yang","id":"1222333"},{"name":"yang2","id":"
 
 - 示例
 ```ts
-/**
- * @param { array<T> } data 遍历的数组
- * @param { ( item:T ) => R } callback 每次遍历的回调函数
- * @param { string } childKey 递归的数组key名
- * @return { array } R[]
- * */
 
 import { arrayRecursionMap } from "quick-utils-js";
 
@@ -111,6 +105,86 @@ console.log( result );
 // [{"label":"顶级节点一","value":"1","pid":null,"children":[{"label":"顶级节点1-1","value":"1-1","pid":"1","children":[]},{"label":"顶级节点二","value":"2","pid":null,"children":[{"label":"顶级节点2-1","value":"2-1","pid":"2","children":[]}]},{"label":"顶级节点三","value":"3","pid":null,"children":[]}]
 
 ```
+
+## 数组递归过滤
+
+- 描述
+
+`arrayDeepFilter` 对于tree结构的数组进行过滤操作，与`Array.filter`一样的效果，不过它支持`tree`结构过滤
+
+- Type
+
+```ts
+ type arrayDeepFilter = <T=any>( arr: T[], callback: ( item ) => boolean, childrenKey = 'children' ) => Array<T>
+```
+
+- 参数说明
+
+1. `arr` 遍历的数组
+2. `callback` 每次遍历的回调函数, `item`是当前项
+3. `childKey` 递归子数组的key名，不传则默认`children`
+
+- 示例
+```ts
+
+import { arrayDeepFilter } from "quick-utils-js";
+
+const arr = [
+    {
+        pid: null,
+        id: '1',
+        name: '节点1',
+        children: [
+            {
+                pid: '1',
+                id: '1-1',
+                name: '节点1-1',
+            },
+            {
+                pid: '1',
+                id: '1-2',
+                name: '节点1-2',
+                children: [
+                    {
+                        pid: '1-2',
+                        id: '1-2-1',
+                        name: '节点1-2-1'
+                    }
+                ],
+            }
+        ],
+    },
+    {
+        pid: null,
+        id: '2',
+        name: '节点2'
+    },
+    {
+        pid: null,
+        id: '3',
+        name: '节点3',
+        children: [
+            {
+                pid: '3',
+                id: '3-1',
+                name: '节点3-1',
+            }
+        ],
+    }
+];
+
+const  result2 = arrayDeepFilter( arr, ( item ) => item.id === '2' );
+
+// result
+ [   {
+pid: null,
+    id: '2',
+    name: '节点2'
+}]
+
+
+```
+
 
 ## 扁平化数组
 

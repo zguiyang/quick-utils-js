@@ -1,6 +1,6 @@
 import { describe, test, expect } from 'vitest';
 
-import { uniqueArrayObj, arrayRecursionMap, flatTreeArray, sliceArray } from '../src';
+import { uniqueArrayObj, arrayRecursionMap, arrayDeepFilter, flatTreeArray, sliceArray } from '../src';
 
 
 test('The object element is deduplicated', () => {
@@ -66,6 +66,117 @@ describe('array recursion map callback', () => {
     expect( result ).toEqual([ {key:'a', val:1 } ]);
 
   });
+
+});
+
+describe ('arrayDeepFilter test...', () => {
+
+  it ( 'normal test ', () => {
+
+    const arr = [
+      {
+        pid: null,
+        id: '1',
+        name: '节点1',
+        children: [
+          {
+            pid: '1',
+            id: '1-1',
+            name: '节点1-1',
+          },
+          {
+            pid: '1',
+            id: '1-2',
+            name: '节点1-2',
+            children: [
+              {
+                pid: '1-2',
+                id: '1-2-1',
+                name: '节点1-2-1'
+              }
+            ],
+          }
+        ],
+      },
+      {
+        pid: null,
+        id: '2',
+        name: '节点2'
+      },
+      {
+        pid: null,
+        id: '3',
+        name: '节点3',
+        children: [
+          {
+            pid: '3',
+            id: '3-1',
+            name: '节点3-1',
+          }
+        ],
+      }
+    ];
+
+    expect( arrayDeepFilter( arr, ( item ) => item.id === '2' ) ).toEqual([ {
+      pid: null,
+      id: '2',
+      name: '节点2'
+    } ])
+
+  } );
+
+  it ( 'deep child test...', () => {
+
+    const arr = [
+      {
+        pid: null,
+        id: '1',
+        name: '节点1',
+        children: [
+          {
+            pid: '1',
+            id: '1-1',
+            name: '节点1-1',
+          },
+          {
+            pid: '1',
+            id: '1-2',
+            name: '节点1-2',
+            children: [
+              {
+                pid: '1-2',
+                id: '1-2-1',
+                name: '节点1-2-1'
+              }
+            ],
+          }
+        ],
+      },
+    ];
+
+    expect( arrayDeepFilter( arr, ( item ) => item.id !== '1-2-1' ) ).toEqual([
+        {
+        pid: null,
+        id: '1',
+        name: '节点1',
+        children: [
+          {
+            pid: '1',
+            id: '1-1',
+            name: '节点1-1',
+          },
+          {
+            pid: '1',
+            id: '1-2',
+            name: '节点1-2',
+            children: [],
+          }
+        ],
+      },
+    ])
+
+  } );
+
 
 });
 
