@@ -13,10 +13,10 @@
 ### 🐛 Bug 修复
 
 * 🐛 `numberCalculate`中的`calcType` 类型错误 ([8a00e49](https://github.com/zguiyang/quick-utils-js/commit/8a00e4938f8d41bf421c905dbff2621e8789902b))
-* 🐛 calcType` error for `numberCalculate` ([65e85b7](https://github.com/zguiyang/quick-utils-js/commit/65e85b77df49f67ff7d793885c23db9a3e9e56a4))
-* 🐛 修复`getRemainTime`参数类型错误 ([3a3ddbc](https://github.com/zguiyang/quick-utils-js/commit/3a3ddbc7c6e4625a1f7f0f93c8fc7225ac63a4f5))
-* 🐛`numberCalculate` Problem of calculation accuracy ([15a3369](https://github.com/zguiyang/quick-utils-js/commit/15a33698d57e0adec7e58ae5ba9c9b0b8a8dd7b3))
-* 🐛`numberCalculate`修复大数计算精度问题 ([ecc5b46](https://github.com/zguiyang/quick-utils-js/commit/ecc5b46cd84ea9e9816b1b2ab90a93bdf7bf56df))
+* 🐛 `numberCalculate` 修复 `calcType`错误 ([65e85b7](https://github.com/zguiyang/quick-utils-js/commit/65e85b77df49f67ff7d793885c23db9a3e9e56a4))
+* 🐛  `getRemainTime`参数类型错误 ([3a3ddbc](https://github.com/zguiyang/quick-utils-js/commit/3a3ddbc7c6e4625a1f7f0f93c8fc7225ac63a4f5))
+* 🐛 `numberCalculate` Problem of calculation accuracy ([15a3369](https://github.com/zguiyang/quick-utils-js/commit/15a33698d57e0adec7e58ae5ba9c9b0b8a8dd7b3))
+* 🐛 `numberCalculate`修复大数计算精度问题 ([ecc5b46](https://github.com/zguiyang/quick-utils-js/commit/ecc5b46cd84ea9e9816b1b2ab90a93bdf7bf56df))
 
 
 ### ⚡ 性能优化
