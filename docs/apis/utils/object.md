@@ -115,6 +115,34 @@ console.log ( resetObjectValue ( { a: 1, b: 2, c: 3 }, { ignore: [ 'c' ], resetK
 // {a:null,b:{d:{f:"55555~~~~"}},c:3}
 console.log ( resetObjectValue ( { a: 1, b: { d: { f: '123' } }, c: 3 }, { ignore: [ 'c' ], resetKeyValues: { 'f': '55555~~~~' } } )  );
 
+```
 
+## 对象转FormData
 
+- 描述
+
+`objectToFormData`, 将一个对象转换为`FormData`对象, 不支持多级对象
+
+**注意：如果值为`undefined`，则不会写入`FormData`**
+
+- Type
+
+```ts
+ type objectToFormData = ( obj:Record<string, any> ) => FormData
+```
+
+- 参数说明
+
+1. `obj` 需要转换的对象
+
+- 示例
+
+```ts
+
+import { objectToFormData } from "quick-utils-js";
+
+ const formData = objectToFormData ( { name: 'yang', phone: '18190678381', address: 'lll', id: 123, list: [ 1, 2 , 3 ] } );
+
+ formData.get ('name') // yang
+ 
 ```

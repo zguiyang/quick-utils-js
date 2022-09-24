@@ -88,6 +88,15 @@ import { isNull } from "quick-utils-js";
 isNull( null ) // true
 ```
 
+## 判断是否为undefined
+
+- 示例
+```ts
+import { isUndefined } from "quick-utils-js";
+
+isUndefined( undefined ) // true
+```
+
 ## 判断是否为Date
 
 - 示例
@@ -97,6 +106,33 @@ import { isDate } from "quick-utils-js";
 isDate(  '1998-01-02'  ) // false
 isDate( new Date () ) // true
 isDate( new Date('1998-01-02') ) // true
+```
+
+## 判断是否为FormData
+
+- 示例
+```ts
+import { isFormData } from "quick-utils-js";
+
+isFormData( new FormData() ) // true
+```
+
+## 判断是否为File
+
+- 示例
+```ts
+import { isFile } from "quick-utils-js";
+
+isFile( new File( [ new Blob() ], 'xxx.png' ) ) // true
+```
+
+## 判断是否为Blob
+
+- 示例
+```ts
+import { isBlob } from "quick-utils-js";
+
+isBlob( new Blob( [] ) ) // true
 ```
 
 
