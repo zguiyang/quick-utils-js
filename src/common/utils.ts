@@ -162,10 +162,10 @@ export function getFileSize ( bytes : number, unitType?: 'KB' | 'MB' | 'GB' | 'T
   const teraBytes = marker * marker * marker * marker;
 
   const unitTypeFnMap = {
-    'KB': ( val ) => ( bytes / kiloBytes ).toFixed ( 2 ),
-    'MB': ( val ) => ( bytes / megaBytes ).toFixed ( 2 ),
-    'GB': ( val ) => ( bytes / gigaBytes ).toFixed ( 2 ),
-    'TB': ( val ) => ( bytes / teraBytes ).toFixed ( 2 ),
+    'KB': ( val: number ) => ( val / kiloBytes ).toFixed ( 2 ),
+    'MB': ( val: number ) => ( val / megaBytes ).toFixed ( 2 ),
+    'GB': ( val: number ) => ( val / gigaBytes ).toFixed ( 2 ),
+    'TB': ( val: number ) => ( val / teraBytes ).toFixed ( 2 ),
   };
 
   if ( unitType ) {
@@ -175,8 +175,6 @@ export function getFileSize ( bytes : number, unitType?: 'KB' | 'MB' | 'GB' | 'T
     return unit ? `${value} ${ unitType }` : value;
 
   } else {
-
-    console.log ( 'bytes', byteConvert ( bytes ) );
 
     return byteConvert ( bytes );
 
