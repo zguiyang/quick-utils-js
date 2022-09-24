@@ -4,9 +4,16 @@ module.exports = {
     node: true,
     es6: true,
   },
-  extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended'],
-  parser: '@typescript-eslint/parser',
+  extends: ['eslint:recommended', 'plugin:vue/base', 'plugin:@typescript-eslint/recommended'],
   plugins: ['@typescript-eslint'],
+  parser: "vue-eslint-parser",
+  // parser: '@typescript-eslint/parser',
+  parserOptions: {
+    parser: {
+      ts: '@typescript-eslint/parser',
+      js: 'espree',
+    },
+  },
   rules: {
     "no-undef": "off",
     "indent": "off",

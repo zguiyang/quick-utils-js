@@ -3,8 +3,8 @@
     "allowUnreachableCode": true,
     "strict": true,
     "esModuleInterop": true,
-    "target": "es5",
-    "module": "es6",
+    "target": "ES6",
+    "module": "ES2015",
     "noImplicitAny": false,
     "removeComments": true,
     "preserveConstEnums": false,
@@ -18,11 +18,20 @@
     "downlevelIteration": true,
     "declaration": true,
     "moduleResolution": "node",
+    "paths": {
+      "quick-utils-js": [
+        "./src/index.ts"
+      ]
+    },
     "types": ["vitest/globals"]
   },
   // 入口文件
   "include": [
-    "src/index.ts",
+    "**/*.ts",
+    "**/*.d.ts",
+    "**/*.tsx",
+    "**/*.vue",
+    "node_modules/**/*.d.ts"
   ],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules/**"]
 }
