@@ -172,7 +172,7 @@ export function resetObjectValue<T=any> ( obj, options?: {
  * @return FormData
  * **/
 
-export function objectToFormData ( obj:Record<string, any> ) {
+export function objectToFormData ( obj:Record<string, any> ): FormData {
 
   const result:FormData = new FormData ();
 
