@@ -2,6 +2,36 @@
 
 
 
+### [1.3.3](https://github.com/zguiyang/quick-utils-js/compare/v1.3.2...v1.3.3) (2022-09-24)
+
+
+### ⏪ 回滚功能或版本
+
+* ⏪ 回滚代码，移除`es5`的打包产物及配置 ([74ecec2](https://github.com/zguiyang/quick-utils-js/commit/74ecec2ce3652c08cc8cd0e448c5d34014dd75ed))
+
+
+### 🐛 Bug 修复
+
+* 🐛 `numberCalculate`中的`calcType` 类型错误 ([8a00e49](https://github.com/zguiyang/quick-utils-js/commit/8a00e4938f8d41bf421c905dbff2621e8789902b))
+* 🐛 calcType` error for `numberCalculate` ([65e85b7](https://github.com/zguiyang/quick-utils-js/commit/65e85b77df49f67ff7d793885c23db9a3e9e56a4))
+* 🐛 修复`getRemainTime`参数类型错误 ([3a3ddbc](https://github.com/zguiyang/quick-utils-js/commit/3a3ddbc7c6e4625a1f7f0f93c8fc7225ac63a4f5))
+* 🐛`numberCalculate` Problem of calculation accuracy ([15a3369](https://github.com/zguiyang/quick-utils-js/commit/15a33698d57e0adec7e58ae5ba9c9b0b8a8dd7b3))
+* 🐛`numberCalculate`修复大数计算精度问题 ([ecc5b46](https://github.com/zguiyang/quick-utils-js/commit/ecc5b46cd84ea9e9816b1b2ab90a93bdf7bf56df))
+
+
+### ⚡ 性能优化
+
+* ⚡️ `arrayRecursionMap``callback`返回值增加有效数据验证 ([551780b](https://github.com/zguiyang/quick-utils-js/commit/551780b44a2603c2fe9738ffa6f743ff97bff30b))
+* ⚡️ 移除`resetObjectValue`中的`es语法`，防止在某些情况下出现不兼容问题 ([2e0b697](https://github.com/zguiyang/quick-utils-js/commit/2e0b697b2bd0df7d8f5a415b5d10a8f8f29d4741))
+
+
+### 🎉 新功能
+
+* 🎉 `helper.ts`新增`isUndefined`、`isFormData`、`isFile`、`isBlob` ([bf56187](https://github.com/zguiyang/quick-utils-js/commit/bf5618730f3119eb7addce59d5817e284b99ee87))
+* 🎉 `object.ts`新增`objectToFormData` ([eb03e85](https://github.com/zguiyang/quick-utils-js/commit/eb03e85ddf6b7c8900597433d19cced6eac17d5e))
+* 🎉 增加`arrayDeepFilter`数组递归过滤 ([f52899d](https://github.com/zguiyang/quick-utils-js/commit/f52899d89f943d56957e19deb9329a6e682e9ab5))
+* 🎉 新增`getFileSize`文件单位转换 ([49fbea2](https://github.com/zguiyang/quick-utils-js/commit/49fbea23efd964a577d68cb147a56d39bfcff4a1))
+
 ### [1.3.2](https://github.com/zguiyang/quick-utils-js/compare/v1.3.1...v1.3.2) (2022-09-14)
 
 
