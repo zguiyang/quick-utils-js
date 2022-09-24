@@ -272,6 +272,32 @@ specialStrReg ( '!@>', '!@>' ) // true
 
 ```
 
+## Base64字符串校验
+
+- 描述
+
+校验是否是`base64`字符串
+
+- Type
+
+```ts
+  type  base64Reg = ( str: string )=> boolean
+```
+
+- 参数说明
+
+1. `str`需要校验的字符串
+
+- 示例
+
+```js
+import { base64Reg } from 'quick-utils-js';
+
+base64Reg ( 'dG9vbHR0LmNvbeWcqOe6v+W3peWFtw==' ) // true
+
+```
+
+
 ## 自定义字符范围校验
 
 - 描述

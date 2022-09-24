@@ -141,6 +141,19 @@ export function specialStrReg ( str: string, scope?: string ): boolean {
 }
 
 /**
+ * base64字符串校验
+ * @param { string } str 需要校验的字符串
+ * **/
+
+export function base64Reg ( str: string ): boolean {
+
+  const reg = /^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=|[A-Za-z0-9+/]{4})$/gi;
+
+  return reg.test ( str );
+
+}
+
+/**
  * 自定义字符范围校验
  * @description 自定义字符范围校验，可以指定自定义字符范围及长度
  * @param { string } str 需要校验的字符串

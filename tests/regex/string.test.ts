@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 
 import { chineseReg, numberReg, letterReg, upperLetterReg, lowerLetterReg, letterNumberReg, allStrReg, specialStrReg,
-  letterZhNumberReg, customStrReg } from '../../src';
+  letterZhNumberReg, base64Reg, customStrReg } from '../../src';
 
 describe ( '中文字符正则测试', () => {
 
@@ -208,6 +208,21 @@ describe ( '特殊字符校验正则测试', () => {
   } );
 
 } );
+
+describe('base64字符串校验：', () => {
+
+  it ('格式校验：', () => {
+
+    expect(base64Reg('')).toBeFalsy();
+    expect(base64Reg('12346')).toBeFalsy();
+    expect(base64Reg('dG9vbHR0LmNvbeWcqOe6v+W3peWFtw')).toBeFalsy();
+    expect(base64Reg('dG9vbHR0LmNvbeWcqOe6v+W3peWFtw=')).toBeFalsy();
+    expect(base64Reg('dG9vbHR0LmNvbeWcqOe6v+W3peWFtw==')).toBeTruthy();
+
+  });
+
+});
+
 
 describe ( '自定义字符校验正则测试', () => {
 
