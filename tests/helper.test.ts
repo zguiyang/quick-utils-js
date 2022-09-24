@@ -1,8 +1,13 @@
+/**
+ * @vitest-environment jsdom
+ */
+
 import { test, expect, describe } from 'vitest';
 
 import {
   getValueType, isNumber, isArray, isEmptyArray, isBoolean, isEmptyObject, isObject, isString,
-  isPromise, isNull,isDate, isAsyncFunction, isPlainFunction } from '../src';
+  isPromise, isNull, isDate, isAsyncFunction, isPlainFunction, isUndefined, isFormData, isBlob,
+ isFile } from '../src';
 
 test ('enhanceTypeof test...', () => {
 
@@ -162,3 +167,48 @@ describe ('function validator test...', () => {
   });
 
 })
+
+describe ('special object typeof', () => {
+
+  it ('isUndefined test', () => {
+
+    expect( isUndefined( null )).toBeFalsy();
+    expect( isUndefined( false )).toBeFalsy();
+    expect( isUndefined( '' )).toBeFalsy();
+    expect( isUndefined( undefined )).toBeTruthy();
+
+  });
+
+  it ('form data test...', () => {
+
+    const formData = new FormData();
+
+    formData.append('test', '123');
+
+    expect(isFormData({})).toBeFalsy();
+    expect(isFormData(null)).toBeFalsy();
+    expect(isFormData(formData)).toBeTruthy();
+
+  });
+
+  it ( 'blob data test', () => {
+
+    const data = new File( [ new Blob([]) ], 'xxx.png');
+
+    expect( isBlob( {} )).toBeFalsy();
+    expect( isBlob( data )).toBeFalsy();
+    expect(isBlob( new Blob([]))).toBeTruthy();
+
+  } );
+
+  it ( 'file test...',  () => {
+
+    const data = new File( [ new Blob([]) ], 'xxx.png');
+
+    expect(isFile({})).toBeFalsy();
+    expect(isFile( new Blob([]))).toBeFalsy();
+    expect(isFile(data)).toBeTruthy();
+
+  } );
+
+});
