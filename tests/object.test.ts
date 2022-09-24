@@ -1,7 +1,6 @@
 import { test, describe, expect } from 'vitest';
 
-import { objectDiff, objectEach, resetObjectValue } from '../src';
-
+import { objectDiff, objectEach, resetObjectValue, isFormData,  objectToFormData } from '../src';
 
 // 对象比较
 
@@ -162,3 +161,16 @@ describe ('reset object value custom options', () => {
   })
 
 });
+
+// @vitest-environment jsdom
+describe('object to FormData', () => {
+
+  it ('normal test...', () => {
+
+    const obj = { name: 'test', phone: '1234' };
+
+    expect( isFormData(objectToFormData( obj )) ).toBeTruthy();
+
+  });
+
+})

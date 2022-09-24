@@ -165,3 +165,23 @@ export function resetObjectValue<T=any> ( obj, options?: {
   return obj;
 
 }
+
+/**
+ * @description object to FormData
+ * @param { object } obj
+ * @return FormData
+ * **/
+
+export function objectToFormData ( obj:Record<string, any> ) {
+
+  const result:FormData = new FormData ();
+
+  Object.keys ( obj ).forEach ( key => {
+
+    obj[ key ] !== undefined && result.append ( key, obj[ key ] );
+
+  } );
+
+  return result;
+
+}
