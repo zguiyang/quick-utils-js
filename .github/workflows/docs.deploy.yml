@@ -43,6 +43,6 @@ jobs:
         SOURCE: "docs/.vitepress/dist"
         REMOTE_HOST: ${{ secrets.SSH_HOST }}
         REMOTE_USER: ${{ secrets.SSH_USERNAME }}
-        TARGET: SERVER_WORKDIR
+        TARGET: ${{ secrets.DEPLOY_TARGET_DIR }}
         EXCLUDE: "/node_modules/"
         SCRIPT_AFTER: 'echo "文档部署成功..."'
