@@ -35,7 +35,7 @@ jobs:
       uses: actions/cache@v3
       with:
         path: node_modules
-        key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/pnpm-lock.yaml') }}
+        key: ${{ runner.os }}-build-nodeModules-${{ hashFiles('**/pnpm-lock.yaml') }}
     - name: Run build task
       run: pnpm run docs:build --if-present
     - name: Deploy to Server
