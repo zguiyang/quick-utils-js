@@ -2,21 +2,6 @@ import { defineConfig } from 'vitepress';
 
 export default defineConfig ( {
   title: 'quick-utils-js',
-
-  // locales: {
-  //     '/': {
-  //         lang: 'en-US',
-  //         description: 'A tool library that integrates common regular check expressions.',
-  //         selectText: 'English',
-  //     },
-  //     '/zh_CN/': {
-  //         lang: 'zh-CN',
-  //         title: 'Regex-utils-js',
-  //         description: '一个集成了常用正则校验表达式的工具库',
-  //         selectText: '简体中文',
-  //     },
-  // },
-
   lastUpdated: true,
   themeConfig: {
     lastUpdatedText: '上次更新',
@@ -29,8 +14,7 @@ export default defineConfig ( {
       '/guide/': [
         {
           text: '引导',
-          collapsed: true,
-          collapsible: false,
+          collapsed: false,
           items: [
             {
               text: '前言',
@@ -47,7 +31,6 @@ export default defineConfig ( {
         {
           text: '工具方法',
           collapsed: true,
-          collapsible: false,
           items: [
             {
               text: '通用方法',
@@ -90,7 +73,6 @@ export default defineConfig ( {
         {
           text: '正则校验',
           collapsed: true,
-          collapsible: false,
           items: [
             {
               text: '常用正则',
@@ -115,10 +97,5 @@ export default defineConfig ( {
     socialLinks: [
       { icon: 'github', link: 'https://github.com/zguiyang/quick-utils-js' },
     ],
-    algolia: {
-      appId: '',
-      apiKey: '',
-      indexName: '',
-    },
   },
 } );
