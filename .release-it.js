@@ -6,7 +6,7 @@ const changelogConfig = require ('./config/changelog-config');
 module.exports = {
   git: {
     commit: true,
-    commitMessage: "ci: 🚀 发布新版本 v${version}"
+    commitMessage: "ci: 🚀 release v${version}"
   },
   npm: {
       publish: false
@@ -17,7 +17,7 @@ module.exports = {
   plugins: {
     "@release-it/conventional-changelog": {
       infile: "docs/CHANGELOG.md",
-      header: "# 更新日志\n\n",
+      header: "# Changelog\n\n",
       ignoreRecommendedBump: true,
       strictSemVer: true,
       preset: {
@@ -32,7 +32,11 @@ module.exports = {
     },
   },
   hooks: {
-    "before:init" : [ "echo 📦 开始打包项目,准备发布",  "pnpm run build", "echo 打包成功，进行发版操作了..." ],
+    "before:init" : [
+      "pnpm run test",
+      "pnpm run clean:dist",
+      "pnpm run build",
+    ],
     "after:release" : [ "echo ✅ 发布完成 ${name}-v${version}" ]
   }
 }
