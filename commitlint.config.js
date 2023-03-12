@@ -44,7 +44,7 @@ module.exports = {
       { value: 'revert', name: 'revert:   Reverts a previous commit', emoji: ':rewind:' },
     ],
     useEmoji: true,
-    emojiAlign: 'left',
+    emojiAlign: 'center',
     useAI: false,
     aiNumber: 1,
     themeColorCode: '',
