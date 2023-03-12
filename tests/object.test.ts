@@ -123,16 +123,25 @@ describe ('reset object value custom options', () => {
         c: [ 'describe' ],
         d: {
           e: 123,
+          no: 1,
+          t: 6,
         },
       },
     };
-    let result = resetObjectValue( obj, { resetKeyValues: { c: 'ccc', e: [ 333 ] } } );
+    let result = resetObjectValue( obj, { resetKeyValues: {
+      c: 'ccc',
+      no: 0,
+      t: '',
+        e: [ 333 ]
+    } } );
     expect(result).toEqual({
       a: null,
       b: {
         c: 'ccc',
         d: {
           e: [ 333 ],
+          no: 0,
+          t: '',
         },
       },
     } );
