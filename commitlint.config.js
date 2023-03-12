@@ -57,7 +57,7 @@ module.exports = {
     customScopesAlias: 'custom',
     emptyScopesAlias: 'empty',
     upperCaseSubject: false,
-    markBreakingChangeMode: false,
+    markBreakingChangeMode: true,
     allowBreakingChanges: [ 'feat', 'fix' ],
     breaklineNumber: 100,
     breaklineChar: '|',
