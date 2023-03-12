@@ -2,6 +2,20 @@
 
 
 
+### [1.3.4](https://github.com/zguiyang/quick-utils-js/compare/v1.3.3...v1.3.4) (2023-03-12)
+
+
+### 🐛 Bug 修复
+
+* **object:** :bug: fixed custom set key value bug for `resetObjectValue` ([d5e18b9](https://github.com/zguiyang/quick-utils-js/commit/d5e18b95a9e17f5eb85ae108752502ac1cd8eadd))
+
+
+### ✨ 新功能
+
+* 🎉 新增`base64Reg`方法，用于校验`base64`字符串的合法性 ([b5a0239](https://github.com/zguiyang/quick-utils-js/commit/b5a02391cbd7162b71a40ae5f994917d8e8f2c4b))
+* add search plugin in docs ([9cd29e0](https://github.com/zguiyang/quick-utils-js/commit/9cd29e00bd9285c3ab9cede2519a8502211cc16e))
+* **date:** :sparkles: `timestamp` parameter is updated non-required ([13e97e2](https://github.com/zguiyang/quick-utils-js/commit/13e97e2472f37945afd7704473e535b43d8345e2))
+
 ### [1.3.3](https://github.com/zguiyang/quick-utils-js/compare/v1.3.2...v1.3.3) (2022-09-24)
 
 
