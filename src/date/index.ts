@@ -97,7 +97,13 @@ export function getTimeLeft ( startTime, endTime ): FormatTimeValue | null {
  * @returns { null | string }
  * **/
 
-export function dateFormat ( timestamp:string|number, formatStr?: string ): null | string {
+export function dateFormat ( timestamp?:string|number, formatStr?: string ): null | string {
+
+  if ( !timestamp ) {
+
+    return null;
+
+  }
 
   const timestampStr = typeof timestamp === 'string' ? Number ( timestamp ) : timestamp;
 
