@@ -1,8 +1,8 @@
 module.exports = [
   {
-    label: '🎉 新功能',
+    label: '✨ 新功能',
     value: 'feat',
-    name: '🎉  feat: 新增产品功能',
+    name: '✨ feat: 新增产品功能',
   },
   {
     label: '🐛 Bug 修复',
@@ -10,13 +10,13 @@ module.exports = [
     name: '🐛 fix: 修复 bug',
   },
   {
-    label: '📝  文档修改',
+    label: '📝 文档修改',
     value: 'docs',
     name: '📝 docs: 文档的变更',
     hidden: true,
   },
   {
-    label: '💄  风格变更',
+    label: '💄风格变更',
     value: 'style',
     name: '💄 style: 如删除空格、格式化、去掉末尾分号等',
     hidden: true,
@@ -28,13 +28,7 @@ module.exports = [
     hidden: true,
   },
   {
-    label: '🔀 合并代码',
-    value: 'merge',
-    name: '🔀 merge: 合并代码',
-    hidden: true,
-  },
-  {
-    label: '🎨  视图变更',
+    label: '🎨 视图变更',
     value: 'ui',
     name: '🎨  ui: 页面布局或视图样式变动',
   },
