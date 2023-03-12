@@ -154,7 +154,7 @@ export function resetObjectValue<T=any> ( obj, options?: {
 
       } else {
 
-        obj[ key ] = resetKeyValues[ key ] || null;
+        obj[ key ] = Object.prototype.hasOwnProperty.call ( resetKeyValues, key ) ? resetKeyValues[ key ] : null;
 
       }
 
