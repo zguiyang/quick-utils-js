@@ -33,9 +33,8 @@ module.exports = {
   },
   hooks: {
     "before:init" : [
+      "echo 🚽 run test cases...",
       "pnpm run test",
-      "pnpm run clean:dist",
-      "pnpm run build",
     ],
     "after:release" : [ "echo ✅ 发布完成 ${name}-v${version}" ]
   }
