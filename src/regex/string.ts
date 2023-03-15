@@ -175,9 +175,9 @@ export function customStrReg ( str: string, scope: string, lens?: [ number, numb
  * @param { boolean } between only checks for spaces at both ends of string, default is false
  * **/
 
-export function whiteSpacesReg ( str: string, between?:boolean ):boolean {
+export function whiteSpacesReg ( str: string, between = false ):boolean {
 
-  if ( between === true ) {
+  if ( between ) {
 
     return RegExp ( '^\\s+|\\s+$', 'g' ).test ( str );
 
