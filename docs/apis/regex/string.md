@@ -296,6 +296,37 @@ import { base64Reg } from 'quick-utils-js';
 base64Reg ( 'dG9vbHR0LmNvbeWcqOe6v+W3peWFtw==' ) // true
 
 ```
+## 校验字符串中是否包含空格
+
+- 描述
+
+校验字符串中是否含有空格，可校验首尾或所有空格， 存在空格返回`true`,反之 `false`
+
+- Type
+
+```ts
+  type  whiteSpacesReg = ( str: string, between?:boolean ) => boolean
+```
+
+- 参数说明
+
+1. `str`需要校验的字符串
+2. `between` 是否只校验字符串首尾的空格, 默认为`false`
+
+- 示例
+
+```js
+import { whiteSpacesReg } from 'quick-utils-js';
+
+whiteSpacesReg ( '' ) // false
+whiteSpacesReg ( ' ' ) // true
+whiteSpacesReg ( ' 123 ' ) // true
+whiteSpacesReg ( ' 123' ) // true
+whiteSpacesReg ( ' 12 3' ) // true
+whiteSpacesReg ( '123' ) // false
+whiteSpacesReg ( '1 23', true ) // false
+
+```
 
 
 ## 自定义字符范围校验

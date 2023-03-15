@@ -71,3 +71,31 @@ console.log ( result1 ); // getElementById
 
 console.log ( result2 ); // getElementById
 ```
+
+## 去除字符串中的空格
+
+- 描述
+
+去除字符串中的空格，支持只去除首尾的空格
+
+- Type
+
+```ts
+  type replaceWhiteSpace = ( str: string, trim?: boolean ) => string
+```
+
+- 参数说明
+
+1. `str`需要操作的字符串
+   2. `trim` 是否只去除首尾空格，默认`false`
+
+- 示例
+
+```ts
+
+import { replaceWhiteSpace } from "quick-utils-js";
+
+replaceWhiteSpace ('1 2 3 ') // '123'
+replaceWhiteSpace (' 1 2 3 ', true) // '1 2 3'
+
+```
