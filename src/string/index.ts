@@ -49,3 +49,21 @@ export function getCustomCamelCase ( str: string, separator?:string ):string {
   } ).join ( '' );
 
 }
+
+/**
+ * @description replace white space in string
+ * @param { string } str need replace string of space white
+ * @param { boolean } trim only replace for spaces at both ends of string default: false
+ * **/
+
+export function replaceWhiteSpace ( str: string, trim = false ): string {
+
+  if ( trim ) {
+
+    return str.replace ( /^\s+|\s+$/g, '' );
+
+  }
+
+  return str.replace ( /\s+/g, '' );
+
+}

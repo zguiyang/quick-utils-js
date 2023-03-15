@@ -1,6 +1,10 @@
-import { test, expect } from 'vitest';
+import {test, expect, describe} from 'vitest';
 
-import { getCustomKebabCase, getCustomCamelCase } from '../src';
+import {
+  replaceWhiteSpace,
+  getCustomKebabCase,
+  getCustomCamelCase,
+} from '../src';
 
 test('CamelCase to kebab-case', () => {
 
@@ -81,3 +85,22 @@ test('custom name to CamelCase', () => {
   expect( resultKey ).toBe('getElementById');
 
 });
+
+describe ('replace string of space white', () => {
+  it ('only replace for white spaces at both ends of string', () => {
+    expect( replaceWhiteSpace (' 123' ) ).toBe('123');
+    expect( replaceWhiteSpace ('123 ' ) ).toBe('123');
+    expect( replaceWhiteSpace (' 123 ' ) ).toBe('123');
+    expect( replaceWhiteSpace (' 1 2 3 ' ) ).toBe('123');
+    expect( replaceWhiteSpace (' 12 3 ' ) ).toBe('123');
+    expect( replaceWhiteSpace (' 1      2 3 ' ) ).toBe('123');
+  })
+  it ('replace all white space for string', () => {
+    expect( replaceWhiteSpace (' 123', true ) ).toBe('123');
+    expect( replaceWhiteSpace ('123 ', true ) ).toBe('123');
+    expect( replaceWhiteSpace (' 123 ', true ) ).toBe('123');
+    expect( replaceWhiteSpace (' 1 2 3 ', true ) ).toBe('1 2 3');
+    expect( replaceWhiteSpace (' 12 3 ', true ) ).toBe('12 3');
+    expect( replaceWhiteSpace (' 12 3    ', true ) ).toBe('12 3');
+  })
+})
