@@ -1,7 +1,19 @@
 import { describe, expect, it } from 'vitest';
 
-import { chineseReg, numberReg, letterReg, upperLetterReg, lowerLetterReg, letterNumberReg, allStrReg, specialStrReg,
-  letterZhNumberReg, base64Reg, customStrReg } from '../../src';
+import {
+  numberReg,
+  letterReg,
+  base64Reg,
+  allStrReg,
+  chineseReg,
+  customStrReg,
+  specialStrReg,
+  whiteSpacesReg,
+  upperLetterReg,
+  lowerLetterReg,
+  letterNumberReg,
+  letterZhNumberReg,
+} from '../../src';
 
 describe ( '中文字符正则测试', () => {
 
@@ -253,3 +265,28 @@ describe ( '自定义字符校验正则测试', () => {
   } );
 
 } );
+
+describe ('validate spaces in str', () => {
+  it ('validate all spaces in str', () => {
+    expect(whiteSpacesReg('')).toBe(false );
+    expect(whiteSpacesReg(' ')).toBe(true );
+    expect(whiteSpacesReg('   ')).toBe(true );
+    expect(whiteSpacesReg('1 ')).toBe(true );
+    expect(whiteSpacesReg(' 1')).toBe(true );
+    expect(whiteSpacesReg(' 2 ')).toBe(true );
+    expect(whiteSpacesReg('2 3')).toBe(true );
+    expect(whiteSpacesReg('2  3')).toBe(true );
+    expect(whiteSpacesReg(' 23 ')).toBe(true );
+  })
+  it ('validate between spaces in str', () => {
+    expect(whiteSpacesReg('', true)).toBe(false );
+    expect(whiteSpacesReg(' ', true)).toBe(true );
+    expect(whiteSpacesReg('   ', true)).toBe(true );
+    expect(whiteSpacesReg('1 ', true)).toBe(true );
+    expect(whiteSpacesReg(' 1', true)).toBe(true );
+    expect(whiteSpacesReg(' 2 ', true)).toBe(true );
+    expect(whiteSpacesReg('2 3', true)).toBe(false );
+    expect(whiteSpacesReg('2  3', true)).toBe(false );
+    expect(whiteSpacesReg(' 23 ', true)).toBe(true );
+  })
+})

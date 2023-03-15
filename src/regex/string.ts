@@ -168,3 +168,21 @@ export function customStrReg ( str: string, scope: string, lens?: [ number, numb
   return RegExp ( regStr, 'g' ).test ( str );
 
 }
+
+/**
+ * @description validate white spaces in the string
+ * @param { string } str need validate of the str
+ * @param { boolean } between only checks for spaces at both ends of string, default is false
+ * **/
+
+export function whiteSpacesReg ( str: string, between?:boolean ):boolean {
+
+  if ( between === true ) {
+
+    return RegExp ( '^\\s+|\\s+$', 'g' ).test ( str );
+
+  }
+
+  return RegExp ( '\\s+', 'g' ).test ( str );
+
+}
