@@ -83,6 +83,7 @@
     "vue-eslint-parser": "^9.1.0"
   },
   "dependencies": {
+    "@vitejs/plugin-vue": "^4.0.0",
     "bignumber.js": "^9.0.2",
     "dayjs": "^1.10.7"
   },
