@@ -38,8 +38,6 @@ module.exports = {
 
       const commitTypeItem = commitTypes.find ( type => commit.type === type.value );
 
-      console.log ( commitTypeItem, commit.type );
-
       if ( commitTypeItem ) {
 
         commit.type = commitTypeItem.label;
