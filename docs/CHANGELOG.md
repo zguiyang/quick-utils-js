@@ -1,22 +1,20 @@
 # Changelog
 
-
-
-### [1.3.6](https://github.com/zguiyang/quick-utils-js/compare/v1.3.4...v1.3.6) (2023-06-19)
+## [1.3.6](https://github.com/zguiyang/quick-utils-js/compare/v1.3.4...v1.3.6) (2023-06-19)
 
 
 ### ✨ 新功能
 
 * :sparkles: add depth param for `getFileExtension` ([53ab1d1](https://github.com/zguiyang/quick-utils-js/commit/53ab1d15d1eaae6daf3b5b74be474c0284dafb04))
 
-### [1.3.5](https://github.com/zguiyang/quick-utils-js/compare/v1.3.4...v1.3.5) (2023-03-15)
+## [1.3.5](https://github.com/zguiyang/quick-utils-js/compare/v1.3.4...v1.3.5) (2023-03-15)
 
 
 ### ✨ 新功能
 
 * :sparkles: add `replaceWhiteSpace` function for replace white space in string ([a988c0b](https://github.com/zguiyang/quick-utils-js/commit/a988c0b20268bafbb9c555740d4167f346cb93dd))
 * :sparkles: add `whiteSpacesReg`function, validate white spaces in the string ([32003e1](https://github.com/zguiyang/quick-utils-js/commit/32003e1176c228c32e836fc24aac755be7ef10cd))
-### [1.3.4](https://github.com/zguiyang/quick-utils-js/compare/v1.3.3...v1.3.4) (2023-03-12)
+## [1.3.4](https://github.com/zguiyang/quick-utils-js/compare/v1.3.3...v1.3.4) (2023-03-12)
 
 
 ### 🐛 Bug 修复
@@ -30,7 +28,7 @@
 * add search plugin in docs ([9cd29e0](https://github.com/zguiyang/quick-utils-js/commit/9cd29e00bd9285c3ab9cede2519a8502211cc16e))
 * **date:** :sparkles: `timestamp` parameter is updated non-required ([13e97e2](https://github.com/zguiyang/quick-utils-js/commit/13e97e2472f37945afd7704473e535b43d8345e2))
 
-### [1.3.3](https://github.com/zguiyang/quick-utils-js/compare/v1.3.2...v1.3.3) (2022-09-24)
+## [1.3.3](https://github.com/zguiyang/quick-utils-js/compare/v1.3.2...v1.3.3) (2022-09-24)
 
 
 ### ⏪ 回滚功能或版本
@@ -60,14 +58,14 @@
 * 🎉 增加`arrayDeepFilter`数组递归过滤 ([f52899d](https://github.com/zguiyang/quick-utils-js/commit/f52899d89f943d56957e19deb9329a6e682e9ab5))
 * 🎉 新增`getFileSize`文件单位转换 ([49fbea2](https://github.com/zguiyang/quick-utils-js/commit/49fbea23efd964a577d68cb147a56d39bfcff4a1))
 
-### [1.3.2](https://github.com/zguiyang/quick-utils-js/compare/v1.3.1...v1.3.2) (2022-09-14)
+## [1.3.2](https://github.com/zguiyang/quick-utils-js/compare/v1.3.1...v1.3.2) (2022-09-14)
 
 
 ### 🐛 Bug 修复
 
 * 🐛 紧急修复`webpack`等打包器低版本不支持`es2020`语法问题，打包产物改为`es5` ([0e09250](https://github.com/zguiyang/quick-utils-js/commit/0e09250c7acd96d237e4140ecabf2e32b1345528))
 
-### [1.3.1](https://github.com/zguiyang/quick-utils-js/compare/v1.3.0...v1.3.1) (2022-09-13)
+## [1.3.1](https://github.com/zguiyang/quick-utils-js/compare/v1.3.0...v1.3.1) (2022-09-13)
 
 
 ### ⚠ BREAKING CHANGES
@@ -115,7 +113,7 @@
 
 * 🐛  修复邮箱正则校验bug ([99d0318](https://github.com/zguiyang/quick-utils-js/commit/99d031899b1d280dae7906a26ca5d7f6baa495bb))
 
-### [1.1.0](https://github.com/zguiyang/quick-utils-js/compare/v1.0.4...v1.1.0) (2022-06-09)
+## [1.1.0](https://github.com/zguiyang/quick-utils-js/compare/v1.0.4...v1.1.0) (2022-06-09)
 
 
 ### 🎉 新功能
