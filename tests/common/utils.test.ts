@@ -26,6 +26,31 @@ test ('get file ext name 2', () => {
 
 })
 
+test ('get file ext name 3', () => {
+
+    const fileName = 'file.tar.gz';
+    expect( getFileExtension( fileName )).toBe('tar.gz');
+
+})
+test ('get file ext name 4', () => {
+
+    const fileName = 'file.';
+    expect( getFileExtension( fileName )).toBe('');
+
+})
+test ('get file ext name 5', () => {
+
+    const fileName = 'file.go.test';
+    expect( getFileExtension( fileName, true )).toBe('go.test');
+
+})
+
+test ('get file ext name 6', () => {
+
+    const fileName = 'file.text.go';
+    expect( getFileExtension( fileName, false )).toBe('go');
+
+})
 describe ('get file size test', () => {
 
     it ('get file size normal', () => {
