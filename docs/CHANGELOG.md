@@ -2,6 +2,16 @@
 
 
 
+### [1.3.6](https://github.com/zguiyang/quick-utils-js/compare/v1.3.4...v1.3.6) (2023-06-19)
+
+
+### ✨ 新功能
+
+* :sparkles: add `replaceWhiteSpace` function for replace white space in string ([a988c0b](https://github.com/zguiyang/quick-utils-js/commit/a988c0b20268bafbb9c555740d4167f346cb93dd))
+* :sparkles: add `whiteSpacesReg`function, validate white spaces in the string ([32003e1](https://github.com/zguiyang/quick-utils-js/commit/32003e1176c228c32e836fc24aac755be7ef10cd))
+* :sparkles: add depth param for `getFileExtension` ([53ab1d1](https://github.com/zguiyang/quick-utils-js/commit/53ab1d15d1eaae6daf3b5b74be474c0284dafb04))
+* **date:** :sparkles: `timestamp` parameter is updated non-required ([debbbb1](https://github.com/zguiyang/quick-utils-js/commit/debbbb1d8c9e11e8b191ece94f57134ed2000c02))
+
 ### [1.3.5](https://github.com/zguiyang/quick-utils-js/compare/v1.3.4...v1.3.5) (2023-03-15)
 
 

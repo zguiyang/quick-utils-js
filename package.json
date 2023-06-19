@@ -1,6 +1,6 @@
 {
   "name": "quick-utils-js",
-  "version": "1.3.5",
+  "version": "1.3.6",
   "description": "Tool functions commonly used in front-end services",
   "main": "./dist/index.js",
   "module": "./dist/esm/index.js",
