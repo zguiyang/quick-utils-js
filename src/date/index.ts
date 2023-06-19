@@ -97,7 +97,7 @@ export function getTimeLeft ( startTime, endTime ): FormatTimeValue | null {
  * @returns { null | string }
  * **/
 
-export function dateFormat ( timestamp?:string|number, formatStr?: string ): null | string {
+export function dateFormat ( timestamp?:string|number|null, formatStr?: string ): null | string {
 
   if ( !timestamp ) {
 
