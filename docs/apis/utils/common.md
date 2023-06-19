@@ -261,13 +261,14 @@ console.log( digitUppercase ( 100.98 ) ); // 壹佰元玖角捌分
 
 ```ts
 
- type getFileExtension = ( filename:string ) => string | undefined
+ type getFileExtension = ( filename:string, depth?: boolean ) => string | undefined
 
 ```
 
 - 参数说明
 
 1. `filename` 文件名
+2. `depth` 获取文件名的深度，如果为`true`, `file.tar.gz` => `tar.gz`, 反之`gz`, 默认 `false`
 
 - 示例
 
@@ -276,6 +277,7 @@ console.log( digitUppercase ( 100.98 ) ); // 壹佰元玖角捌分
 import {  getFileExtension } from "quick-utils-js";
 
 console.log( getFileExtension ('test.jpg') ); // jpg
+console.log( getFileExtension ('test.tar.gz', true) ); // tar.gz
 
 
 ```
