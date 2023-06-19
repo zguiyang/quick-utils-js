@@ -89,22 +89,21 @@ export function digitUppercase ( money: number ): string {
 /**
  * @desc get file extension name xxx.txt => txt
  * @param { string } filename file name
+ * @param { boolean } depth depth. default true
  * @return { string | undefined }
  * **/
 
-export function getFileExtension ( filename:string ): string | undefined {
+export function getFileExtension ( filename:string, depth = false ): string | undefined {
 
-  const reg1 = /[.]/.exec ( filename );
+  const index = !depth ? filename.lastIndexOf ( '.' ) : filename.indexOf ( '.' );
 
-  const reg2 = /[^.]+$/.exec ( filename );
+  if ( index === -1 ) {
 
-  if ( reg1 && reg2 && reg2.length ) {
-
-    return reg2[ 0 ].toLocaleLowerCase ();
+    return undefined;
 
   }
 
-  return undefined;
+  return filename.substring ( index + 1 ).toLowerCase ();
 
 }
 
