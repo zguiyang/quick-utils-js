@@ -29,7 +29,7 @@ test ('get file ext name 2', () => {
 test ('get file ext name 3', () => {
 
     const fileName = 'file.tar.gz';
-    expect( getFileExtension( fileName )).toBe('tar.gz');
+    expect( getFileExtension( fileName, true )).toBe('tar.gz');
 
 })
 test ('get file ext name 4', () => {
